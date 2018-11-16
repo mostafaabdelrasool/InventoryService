@@ -1,0 +1,14 @@
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Infrastructure\bin\Debug\netcoreapp2.1\Inventory.Infrastructure.deps.json
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Infrastructure\bin\Debug\netcoreapp2.1\Inventory.Infrastructure.runtimeconfig.json
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Infrastructure\bin\Debug\netcoreapp2.1\Inventory.Infrastructure.runtimeconfig.dev.json
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Infrastructure\bin\Debug\netcoreapp2.1\Inventory.Infrastructure.dll
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Infrastructure\bin\Debug\netcoreapp2.1\Inventory.Infrastructure.pdb
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Infrastructure\bin\Debug\netcoreapp2.1\Inventory.Domain.dll
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Infrastructure\bin\Debug\netcoreapp2.1\Inventory.Domain.pdb
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Infrastructure\obj\Debug\netcoreapp2.1\Inventory.Infrastructure.csproj.CoreCompileInputs.cache
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Infrastructure\obj\Debug\netcoreapp2.1\Inventory.Infrastructure.AssemblyInfoInputs.cache
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Infrastructure\obj\Debug\netcoreapp2.1\Inventory.Infrastructure.AssemblyInfo.cs
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Infrastructure\obj\Debug\netcoreapp2.1\Inventory.Infrastructure.csproj.CopyComplete
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Infrastructure\obj\Debug\netcoreapp2.1\Inventory.Infrastructure.dll
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Infrastructure\obj\Debug\netcoreapp2.1\Inventory.Infrastructure.pdb
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Infrastructure\obj\Debug\netcoreapp2.1\Inventory.Infrastructure.csprojAssemblyReference.cache

@@ -1,0 +1,8 @@
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Domain\bin\Debug\netcoreapp2.1\Inventory.Domain.deps.json
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Domain\bin\Debug\netcoreapp2.1\Inventory.Domain.dll
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Domain\bin\Debug\netcoreapp2.1\Inventory.Domain.pdb
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Domain\obj\Debug\netcoreapp2.1\Inventory.Domain.csproj.CoreCompileInputs.cache
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Domain\obj\Debug\netcoreapp2.1\Inventory.Domain.AssemblyInfoInputs.cache
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Domain\obj\Debug\netcoreapp2.1\Inventory.Domain.AssemblyInfo.cs
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Domain\obj\Debug\netcoreapp2.1\Inventory.Domain.dll
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Domain\obj\Debug\netcoreapp2.1\Inventory.Domain.pdb

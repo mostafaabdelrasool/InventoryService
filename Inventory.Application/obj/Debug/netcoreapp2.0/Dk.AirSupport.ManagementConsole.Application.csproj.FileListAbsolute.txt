@@ -1,0 +1,15 @@
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Application\obj\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Application.csprojResolveAssemblyReference.cache
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Application\obj\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Application.csproj.CoreCompileInputs.cache
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Application\obj\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Application.AssemblyInfoInputs.cache
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Application\obj\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Application.AssemblyInfo.cs
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Application\bin\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Application.deps.json
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Application\bin\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Application.dll
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Application\bin\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Application.pdb
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Application\bin\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Core.dll
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Application\bin\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Infrastructure.dll
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Application\bin\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Infrastructure.pdb
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Application\bin\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Core.pdb
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Application\obj\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Application.dll
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Application\obj\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Application.pdb
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Application\bin\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Domain.dll
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Application\bin\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Domain.pdb

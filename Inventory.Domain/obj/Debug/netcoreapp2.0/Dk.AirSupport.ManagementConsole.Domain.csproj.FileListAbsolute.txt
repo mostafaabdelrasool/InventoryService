@@ -1,0 +1,8 @@
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Domain\obj\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Domain.csproj.CoreCompileInputs.cache
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Domain\obj\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Domain.AssemblyInfoInputs.cache
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Domain\obj\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Domain.AssemblyInfo.cs
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Domain\bin\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Domain.deps.json
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Domain\bin\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Domain.dll
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Domain\bin\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Domain.pdb
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Domain\obj\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Domain.dll
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Domain\obj\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Domain.pdb

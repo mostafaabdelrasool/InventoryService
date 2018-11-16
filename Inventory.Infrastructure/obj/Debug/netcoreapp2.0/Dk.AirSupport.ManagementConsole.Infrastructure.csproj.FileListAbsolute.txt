@@ -1,0 +1,13 @@
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Infrastructure\obj\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Infrastructure.csprojResolveAssemblyReference.cache
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Infrastructure\obj\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Infrastructure.csproj.CoreCompileInputs.cache
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Infrastructure\obj\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Infrastructure.AssemblyInfoInputs.cache
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Infrastructure\obj\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Infrastructure.AssemblyInfo.cs
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Infrastructure\bin\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Infrastructure.deps.json
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Infrastructure\bin\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Infrastructure.dll
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Infrastructure\bin\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Infrastructure.pdb
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Infrastructure\bin\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Core.dll
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Infrastructure\bin\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Core.pdb
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Infrastructure\obj\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Infrastructure.dll
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Infrastructure\obj\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Infrastructure.pdb
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Infrastructure\bin\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Domain.dll
+C:\projects\airsupport\MC\Dk.AirSupport.ManagementConsole.Infrastructure\bin\Debug\netcoreapp2.0\Dk.AirSupport.ManagementConsole.Domain.pdb

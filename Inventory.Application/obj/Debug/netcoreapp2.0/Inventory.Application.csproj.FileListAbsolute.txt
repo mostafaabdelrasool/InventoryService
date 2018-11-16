@@ -1,0 +1,14 @@
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Application\bin\Debug\netcoreapp2.0\Inventory.Application.deps.json
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Application\bin\Debug\netcoreapp2.0\Inventory.Application.dll
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Application\bin\Debug\netcoreapp2.0\Inventory.Application.pdb
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Application\bin\Debug\netcoreapp2.0\Inventory.Infrastructure.dll
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Application\bin\Debug\netcoreapp2.0\Inventory.Infrastructure.pdb
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Application\obj\Debug\netcoreapp2.0\Inventory.Application.csprojAssemblyReference.cache
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Application\obj\Debug\netcoreapp2.0\Inventory.Application.csproj.CoreCompileInputs.cache
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Application\obj\Debug\netcoreapp2.0\Inventory.Application.AssemblyInfoInputs.cache
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Application\obj\Debug\netcoreapp2.0\Inventory.Application.AssemblyInfo.cs
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Application\obj\Debug\netcoreapp2.0\Inventory.Application.csproj.CopyComplete
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Application\obj\Debug\netcoreapp2.0\Inventory.Application.dll
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Application\obj\Debug\netcoreapp2.0\Inventory.Application.pdb
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Application\bin\Debug\netcoreapp2.0\Inventory.Domain.dll
+C:\cw\projects\mywork\Inventory\Inventory\Inventory.Application\bin\Debug\netcoreapp2.0\Inventory.Domain.pdb
