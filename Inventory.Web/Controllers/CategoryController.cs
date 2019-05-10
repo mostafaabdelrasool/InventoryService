@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Inventory.Application.Interfaces;
 using Inventory.Domain.Models;
 using Inventory.Persistance.Interfaces;
 using Microsoft.AspNetCore.Http;
@@ -13,7 +14,7 @@ namespace Inventory.Web.Controllers
     [ApiController]
     public class CategoryController : GenericController<Categories>
     {
-        public CategoryController(IRepository<Categories> repository) : base(repository)
+        public CategoryController(IService<Categories> service) : base(service)
         {
         }
     }

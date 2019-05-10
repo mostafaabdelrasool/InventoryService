@@ -1,47 +1,47 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Inventory.Application.Interfaces;
 using Inventory.Domain;
-using Inventory.Persistance.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 namespace Inventory.Web.Controllers
 {
     public class GenericController<T> : ControllerBase where T : class, IEntity, new()
     {
-        private IRepository<T> repository;
+        private IService<T> service;
 
-        public GenericController(IRepository<T> repository)
+        public GenericController(IService<T> service)
         {
-            this.repository = repository;
+            this.service = service;
         }
         [HttpGet]
         public virtual async Task<IActionResult> Get()
         {
-            var result = await repository.ReadAllAsync();
+            var result = await service.ListAsync();
             return Ok(result);
         }
-        //[HttpGet]
-        //[Route("{id:Guid}")]
-        //public virtual async Task<IActionResult> Get(Guid id)
-        //{
-        //    var result = await repository.ReadOneAsync(id);
-        //    return Ok(result);
-        //}
+        [HttpGet]
+        [Route("{id:Guid}")]
+        public virtual async Task<IActionResult> Get(Guid id)
+        {
+            var result = await service.GetAsync(id);
+            return Ok(result);
+        }
         [HttpPut]
         public virtual  IActionResult Put(T entity)
         {
-            repository.Update(entity, User.Identity.Name);
+            service.Update(entity, User.Identity.Name);
             return Ok();
         }
         [HttpPost]
         public virtual async Task<IActionResult> Post(T entity)
         {
-            await repository.CreateAsync(entity, User.Identity.Name);
+            await service.CreateAsync(entity, User.Identity.Name);
             return Ok();
         }
         [HttpDelete]
         public virtual async Task<IActionResult> Delete(Guid id)
         {
-            await repository.DeleteAsync(id, User.Identity.Name);
+            await service.DeleteAsync(id, User.Identity.Name);
             return Ok();
         }
     }

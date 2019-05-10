@@ -6,3 +6,4 @@ C:\Hard Disk\private\Inventory.Domain\bin\Debug\netcoreapp2.1\Inventory.Domain.d
 C:\Hard Disk\private\Inventory.Domain\bin\Debug\netcoreapp2.1\Inventory.Domain.pdb
 C:\Hard Disk\private\Inventory.Domain\obj\Debug\netcoreapp2.1\Inventory.Domain.dll
 C:\Hard Disk\private\Inventory.Domain\obj\Debug\netcoreapp2.1\Inventory.Domain.pdb
+C:\Hard Disk\private\Inventory.Domain\obj\Debug\netcoreapp2.1\Inventory.Domain.csprojResolveAssemblyReference.cache
