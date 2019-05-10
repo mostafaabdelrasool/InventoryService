@@ -1,9 +1,9 @@
-﻿using Inventory.Infrastructure.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Inventory.Application.Interfaces;
 using Inventory.Domain;
+using Inventory.Persistance.Interfaces;
 
 namespace Inventory.Application
 {

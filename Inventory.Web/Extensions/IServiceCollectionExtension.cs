@@ -1,6 +1,6 @@
-using Inventory.Infrastructure.Interfaces;
-using Inventory.Infrastructure.Models;
-using Inventory.Infrastructure.Repositories;
+using Inventory.Domain.Models;
+using Inventory.Persistance.Interfaces;
+using Inventory.Persistance.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Inventory.Web.Extensions

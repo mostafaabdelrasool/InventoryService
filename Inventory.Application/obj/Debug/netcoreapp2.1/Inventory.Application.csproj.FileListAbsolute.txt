@@ -12,3 +12,16 @@ C:\cw\projects\mywork\Inventory\Inventory\Inventory.Application\obj\Debug\netcor
 C:\cw\projects\mywork\Inventory\Inventory\Inventory.Application\obj\Debug\netcoreapp2.1\Inventory.Application.dll
 C:\cw\projects\mywork\Inventory\Inventory\Inventory.Application\obj\Debug\netcoreapp2.1\Inventory.Application.pdb
 C:\cw\projects\mywork\Inventory\Inventory\Inventory.Application\obj\Debug\netcoreapp2.1\Inventory.Application.csprojAssemblyReference.cache
+C:\Hard Disk\private\Inventory.Application\obj\Debug\netcoreapp2.1\Inventory.Application.csprojResolveAssemblyReference.cache
+C:\Hard Disk\private\Inventory.Application\obj\Debug\netcoreapp2.1\Inventory.Application.csproj.CoreCompileInputs.cache
+C:\Hard Disk\private\Inventory.Application\obj\Debug\netcoreapp2.1\Inventory.Application.AssemblyInfoInputs.cache
+C:\Hard Disk\private\Inventory.Application\obj\Debug\netcoreapp2.1\Inventory.Application.AssemblyInfo.cs
+C:\Hard Disk\private\Inventory.Application\obj\Debug\netcoreapp2.1\Inventory.Application.dll
+C:\Hard Disk\private\Inventory.Application\obj\Debug\netcoreapp2.1\Inventory.Application.pdb
+C:\Hard Disk\private\Inventory.Application\bin\Debug\netcoreapp2.1\Inventory.Application.deps.json
+C:\Hard Disk\private\Inventory.Application\bin\Debug\netcoreapp2.1\Inventory.Application.dll
+C:\Hard Disk\private\Inventory.Application\bin\Debug\netcoreapp2.1\Inventory.Application.pdb
+C:\Hard Disk\private\Inventory.Application\bin\Debug\netcoreapp2.1\Inventory.Domain.dll
+C:\Hard Disk\private\Inventory.Application\bin\Debug\netcoreapp2.1\Inventory.Persistance.dll
+C:\Hard Disk\private\Inventory.Application\bin\Debug\netcoreapp2.1\Inventory.Domain.pdb
+C:\Hard Disk\private\Inventory.Application\bin\Debug\netcoreapp2.1\Inventory.Persistance.pdb

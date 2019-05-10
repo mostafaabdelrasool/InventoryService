@@ -1,0 +1,13 @@
+C:\Hard Disk\private\Inventory.Infrastructure\obj\Debug\netcoreapp2.1\Inventory.Persistance.csprojResolveAssemblyReference.cache
+C:\Hard Disk\private\Inventory.Infrastructure\obj\Debug\netcoreapp2.1\Inventory.Persistance.csproj.CoreCompileInputs.cache
+C:\Hard Disk\private\Inventory.Infrastructure\obj\Debug\netcoreapp2.1\Inventory.Persistance.AssemblyInfoInputs.cache
+C:\Hard Disk\private\Inventory.Infrastructure\obj\Debug\netcoreapp2.1\Inventory.Persistance.AssemblyInfo.cs
+C:\Hard Disk\private\Inventory.Infrastructure\bin\Debug\netcoreapp2.1\Inventory.Persistance.deps.json
+C:\Hard Disk\private\Inventory.Infrastructure\bin\Debug\netcoreapp2.1\Inventory.Persistance.runtimeconfig.json
+C:\Hard Disk\private\Inventory.Infrastructure\bin\Debug\netcoreapp2.1\Inventory.Persistance.runtimeconfig.dev.json
+C:\Hard Disk\private\Inventory.Infrastructure\bin\Debug\netcoreapp2.1\Inventory.Persistance.dll
+C:\Hard Disk\private\Inventory.Infrastructure\bin\Debug\netcoreapp2.1\Inventory.Persistance.pdb
+C:\Hard Disk\private\Inventory.Infrastructure\bin\Debug\netcoreapp2.1\Inventory.Domain.dll
+C:\Hard Disk\private\Inventory.Infrastructure\bin\Debug\netcoreapp2.1\Inventory.Domain.pdb
+C:\Hard Disk\private\Inventory.Infrastructure\obj\Debug\netcoreapp2.1\Inventory.Persistance.dll
+C:\Hard Disk\private\Inventory.Infrastructure\obj\Debug\netcoreapp2.1\Inventory.Persistance.pdb

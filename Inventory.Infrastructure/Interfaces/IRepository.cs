@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Inventory.Domain;
 
-namespace Inventory.Infrastructure.Interfaces
+namespace Inventory.Persistance.Interfaces
 {
     public interface IRepository<T> where T : class, IEntity, new()
     {

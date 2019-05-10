@@ -1,5 +1,4 @@
-﻿using Inventory.Infrastructure;
-using Inventory.Infrastructure.Models;
+﻿using Inventory.Persistance.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;

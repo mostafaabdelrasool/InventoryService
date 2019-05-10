@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Inventory.Infrastructure.Interfaces;
-using Inventory.Infrastructure.Models;
+using Inventory.Domain.Models;
+using Inventory.Persistance.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

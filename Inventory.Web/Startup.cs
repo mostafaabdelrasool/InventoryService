@@ -4,8 +4,6 @@ using Inventory.Web.Helpers.BasicAuthentication.Events;
 using Inventory.Web.Models;
 using Inventory.Web.Sentry;
 using Inventory.Web.Sentry.Interfaces;
-using Inventory.Infrastructure;
-using Inventory.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -18,9 +16,10 @@ using Swashbuckle.AspNetCore.Swagger;
 using System.IO;
 using System.Text;
 using Inventory.Application.Extensions;
-using Inventory.Infrastructure.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Inventory.Persistance.Models;
+using Inventory.Persistance.Extensions;
 
 namespace Inventory.Web
 {
@@ -105,7 +104,7 @@ namespace Inventory.Web
             services.AddMvc();
             #endregion
             #region DI
-            services.AddInfrastructure();
+            services.AddPersistance();
             services.AddApplication();
             services.AddWeb();
             #endregion

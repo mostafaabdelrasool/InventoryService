@@ -1,4 +1,4 @@
-﻿using Inventory.Infrastructure.Interfaces;
+﻿using Inventory.Persistance.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using System.Linq.Expressions;
 using Inventory.Domain;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Inventory.Infrastructure.Models;
+using Inventory.Persistance.Models;
 
-namespace Inventory.Infrastructure.Repositories
+namespace Inventory.Persistance.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class, IEntity, new()
     {

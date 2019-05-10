@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Inventory.Infrastructure.Extensions
+namespace Inventory.Persistance.Extensions
 {
     public static class EntityTypeConfigurationExtensions
     {

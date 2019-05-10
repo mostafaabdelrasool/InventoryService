@@ -1,7 +1,5 @@
 ﻿using Inventory.Application.Interfaces;
 using Inventory.Domain;
-using Inventory.Infrastructure.Interfaces;
-using Inventory.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Inventory.Application.Extensions

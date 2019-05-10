@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Inventory.Domain;
-using Inventory.Infrastructure.Interfaces;
+using Inventory.Persistance.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 namespace Inventory.Web.Controllers
 {
