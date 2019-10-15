@@ -20,6 +20,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Inventory.Persistance.Models;
 using Inventory.Persistance.Extensions;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace Inventory.Web
 {
@@ -101,7 +103,12 @@ namespace Inventory.Web
                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             #endregion
             #region MVC
-            services.AddMvc();
+            services.AddMvc().AddJsonOptions(x => {
+                var settings = x.SerializerSettings;
+                settings.NullValueHandling = NullValueHandling.Ignore;
+                settings.DefaultValueHandling = DefaultValueHandling.Ignore;
+                settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            });
             #endregion
             #region DI
             services.AddPersistance();
@@ -115,18 +122,14 @@ namespace Inventory.Web
             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "MO API", Version = "v1" });
+                c.SwaggerDoc("v1", new Info { Title = "String API", Version = "v1" });
             });
             #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            #region Logging
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-            #endregion            
             #region Dev
             if (env.IsDevelopment())
             {
@@ -169,7 +172,7 @@ namespace Inventory.Web
             #endregion
             #region CrossOriging
             app.UseCors(builder =>
-                       builder.WithOrigins("http://localhost:4200")
+                       builder.WithOrigins("http://localhost:4200", "http://localhost:3000")
                        .AllowAnyHeader().AllowAnyMethod());
             #endregion
             app.UseMiddleware<SentryMiddleware>();

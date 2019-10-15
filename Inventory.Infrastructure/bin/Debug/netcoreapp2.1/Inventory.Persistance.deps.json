@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "8b353f78d9974290882530d12fef7930643533c9"
+    "signature": "2ae1d85d743fe7b7512af23103f4ad11c7582c6c"
   },
   "compilationOptions": {},
   "targets": {
@@ -12,6 +12,7 @@
           "Microsoft.EntityFrameworkCore": "2.2.4",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4",
           "Microsoft.EntityFrameworkCore.Tools": "2.2.4",
+          "System.Linq.Dynamic.Core": "1.0.19",
           "Z.EntityFramework.Extensions.EFCore": "2.2.6"
         },
         "runtime": {
@@ -428,6 +429,14 @@
           "System.Runtime.Extensions": "4.1.0"
         }
       },
+      "System.Linq.Dynamic.Core/1.0.19": {
+        "runtime": {
+          "lib/netcoreapp2.1/System.Linq.Dynamic.Core.dll": {
+            "assemblyVersion": "1.0.19.0",
+            "fileVersion": "1.0.19.0"
+          }
+        }
+      },
       "System.Linq.Expressions/4.1.0": {
         "dependencies": {
           "System.Collections": "4.0.11",
@@ -653,7 +662,7 @@
     "Microsoft.CSharp/4.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-EGoBmf3Na2ppbhPePDE9PlX81r1HuOZH5twBrq7couJZiPTjUnD3648balerQJO6EJ8Sj+43+XuRwQ7r+3tE3w==",
+      "sha512": "sha512-yWWeTbGCzBOlRPWDCIxiTZW1ecZiMbao0ZT97KKEWdBhrLvUqU8RdzkhzuCRQzvoxzxlR7vytO43OOgFdkxv6g==",
       "path": "microsoft.csharp/4.5.0",
       "hashPath": "microsoft.csharp.4.5.0.nupkg.sha512"
     },
@@ -944,6 +953,13 @@
       "path": "system.linq/4.1.0",
       "hashPath": "system.linq.4.1.0.nupkg.sha512"
     },
+    "System.Linq.Dynamic.Core/1.0.19": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pbI4QEzzR2+PvPsY7L18PlZtJfhM6nKfthlk2VfjdY9wszEtCogc09Wq8dhXseO//bTcO2iIIVVnSTPMut+jBA==",
+      "path": "system.linq.dynamic.core/1.0.19",
+      "hashPath": "system.linq.dynamic.core.1.0.19.nupkg.sha512"
+    },
     "System.Linq.Expressions/4.1.0": {
       "type": "package",
       "serviceable": true,
@@ -1038,7 +1054,7 @@
     "System.Runtime.CompilerServices.Unsafe/4.5.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-x/3d5xb+mc9e4I2GOOT+HPRWMZLbYjNN/kYKsb0fyUKcWizn/t1CIrGRLIBhv7H0ptYEt+WTTztdPmwSUMyKig==",
+      "sha512": "sha512-qUJMNWhbm9oZ3XaMFiEMiYmRPszbnXIkRIi7+4b2Md2xZ6JUOepf0/kY3S85qistRohl9OdMe4PsO+RdG2kTIQ==",
       "path": "system.runtime.compilerservices.unsafe/4.5.1",
       "hashPath": "system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512"
     },
@@ -1073,7 +1089,7 @@
     "System.Security.Principal.Windows/4.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-WA9ETb/pY3BjnxKjBUHEgO59B7d/nnmjHFsqjJ2eDT780nD769CT1/bw2ia0Z6W7NqlcqokE6sKGKa6uw88XGA==",
+      "sha512": "sha512-hs2zF4tOQ3V4iQttVnLrnR/i8AOrrAgu2Gmp4/jNaE/+5hiZWDj20FK/m/OW3Itdi9XDvqf55WzHkiWYtOSUNg==",
       "path": "system.security.principal.windows/4.5.0",
       "hashPath": "system.security.principal.windows.4.5.0.nupkg.sha512"
     },

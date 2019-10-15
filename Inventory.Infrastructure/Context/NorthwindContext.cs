@@ -422,6 +422,11 @@ namespace Inventory.Persistance.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Territories_Region");
             });
+            modelBuilder.Entity<ModelDesign>(entity =>
+            {
+                entity.HasKey(e => e.Id)
+                    .ForSqlServerIsClustered(false);
+            });
         }
     }
 }

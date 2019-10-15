@@ -20,9 +20,10 @@ namespace Inventory.Domain.Models
         public short? UnitsOnOrder { get; set; }
         public short? ReorderLevel { get; set; }
         public bool Discontinued { get; set; }
-
+        public decimal? CostPrice { get; set; }
         public Categories Category { get; set; }
         public Suppliers Supplier { get; set; }
+        public string image { get; set; }
         public ICollection<OrderDetails> OrderDetails { get; set; }
     }
 }

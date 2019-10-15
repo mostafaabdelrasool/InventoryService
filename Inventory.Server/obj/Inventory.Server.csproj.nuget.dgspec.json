@@ -1,0 +1,283 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\project\\inventory\\Inventory\\BE\\Inventory.Server\\Inventory.Server.csproj": {}
+  },
+  "projects": {
+    "D:\\project\\inventory\\Inventory\\BE\\Inventory.Application\\Inventory.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Application\\Inventory.Application.csproj",
+        "projectName": "Inventory.Application",
+        "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Application\\Inventory.Application.csproj",
+        "packagesPath": "C:\\Users\\Maryam\\.nuget\\packages\\",
+        "outputPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Maryam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj": {
+                "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj"
+              },
+              "D:\\project\\inventory\\Inventory\\BE\\Inventory.Infrastructure\\Inventory.Persistance.csproj": {
+                "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Infrastructure\\Inventory.Persistance.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj",
+        "projectName": "Inventory.Domain",
+        "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj",
+        "packagesPath": "C:\\Users\\Maryam\\.nuget\\packages\\",
+        "outputPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Maryam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\project\\inventory\\Inventory\\BE\\Inventory.Infrastructure\\Inventory.Persistance.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Infrastructure\\Inventory.Persistance.csproj",
+        "projectName": "Inventory.Persistance",
+        "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Infrastructure\\Inventory.Persistance.csproj",
+        "packagesPath": "C:\\Users\\Maryam\\.nuget\\packages\\",
+        "outputPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Maryam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj": {
+                "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "System.Linq.Dynamic.Core": {
+              "target": "Package",
+              "version": "[1.0.19, )"
+            },
+            "Z.EntityFramework.Extensions.EFCore": {
+              "target": "Package",
+              "version": "[3.0.9, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\project\\inventory\\Inventory\\BE\\Inventory.Server\\Inventory.Server.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Server\\Inventory.Server.csproj",
+        "projectName": "Inventory.Server",
+        "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Server\\Inventory.Server.csproj",
+        "packagesPath": "C:\\Users\\Maryam\\.nuget\\packages\\",
+        "outputPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Server\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Maryam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "D:\\project\\inventory\\Inventory\\BE\\Inventory.Application\\Inventory.Application.csproj": {
+                "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Application\\Inventory.Application.csproj"
+              },
+              "D:\\project\\inventory\\Inventory\\BE\\Inventory.Infrastructure\\Inventory.Persistance.csproj": {
+                "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Infrastructure\\Inventory.Persistance.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.9.5, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUi": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

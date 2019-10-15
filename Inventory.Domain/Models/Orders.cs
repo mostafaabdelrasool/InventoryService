@@ -24,7 +24,7 @@ namespace Inventory.Domain.Models
         public string ShipRegion { get; set; }
         public string ShipPostalCode { get; set; }
         public string ShipCountry { get; set; }
-
+        public string Phone { get; set; }
         public Customers Customer { get; set; }
         public Employees Employee { get; set; }
         public Shippers ShipViaNavigation { get; set; }

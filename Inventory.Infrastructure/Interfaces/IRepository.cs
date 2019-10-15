@@ -32,5 +32,6 @@ namespace Inventory.Persistance.Interfaces
             Expression<Func<T, bool>> predicate,
              Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
             params Expression<Func<T, object>>[] includes);
+        Task<List<T>> DynamicQuery(List<string> filter, params Expression<Func<T, object>>[] includes);
     }
 }

@@ -269,6 +269,39 @@ namespace Inventory.Persistance.Migrations
                     b.ToTable("Employees");
                 });
 
+            modelBuilder.Entity("Inventory.Domain.Models.ModelDesign", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Code");
+
+                    b.Property<long>("Cost");
+
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<DateTime>("DeleteDate");
+
+                    b.Property<string>("Dimension");
+
+                    b.Property<string>("Image");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<string>("Manifature");
+
+                    b.Property<DateTime>("ModifyDate");
+
+                    b.Property<long>("SalesPrice");
+
+                    b.Property<string>("Sizes");
+
+                    b.HasKey("Id")
+                        .HasAnnotation("SqlServer:Clustered", false);
+
+                    b.ToTable("ModelDesign");
+                });
+
             modelBuilder.Entity("Inventory.Domain.Models.OrderDetails", b =>
                 {
                     b.Property<Guid>("OrderId")
@@ -392,6 +425,8 @@ namespace Inventory.Persistance.Migrations
                     b.Property<Guid?>("CategoryId")
                         .HasColumnName("CategoryID");
 
+                    b.Property<decimal?>("CostPrice");
+
                     b.Property<DateTime>("CreateDate");
 
                     b.Property<DateTime>("DeleteDate");
@@ -428,6 +463,8 @@ namespace Inventory.Persistance.Migrations
                     b.Property<short?>("UnitsOnOrder")
                         .ValueGeneratedOnAdd()
                         .HasDefaultValueSql("((0))");
+
+                    b.Property<string>("image");
 
                     b.HasKey("Id");
 

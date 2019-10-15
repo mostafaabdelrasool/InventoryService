@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Inventory.Application.Interfaces;
 using Inventory.Domain;
@@ -20,26 +21,30 @@ namespace Inventory.Application
         }
         public async Task<IEnumerable<T>> ListAsync()
         {
-            return await repository.ReadAllAsync();
+            return await repository.GetWithIncludeAsync(x=>!x.IsDeleted);
         }
         public async Task<T> CreateAsync(T value, string createdBy)
         {
             try
             {
                 value.CreateDate = DateTime.Now;
-                return await repository.CreateAsync(value, createdBy);
+                var result = await repository.CreateAsync(value, createdBy);
+                await repository.SaveAsync();
+                return result;
             }
             catch (Exception)
             {
                 throw;
             }
         }
-        public  T Update(T value, string updatedBy)
+        public async Task<T> Update(T value, string updatedBy)
         {
             try
             {
                 value.ModifyDate = DateTime.Now;
-                return repository.Update(value, updatedBy);
+                repository.Update(value, updatedBy);
+                await repository.SaveAsync();
+                return value;
             }
             catch (Exception)
             {
@@ -47,11 +52,12 @@ namespace Inventory.Application
                 throw;
             }
         }
-        public async Task<T> DeleteAsync(Guid id, String deletedBy)
+        public async Task DeleteAsync(Guid id, String deletedBy)
         {
             try
             {
-                return await repository.DeleteAsync(id, deletedBy);
+                await repository.DeleteAsync(id, deletedBy);
+                await repository.SaveAsync();
             }
             catch (Exception)
             {
@@ -69,6 +75,11 @@ namespace Inventory.Application
 
                 throw;
             }
+        }
+        public async Task<List<T>> Filter(List<string> filter)
+        {
+            var result = await repository.DynamicQuery(filter);
+            return result;
         }
     }
 }

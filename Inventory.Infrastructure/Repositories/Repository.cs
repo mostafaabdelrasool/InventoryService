@@ -8,7 +8,8 @@ using System.Linq.Expressions;
 using Inventory.Domain;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Inventory.Persistance.Models;
-
+using Inventory.Persistance.Utility;
+using System.Linq.Dynamic.Core;
 namespace Inventory.Persistance.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class, IEntity, new()
@@ -193,6 +194,24 @@ namespace Inventory.Persistance.Repositories
             }
             await Set.AddRangeAsync(values);
             return values;
+        }
+        public async Task<List<T>> DynamicQuery(List<string> filter, params Expression<Func<T, object>>[] includes)
+        {
+            IQueryable<T> query = this.Set;
+            var builder = QueryFunctions.PredicateBuilder(filter);
+            if (builder != null)
+            {
+                try
+                {
+                    return await query.Where(builder.Item1, builder.Item2).ToListAsync();
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
+            }
+            return null;
         }
     }
 }

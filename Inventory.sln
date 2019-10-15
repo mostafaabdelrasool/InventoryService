@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29403.142
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inventory.Domain", "Inventory.Domain\Inventory.Domain.csproj", "{7370AB2F-C955-4D5B-87E5-1887B57242C5}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inventory.Application", "Inventory.Application\Inventory.Application.csproj", "{F403BDC2-EEC3-4F6D-B7F6-C3FDA6B43E72}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inventory.Web", "Inventory.Web\Inventory.Web.csproj", "{726101B0-7205-4032-9262-DF081798EFD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Server", "Inventory.Server\Inventory.Server.csproj", "{1E2D99A9-FFF2-4F16-9B52-D78A30E98EB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{726101B0-7205-4032-9262-DF081798EFD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{726101B0-7205-4032-9262-DF081798EFD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{726101B0-7205-4032-9262-DF081798EFD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E2D99A9-FFF2-4F16-9B52-D78A30E98EB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E2D99A9-FFF2-4F16-9B52-D78A30E98EB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E2D99A9-FFF2-4F16-9B52-D78A30E98EB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E2D99A9-FFF2-4F16-9B52-D78A30E98EB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
