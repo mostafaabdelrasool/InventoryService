@@ -22,6 +22,8 @@ using Inventory.Persistance.Models;
 using Inventory.Persistance.Extensions;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
+using MediatR;
+using System.Reflection;
 
 namespace Inventory.Web
 {
@@ -103,7 +105,8 @@ namespace Inventory.Web
                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             #endregion
             #region MVC
-            services.AddMvc().AddJsonOptions(x => {
+            services.AddMvc().AddJsonOptions(x =>
+            {
                 var settings = x.SerializerSettings;
                 settings.NullValueHandling = NullValueHandling.Ignore;
                 settings.DefaultValueHandling = DefaultValueHandling.Ignore;
@@ -124,6 +127,10 @@ namespace Inventory.Web
             {
                 c.SwaggerDoc("v1", new Info { Title = "String API", Version = "v1" });
             });
+            #endregion
+            #region MediatorR
+            //var assembly = System.AppDomain.CurrentDomain.Load("Inventory.Application");
+            //services.AddMediatR(assembly);
             #endregion
         }
 
