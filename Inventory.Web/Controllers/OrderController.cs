@@ -16,15 +16,18 @@ namespace Inventory.Web.Controllers
     public class OrderController : GenericController<Orders>
     {
         private readonly IUpdateStockCommand _updateStockCommand;
+        private readonly IService<Orders> _service;
 
         public OrderController(IService<Orders> service, IUpdateStockCommand updateStockCommand) : base(service)
         {
             _updateStockCommand = updateStockCommand;
+            _service = service;
+            includes.Add(x => x.Customer);
         }
         public override async Task<IActionResult> Post([FromBody] Orders entity)
         {
-            var result = await base.Post(entity);
-            _updateStockCommand.Notify(entity.OrderDetails.ToList());
+            var result = await _service.CreateAsync(entity, "", false);
+            _updateStockCommand.NotifyOrderSaved(entity.OrderDetails.ToList());
             return Ok(entity);
         }
     }

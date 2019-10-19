@@ -5,6 +5,6 @@ namespace Inventory.Application.Product.command
 {
     public interface IUpdateStockCommand
     {
-        void Notify(List<OrderDetails> orderDetails);
+        void NotifyOrderSaved(List<OrderDetails> orderDetails);
     }
 }

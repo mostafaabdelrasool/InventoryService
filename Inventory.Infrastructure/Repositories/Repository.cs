@@ -10,6 +10,8 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Inventory.Persistance.Models;
 using Inventory.Persistance.Utility;
 using System.Linq.Dynamic.Core;
+using System.Threading;
+
 namespace Inventory.Persistance.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class, IEntity, new()
@@ -134,9 +136,9 @@ namespace Inventory.Persistance.Repositories
                 throw new Exception("When trying to remove an object the following exception occurred " + ex.StackTrace);
             }
         }
-        public async Task<int> SaveAsync()
+        public async Task<int> SaveAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
-            return await DatabaseContext.SaveChangesAsync();
+            return await DatabaseContext.SaveChangesAsync(cancellationToken);
         }
         public int Save()
         {

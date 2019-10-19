@@ -28,5 +28,7 @@ namespace Inventory.Web.Controllers
             var result = await _queryService.Search(q);
             return Ok(result);
         }
+      
+        
     }
 }

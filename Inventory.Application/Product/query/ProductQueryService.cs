@@ -15,6 +15,9 @@ namespace Inventory.Application.Product.query
         {
             this.repository = repository;
         }
+
+      
+
         public async Task<List<Products>> Search(string q)
         {
             var result = await repository.GetWithIncludeAsync(x => x.ProductName.Contains(q));

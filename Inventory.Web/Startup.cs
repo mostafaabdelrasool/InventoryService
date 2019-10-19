@@ -108,6 +108,7 @@ namespace Inventory.Web
             services.AddMvc().AddJsonOptions(x =>
             {
                 var settings = x.SerializerSettings;
+                settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 settings.NullValueHandling = NullValueHandling.Ignore;
                 settings.DefaultValueHandling = DefaultValueHandling.Ignore;
                 settings.ContractResolver = new CamelCasePropertyNamesContractResolver();

@@ -15,7 +15,7 @@ namespace Inventory.Application.Extensions
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             //services.AddTransient<IService<Products>, Service<Products>>();
-            //services.AddTransient<IService<Categories>, Service<Categories>>();
+            services.AddTransient<IProductSizesQueryService, ProductSizesQueryService>();
             services.AddTransient<IUpdateStockCommand, UpdateStockCommand>();
             services.AddTransient<ICustomerQueryService, CustomerQueryService>();
             services.AddTransient<IProductQueryService, ProductQueryService>();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Inventory.Application.Interfaces;
 using Inventory.Domain;
@@ -11,6 +12,7 @@ namespace Inventory.Application
     public class Service<T> : IService<T> where T : class, IEntity, new()
     {
         protected IRepository<T> repository;
+        
         public Service(IRepository<T> repository)
         {
             this.repository = repository;
@@ -19,17 +21,27 @@ namespace Inventory.Application
         {
             return await repository.ReadOneAsync(id);
         }
-        public async Task<IEnumerable<T>> ListAsync()
+        public async Task<IEnumerable<T>> ListAsync(List<Expression<Func<T, object>>> includes)
         {
-            return await repository.GetWithIncludeAsync(x=>!x.IsDeleted);
+            return await repository.GetWithIncludeAsync(x=>!x.IsDeleted,null, includes.ToArray());
         }
-        public async Task<T> CreateAsync(T value, string createdBy)
+        /// <summary>
+        /// Create an entity
+        /// </summary>
+        /// <param name="value">Value to Add</param>
+        /// <param name="createdBy">who add the record</param>
+        /// <param name="save">optional to save changes or not</param>
+        /// <returns></returns>
+        public async Task<T> CreateAsync(T value, string createdBy,bool save=true)
         {
             try
             {
                 value.CreateDate = DateTime.Now;
                 var result = await repository.CreateAsync(value, createdBy);
-                await repository.SaveAsync();
+                if (save)
+                {
+                    await repository.SaveAsync();
+                }
                 return result;
             }
             catch (Exception)

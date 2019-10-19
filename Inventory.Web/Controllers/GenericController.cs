@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Inventory.Application.Interfaces;
 using Inventory.Domain;
@@ -8,16 +9,17 @@ namespace Inventory.Web.Controllers
 {
     public class GenericController<T> : ControllerBase where T : class, IEntity, new()
     {
-        private IService<T> service;
-
+        private readonly IService<T> service;
+        public List<Expression<Func<T, object>>> includes;
         public GenericController(IService<T> service)
         {
             this.service = service;
+            includes = new List<Expression<Func<T, object>>>();
         }
         [HttpGet]
         public virtual async Task<IActionResult> Get()
         {
-            var result = await service.ListAsync();
+            var result = await service.ListAsync(includes);
             return Ok(result);
         }
         [HttpGet]

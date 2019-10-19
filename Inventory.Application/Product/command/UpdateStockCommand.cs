@@ -16,9 +16,9 @@ namespace Inventory.Application.Product.command
             _mediator = mediator;
         }
 
-        public void Notify(List<OrderDetails> orderDetails)
+        public void NotifyOrderSaved(List<OrderDetails> orderDetails)
         {
-            _mediator.Publish(new OrderUpdateMessage
+            _mediator.Send(new OrderUpdateMessage
             {
                 OrderDetails = orderDetails
             });

@@ -1,0 +1,5 @@
+D:\project\inventory\Inventory\BE\Inventory.Infrastructrue\bin\Debug\netcoreapp3.0\Inventory.Infrastructrue.deps.json
+D:\project\inventory\Inventory\BE\Inventory.Infrastructrue\bin\Debug\netcoreapp3.0\Inventory.Infrastructrue.dll
+D:\project\inventory\Inventory\BE\Inventory.Infrastructrue\obj\Debug\netcoreapp3.0\Inventory.Infrastructrue.csprojAssemblyReference.cache
+D:\project\inventory\Inventory\BE\Inventory.Infrastructrue\obj\Debug\netcoreapp3.0\Inventory.Infrastructrue.AssemblyInfoInputs.cache
+D:\project\inventory\Inventory\BE\Inventory.Infrastructrue\obj\Debug\netcoreapp3.0\Inventory.Infrastructrue.AssemblyInfo.cs

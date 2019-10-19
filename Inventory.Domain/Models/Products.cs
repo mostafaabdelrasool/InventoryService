@@ -1,6 +1,7 @@
 ﻿using Inventory.Domain;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Inventory.Domain.Models
 {
@@ -9,6 +10,7 @@ namespace Inventory.Domain.Models
         public Products()
         {
             OrderDetails = new HashSet<OrderDetails>();
+            ProductSizes = new HashSet<ProductSizes>();
         }
 
         public string ProductName { get; set; }
@@ -24,6 +26,9 @@ namespace Inventory.Domain.Models
         public Categories Category { get; set; }
         public Suppliers Supplier { get; set; }
         public string image { get; set; }
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
         public ICollection<OrderDetails> OrderDetails { get; set; }
+        public ICollection<ProductSizes> ProductSizes { get; private set; }
     }
 }

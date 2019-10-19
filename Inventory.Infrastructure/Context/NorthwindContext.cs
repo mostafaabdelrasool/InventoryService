@@ -32,11 +32,14 @@ namespace Inventory.Persistance.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Products>()
+          .Property(p => p.Timestamp)
+          .IsRowVersion();
             modelBuilder.Entity<Categories>(entity =>
             {
                 entity.HasKey(e => e.Id);
@@ -46,7 +49,7 @@ namespace Inventory.Persistance.Models
 
                 entity.Property(e => e.CategoryName)
                     .IsRequired()
-                    .HasMaxLength(15);
+                    .HasMaxLength(200);
 
                 entity.Property(e => e.Description).HasColumnType("ntext");
 

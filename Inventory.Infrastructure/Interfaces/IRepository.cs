@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
 using System.Threading.Tasks;
 using Inventory.Domain;
 
@@ -17,7 +18,7 @@ namespace Inventory.Persistance.Interfaces
         Task<IEnumerable<T>> ReadAllAsync();
         Task<T> ReadOneAsync(Guid id);
          void Attach(T entity);
-        Task<int> SaveAsync();
+        Task<int> SaveAsync(CancellationToken cancellationToken = default(CancellationToken));
         T Update(T value, string updatedBy);
         Task<IEnumerable<T>> GetWithIncludeAsync(
             Expression<Func<T, bool>> predicate,

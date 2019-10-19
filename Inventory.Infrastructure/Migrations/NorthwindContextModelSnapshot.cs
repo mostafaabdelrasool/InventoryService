@@ -15,7 +15,7 @@ namespace Inventory.Persistance.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
+                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -26,7 +26,7 @@ namespace Inventory.Persistance.Migrations
 
                     b.Property<string>("CategoryName")
                         .IsRequired()
-                        .HasMaxLength(15);
+                        .HasMaxLength(200);
 
                     b.Property<DateTime>("CreateDate");
 
@@ -368,6 +368,8 @@ namespace Inventory.Persistance.Migrations
                     b.Property<DateTime?>("OrderDate")
                         .HasColumnType("datetime");
 
+                    b.Property<string>("Phone");
+
                     b.Property<DateTime?>("RequiredDate")
                         .HasColumnType("datetime");
 
@@ -417,6 +419,34 @@ namespace Inventory.Persistance.Migrations
                     b.ToTable("Orders");
                 });
 
+            modelBuilder.Entity("Inventory.Domain.Models.ProductSizes", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<DateTime>("DeleteDate");
+
+                    b.Property<string>("Dimensions");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<DateTime>("ModifyDate");
+
+                    b.Property<Guid>("ProductId");
+
+                    b.Property<string>("Size");
+
+                    b.Property<int>("UnitInStock");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductSizes");
+                });
+
             modelBuilder.Entity("Inventory.Domain.Models.Products", b =>
                 {
                     b.Property<Guid>("Id")
@@ -450,6 +480,10 @@ namespace Inventory.Persistance.Migrations
 
                     b.Property<Guid?>("SupplierId")
                         .HasColumnName("SupplierID");
+
+                    b.Property<byte[]>("Timestamp")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate();
 
                     b.Property<decimal?>("UnitPrice")
                         .ValueGeneratedOnAdd()
@@ -678,6 +712,14 @@ namespace Inventory.Persistance.Migrations
                         .WithMany("Orders")
                         .HasForeignKey("ShipVia")
                         .HasConstraintName("FK_Orders_Shippers");
+                });
+
+            modelBuilder.Entity("Inventory.Domain.Models.ProductSizes", b =>
+                {
+                    b.HasOne("Inventory.Domain.Models.Products", "Product")
+                        .WithMany("ProductSizes")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Inventory.Domain.Models.Products", b =>
