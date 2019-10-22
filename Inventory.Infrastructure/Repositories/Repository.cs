@@ -136,9 +136,9 @@ namespace Inventory.Persistance.Repositories
                 throw new Exception("When trying to remove an object the following exception occurred " + ex.StackTrace);
             }
         }
-        public async Task<int> SaveAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<int> SaveAsync()
         {
-            return await DatabaseContext.SaveChangesAsync(cancellationToken);
+            return await DatabaseContext.SaveChangesAsync();
         }
         public int Save()
         {
@@ -146,10 +146,9 @@ namespace Inventory.Persistance.Repositories
         }
         public async Task<IEnumerable<T>> GetWithIncludeAsync(
             Expression<Func<T, bool>> predicate,
-            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
             params Expression<Func<T, object>>[] includes)
         {
-            IQueryable<T> query = SetIncludeWithFilter(predicate, orderBy, includes);
+            IQueryable<T> query = SetIncludeWithFilter(predicate,null, includes);
             return await query.ToListAsync();
         }
         public IEnumerable<T> GetWithInclude(

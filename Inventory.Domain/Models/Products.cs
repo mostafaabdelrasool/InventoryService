@@ -9,7 +9,7 @@ namespace Inventory.Domain.Models
     {
         public Products()
         {
-            OrderDetails = new HashSet<OrderDetails>();
+            OrderDetails = new HashSet<OrderProductDetails>();
             ProductSizes = new HashSet<ProductSizes>();
         }
 
@@ -28,7 +28,7 @@ namespace Inventory.Domain.Models
         public string image { get; set; }
         [Timestamp]
         public byte[] Timestamp { get; set; }
-        public ICollection<OrderDetails> OrderDetails { get; set; }
+        public ICollection<OrderProductDetails> OrderDetails { get; set; }
         public ICollection<ProductSizes> ProductSizes { get; private set; }
     }
 }

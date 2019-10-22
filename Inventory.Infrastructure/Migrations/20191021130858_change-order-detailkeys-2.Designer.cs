@@ -4,14 +4,16 @@ using Inventory.Persistance.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Inventory.Persistance.Migrations
 {
     [DbContext(typeof(NorthwindContext))]
-    partial class NorthwindContextModelSnapshot : ModelSnapshot
+    [Migration("20191021130858_change-order-detailkeys-2")]
+    partial class changeorderdetailkeys2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -701,7 +703,7 @@ namespace Inventory.Persistance.Migrations
                         .HasForeignKey("ProductId")
                         .HasConstraintName("FK_Order_Details_Products");
 
-                    b.HasOne("Inventory.Domain.Models.ProductSizes", "ProductSize")
+                    b.HasOne("Inventory.Domain.Models.ProductSizes", "ProductSizes")
                         .WithMany("OrderDetails")
                         .HasForeignKey("ProductSizeId")
                         .HasConstraintName("FK_Order_Details_Products_sizes");

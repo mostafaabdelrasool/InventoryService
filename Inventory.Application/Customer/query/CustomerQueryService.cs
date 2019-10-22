@@ -17,7 +17,7 @@ namespace Inventory.Application.Customer.query
         }
         public async Task<List<Customers>> Search(string q)
         {
-            var result=await repository.GetWithIncludeAsync(x => x.CompanyName.Contains(q));
+            var result=await repository.GetWithIncludeAsync(x => x.CompanyName.Contains(q) && !x.IsDeleted);
             return result.ToList();
         }
     }

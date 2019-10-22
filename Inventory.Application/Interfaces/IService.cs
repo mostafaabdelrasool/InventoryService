@@ -14,6 +14,7 @@ namespace Inventory.Application.Interfaces
         Task<T> GetAsync(Guid id);
         Task<T> Update(T value,string updatedBy);
         Task<List<T>> Filter(List<string> filter);
+        Task SaveAsync();
     }
 
 }

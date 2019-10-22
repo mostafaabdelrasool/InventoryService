@@ -1,5 +1,6 @@
 ﻿using Inventory.Application.Customer.query;
 using Inventory.Application.Interfaces;
+using Inventory.Application.Order.Event;
 using Inventory.Application.Product.command;
 using Inventory.Application.Product.query;
 using Inventory.Domain;
@@ -14,12 +15,12 @@ namespace Inventory.Application.Extensions
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            //services.AddTransient<IService<Products>, Service<Products>>();
-            services.AddTransient<IProductSizesQueryService, ProductSizesQueryService>();
-            services.AddTransient<IUpdateStockCommand, UpdateStockCommand>();
-            services.AddTransient<ICustomerQueryService, CustomerQueryService>();
-            services.AddTransient<IProductQueryService, ProductQueryService>();
-            services.AddTransient(typeof(IService<>), typeof(Service<>));
+            services.AddTransient<IOrderSavedCommand, OrderSavedCommand>();
+            services.AddScoped<IProductSizesQueryService, ProductSizesQueryService>();
+            services.AddScoped<IUpdateStockCommand, UpdateStockCommand>();
+            services.AddScoped<ICustomerQueryService, CustomerQueryService>();
+            services.AddScoped<IProductQueryService, ProductQueryService>();
+            services.AddScoped(typeof(IService<>), typeof(Service<>));
             services.AddMediatR(Assembly.GetExecutingAssembly());
             return services;
         }

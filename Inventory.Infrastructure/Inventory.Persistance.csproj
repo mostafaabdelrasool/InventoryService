@@ -5,7 +5,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Configurations\" />
+    <Compile Remove="Migrations\20191021124719_add-order-detail-product-size.cs" />
+    <Compile Remove="Migrations\20191021124719_add-order-detail-product-size.Designer.cs" />
+    <Compile Remove="Migrations\20191021125131_add-order-detail-product-size.cs" />
+    <Compile Remove="Migrations\20191021125131_add-order-detail-product-size.Designer.cs" />
+    <Compile Remove="Migrations\20191021125245_add-order-detail-product-size.cs" />
+    <Compile Remove="Migrations\20191021125245_add-order-detail-product-size.Designer.cs" />
+    <Compile Remove="Migrations\20191021125312_add-order-detail-product-size.cs" />
+    <Compile Remove="Migrations\20191021125312_add-order-detail-product-size.Designer.cs" />
+    <Compile Remove="Migrations\20191021125824_change-order-detailkeys.cs" />
+    <Compile Remove="Migrations\20191021125824_change-order-detailkeys.Designer.cs" />
+    <Compile Remove="Migrations\20191021125948_change-order-detailkeys.cs" />
+    <Compile Remove="Migrations\20191021125948_change-order-detailkeys.Designer.cs" />
+    <Compile Remove="Migrations\20191021130243_change-order-detailkeys.cs" />
+    <Compile Remove="Migrations\20191021130243_change-order-detailkeys.Designer.cs" />
+    <Compile Remove="Migrations\20191021130522_change-order-detailkeys.cs" />
+    <Compile Remove="Migrations\20191021130522_change-order-detailkeys.Designer.cs" />
+    <Compile Remove="Migrations\20191021130608_change-order-detailkeys.cs" />
+    <Compile Remove="Migrations\20191021130608_change-order-detailkeys.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

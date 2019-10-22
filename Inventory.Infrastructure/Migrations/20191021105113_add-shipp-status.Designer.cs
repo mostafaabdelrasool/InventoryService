@@ -4,14 +4,16 @@ using Inventory.Persistance.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Inventory.Persistance.Migrations
 {
     [DbContext(typeof(NorthwindContext))]
-    partial class NorthwindContextModelSnapshot : ModelSnapshot
+    [Migration("20191021105113_add-shipp-status")]
+    partial class addshippstatus
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -302,10 +304,13 @@ namespace Inventory.Persistance.Migrations
                     b.ToTable("ModelDesign");
                 });
 
-            modelBuilder.Entity("Inventory.Domain.Models.OrderProductDetails", b =>
+            modelBuilder.Entity("Inventory.Domain.Models.OrderDetails", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<Guid>("OrderId")
+                        .HasColumnName("OrderID");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnName("ProductID");
 
                     b.Property<DateTime>("CreateDate");
 
@@ -313,17 +318,11 @@ namespace Inventory.Persistance.Migrations
 
                     b.Property<float>("Discount");
 
+                    b.Property<Guid>("Id");
+
                     b.Property<bool>("IsDeleted");
 
                     b.Property<DateTime>("ModifyDate");
-
-                    b.Property<Guid>("OrderId")
-                        .HasColumnName("OrderID");
-
-                    b.Property<Guid>("ProductId")
-                        .HasColumnName("ProductID");
-
-                    b.Property<Guid>("ProductSizeId");
 
                     b.Property<short>("Quantity")
                         .ValueGeneratedOnAdd()
@@ -332,15 +331,13 @@ namespace Inventory.Persistance.Migrations
                     b.Property<decimal>("UnitPrice")
                         .HasColumnType("money");
 
-                    b.HasKey("Id");
+                    b.HasKey("OrderId", "ProductId");
 
                     b.HasIndex("OrderId")
                         .HasName("OrdersOrder_Details");
 
                     b.HasIndex("ProductId")
                         .HasName("ProductsOrder_Details");
-
-                    b.HasIndex("ProductSizeId");
 
                     b.ToTable("Order Details");
                 });
@@ -689,7 +686,7 @@ namespace Inventory.Persistance.Migrations
                         .HasConstraintName("FK_Employees_Employees");
                 });
 
-            modelBuilder.Entity("Inventory.Domain.Models.OrderProductDetails", b =>
+            modelBuilder.Entity("Inventory.Domain.Models.OrderDetails", b =>
                 {
                     b.HasOne("Inventory.Domain.Models.Orders", "Order")
                         .WithMany("OrderDetails")
@@ -700,11 +697,6 @@ namespace Inventory.Persistance.Migrations
                         .WithMany("OrderDetails")
                         .HasForeignKey("ProductId")
                         .HasConstraintName("FK_Order_Details_Products");
-
-                    b.HasOne("Inventory.Domain.Models.ProductSizes", "ProductSize")
-                        .WithMany("OrderDetails")
-                        .HasForeignKey("ProductSizeId")
-                        .HasConstraintName("FK_Order_Details_Products_sizes");
                 });
 
             modelBuilder.Entity("Inventory.Domain.Models.Orders", b =>

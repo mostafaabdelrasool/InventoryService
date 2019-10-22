@@ -12,7 +12,7 @@ namespace Inventory.Application
     public class Service<T> : IService<T> where T : class, IEntity, new()
     {
         protected IRepository<T> repository;
-        
+
         public Service(IRepository<T> repository)
         {
             this.repository = repository;
@@ -23,7 +23,7 @@ namespace Inventory.Application
         }
         public async Task<IEnumerable<T>> ListAsync(List<Expression<Func<T, object>>> includes)
         {
-            return await repository.GetWithIncludeAsync(x=>!x.IsDeleted,null, includes.ToArray());
+            return await repository.GetWithIncludeAsync(x => !x.IsDeleted, includes.ToArray());
         }
         /// <summary>
         /// Create an entity
@@ -32,7 +32,7 @@ namespace Inventory.Application
         /// <param name="createdBy">who add the record</param>
         /// <param name="save">optional to save changes or not</param>
         /// <returns></returns>
-        public async Task<T> CreateAsync(T value, string createdBy,bool save=true)
+        public async Task<T> CreateAsync(T value, string createdBy, bool save = true)
         {
             try
             {
@@ -92,6 +92,10 @@ namespace Inventory.Application
         {
             var result = await repository.DynamicQuery(filter);
             return result;
+        }
+        public async Task SaveAsync()
+        {
+            await repository.SaveAsync();
         }
     }
 }

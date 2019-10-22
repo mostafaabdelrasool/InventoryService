@@ -1,27 +1,22 @@
-﻿using Inventory.Application.Product.model;
-using Inventory.Domain.Models;
-using MediatR;
+﻿using Inventory.Domain.Models;
+using Inventory.Persistance.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Inventory.Application.Product.command
 {
     public class UpdateStockCommand : IUpdateStockCommand
     {
-        private readonly IMediator _mediator;
+        private IRepository<Products> _repository;
 
-        public UpdateStockCommand(IMediator mediator)
+        public UpdateStockCommand(IRepository<Products> repository)
         {
-            _mediator = mediator;
-        }
 
-        public void NotifyOrderSaved(List<OrderDetails> orderDetails)
-        {
-            _mediator.Send(new OrderUpdateMessage
-            {
-                OrderDetails = orderDetails
-            });
+            _repository = repository;
         }
+      
     }
 }

@@ -1,4 +1,4 @@
-﻿using Inventory.Application.Product.model;
+﻿using Inventory.Application.Order.model;
 using Inventory.Domain.Models;
 using Inventory.Persistance.Interfaces;
 using MediatR;
@@ -28,7 +28,7 @@ namespace Inventory.Application.Product.Handlers
                 x.UnitsInStock -= request.OrderDetails.FirstOrDefault(p => p.ProductId == x.Id).Quantity;
                 _repository.Update(x, "");
             });
-            return await _repository.SaveAsync(cancellationToken);
+            return await _repository.SaveAsync();
         }
     }
 }

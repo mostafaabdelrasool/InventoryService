@@ -20,7 +20,7 @@ namespace Inventory.Application.Product.query
 
         public async Task<List<Products>> Search(string q)
         {
-            var result = await repository.GetWithIncludeAsync(x => x.ProductName.Contains(q));
+            var result = await repository.GetWithIncludeAsync(x => x.ProductName.Contains(q) && !x.IsDeleted,x=>x.ProductSizes);
             return result.ToList();
         }
     }

@@ -22,7 +22,7 @@ namespace Inventory.Persistance.Models
         public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<Employees> Employees { get; set; }
         public virtual DbSet<EmployeeTerritories> EmployeeTerritories { get; set; }
-        public virtual DbSet<OrderDetails> OrderDetails { get; set; }
+        public virtual DbSet<OrderProductDetails> OrderDetails { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Region> Region { get; set; }
@@ -210,9 +210,9 @@ namespace Inventory.Persistance.Models
                     .HasConstraintName("FK_EmployeeTerritories_Territories");
             });
 
-            modelBuilder.Entity<OrderDetails>(entity =>
+            modelBuilder.Entity<OrderProductDetails>(entity =>
             {
-                entity.HasKey(e => new { e.OrderId, e.ProductId });
+                entity.HasKey(e => new { e.Id });
 
                 entity.ToTable("Order Details");
 
@@ -241,6 +241,11 @@ namespace Inventory.Persistance.Models
                     .HasForeignKey(d => d.ProductId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Order_Details_Products");
+                entity.HasOne(d => d.ProductSize)
+                  .WithMany(p => p.OrderDetails)
+                  .HasForeignKey(d => d.ProductSizeId)
+                  .OnDelete(DeleteBehavior.ClientSetNull)
+                  .HasConstraintName("FK_Order_Details_Products_sizes");
             });
 
             modelBuilder.Entity<Orders>(entity =>

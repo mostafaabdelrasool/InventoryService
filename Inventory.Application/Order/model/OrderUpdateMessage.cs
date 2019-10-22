@@ -4,10 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Inventory.Application.Product.model
+namespace Inventory.Application.Order.model
 {
     public class OrderUpdateMessage :IRequest<int>
     {
-        public List<OrderDetails> OrderDetails { get; set; }
+        public List<OrderProductDetails> OrderDetails { get; set; }
     }
 }

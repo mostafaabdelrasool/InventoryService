@@ -4,14 +4,16 @@ using Inventory.Persistance.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Inventory.Persistance.Migrations
 {
     [DbContext(typeof(NorthwindContext))]
-    partial class NorthwindContextModelSnapshot : ModelSnapshot
+    [Migration("20191021130708_change-order-detailkeys")]
+    partial class changeorderdetailkeys
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -317,32 +319,27 @@ namespace Inventory.Persistance.Migrations
 
                     b.Property<DateTime>("ModifyDate");
 
-                    b.Property<Guid>("OrderId")
-                        .HasColumnName("OrderID");
+                    b.Property<Guid>("OrderId");
 
-                    b.Property<Guid>("ProductId")
-                        .HasColumnName("ProductID");
+                    b.Property<Guid>("ProductId");
 
                     b.Property<Guid>("ProductSizeId");
 
-                    b.Property<short>("Quantity")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValueSql("((1))");
+                    b.Property<Guid?>("ProductSizesId");
 
-                    b.Property<decimal>("UnitPrice")
-                        .HasColumnType("money");
+                    b.Property<short>("Quantity");
+
+                    b.Property<decimal>("UnitPrice");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OrderId")
-                        .HasName("OrdersOrder_Details");
+                    b.HasIndex("OrderId");
 
-                    b.HasIndex("ProductId")
-                        .HasName("ProductsOrder_Details");
+                    b.HasIndex("ProductId");
 
-                    b.HasIndex("ProductSizeId");
+                    b.HasIndex("ProductSizesId");
 
-                    b.ToTable("Order Details");
+                    b.ToTable("OrderDetails");
                 });
 
             modelBuilder.Entity("Inventory.Domain.Models.Orders", b =>
@@ -694,17 +691,16 @@ namespace Inventory.Persistance.Migrations
                     b.HasOne("Inventory.Domain.Models.Orders", "Order")
                         .WithMany("OrderDetails")
                         .HasForeignKey("OrderId")
-                        .HasConstraintName("FK_Order_Details_Orders");
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Inventory.Domain.Models.Products", "Product")
                         .WithMany("OrderDetails")
                         .HasForeignKey("ProductId")
-                        .HasConstraintName("FK_Order_Details_Products");
+                        .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Inventory.Domain.Models.ProductSizes", "ProductSize")
+                    b.HasOne("Inventory.Domain.Models.ProductSizes", "ProductSizes")
                         .WithMany("OrderDetails")
-                        .HasForeignKey("ProductSizeId")
-                        .HasConstraintName("FK_Order_Details_Products_sizes");
+                        .HasForeignKey("ProductSizesId");
                 });
 
             modelBuilder.Entity("Inventory.Domain.Models.Orders", b =>

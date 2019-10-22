@@ -18,11 +18,10 @@ namespace Inventory.Persistance.Interfaces
         Task<IEnumerable<T>> ReadAllAsync();
         Task<T> ReadOneAsync(Guid id);
          void Attach(T entity);
-        Task<int> SaveAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task<int> SaveAsync();
         T Update(T value, string updatedBy);
         Task<IEnumerable<T>> GetWithIncludeAsync(
             Expression<Func<T, bool>> predicate,
-             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
             params Expression<Func<T, object>>[] includes);
         T Create(T value, string createdBy);
         T Delete(Guid id, string deletdBy);

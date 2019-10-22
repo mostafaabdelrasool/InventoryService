@@ -8,7 +8,7 @@ namespace Inventory.Domain.Models
     {
         public Orders()
         {
-            OrderDetails = new HashSet<OrderDetails>();
+            OrderDetails = new HashSet<OrderProductDetails>();
         }
 
         public Guid CustomerId { get; set; }
@@ -25,9 +25,17 @@ namespace Inventory.Domain.Models
         public string ShipPostalCode { get; set; }
         public string ShipCountry { get; set; }
         public string Phone { get; set; }
+        public ShipStatus ShipStatus { get; set; }
         public Customers Customer { get; set; }
         public Employees Employee { get; set; }
         public Shippers ShipViaNavigation { get; set; }
-        public ICollection<OrderDetails> OrderDetails { get; set; }
+        public ICollection<OrderProductDetails> OrderDetails { get; set; }
+    }
+    public enum ShipStatus
+    {
+        Shipped = 1,
+        InProgress = 2,
+        Cancelled = 3,
+        Reverted = 4
     }
 }
