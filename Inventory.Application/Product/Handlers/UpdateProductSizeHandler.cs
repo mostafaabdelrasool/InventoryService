@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Product.Handlers
 {
-    public class UpdateProductSizeHandler : IRequestHandler<OrderUpdateMessage, int>
+    public class UpdateProductSizeHandler : INotificationHandler<OrderUpdateMessage>
     {
         private IRepository<ProductSizes> _repository;
 
@@ -20,7 +20,7 @@ namespace Inventory.Application.Product.Handlers
 
             _repository = repository;
         }
-        public async Task<int> Handle(OrderUpdateMessage request, CancellationToken cancellationToken)
+        public async Task Handle(OrderUpdateMessage request, CancellationToken cancellationToken)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace Inventory.Application.Product.Handlers
                     x.UnitInStock -= request.OrderDetails.FirstOrDefault(p => p.ProductSizeId == x.Id).Quantity;
                     _repository.Update(x, "");
                 });
-                return await _repository.SaveAsync();
+                await _repository.SaveAsync();
             }
             catch (Exception ex)
             {

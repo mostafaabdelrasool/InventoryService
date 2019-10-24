@@ -10,7 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 namespace Inventory.Application.Product.Handlers
 {
-    public class UpdateStockHandler : IRequestHandler<OrderUpdateMessage, int>
+    public class UpdateStockHandler : INotificationHandler<OrderUpdateMessage>
     {
         private IRepository<Products> _repository;
 
@@ -19,7 +19,7 @@ namespace Inventory.Application.Product.Handlers
 
             _repository = repository;
         }
-        public async Task<int> Handle(OrderUpdateMessage request, CancellationToken cancellationToken)
+        public async Task Handle(OrderUpdateMessage request, CancellationToken cancellationToken)
         {
             var productIds = request.OrderDetails.ToList().Select(x => x.ProductId);
             var products = await _repository.GetWithIncludeAsync(x => productIds.Any(y => y == x.Id));
@@ -28,7 +28,7 @@ namespace Inventory.Application.Product.Handlers
                 x.UnitsInStock -= request.OrderDetails.FirstOrDefault(p => p.ProductId == x.Id).Quantity;
                 _repository.Update(x, "");
             });
-            return await _repository.SaveAsync();
+             await _repository.SaveAsync();
         }
     }
 }

@@ -16,8 +16,8 @@ namespace Inventory.Persistance.Interfaces
         Task<T> DeleteAsync(Guid id, string deletdBy);
         Task<T> RemoveAsync(Guid id, string removedBy);
         Task<IEnumerable<T>> ReadAllAsync();
-        Task<T> ReadOneAsync(Guid id);
-         void Attach(T entity);
+        Task<T> ReadOneAsync(Guid id, List<Expression<Func<T, object>>> includes = null);
+        void Attach(T entity);
         Task<int> SaveAsync();
         T Update(T value, string updatedBy);
         Task<IEnumerable<T>> GetWithIncludeAsync(
@@ -33,5 +33,7 @@ namespace Inventory.Persistance.Interfaces
              Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
             params Expression<Func<T, object>>[] includes);
         Task<List<T>> DynamicQuery(List<string> filter, params Expression<Func<T, object>>[] includes);
+        void PartialUpdate(T value, List<string> properties);
+        Task<T> ReadOneAsync(Guid id, params string[] includes);
     }
 }

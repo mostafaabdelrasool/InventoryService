@@ -25,6 +25,8 @@ namespace Inventory.Domain.Models
         public string ShipPostalCode { get; set; }
         public string ShipCountry { get; set; }
         public string Phone { get; set; }
+        public decimal? Total { get; set; }
+        public decimal? OverallTotal { get; set; }
         public ShipStatus ShipStatus { get; set; }
         public Customers Customer { get; set; }
         public Employees Employee { get; set; }

@@ -48,9 +48,32 @@ namespace Inventory.Persistance.Repositories
             Set.Add(value);
             return value;
         }
-        public async Task<T> ReadOneAsync(Guid id)
+        public async Task<T> ReadOneAsync(Guid id, List<Expression<Func<T, object>>> includes=null)
         {
-            var current = await Set.SingleOrDefaultAsync(p => p.Id == id) ?? throw new Exception(nameof(T) + " does not contain an object with the id " + id);
+            IQueryable<T> query = this.Set;
+            if (includes!=null)
+            {
+                foreach (var item in includes)
+                {
+                    query = query.Include(item);
+                }
+            }
+          
+            var current = await query.FirstOrDefaultAsync(p => p.Id == id) ?? throw new Exception(nameof(T) + " does not contain an object with the id " + id);
+            return current;
+        }
+        public async Task<T> ReadOneAsync(Guid id, params string[] includes)
+        {
+            IQueryable<T> query = this.Set;
+            if (includes != null)
+            {
+                foreach (var item in includes)
+                {
+                    query = query.Include(item);
+                }
+            }
+
+            var current = await query.FirstOrDefaultAsync(p => p.Id == id) ?? throw new Exception(nameof(T) + " does not contain an object with the id " + id);
             return current;
         }
         public T ReadOne(Guid id)
@@ -86,6 +109,14 @@ namespace Inventory.Persistance.Repositories
             catch (Exception ex)
             {
                 throw new Exception("When trying to update an object the following exception occurred " + ex.StackTrace);
+            }
+        }
+        public void PartialUpdate(T value, List<string> properties)
+        {
+            var dbEntityEntry = DatabaseContext.Entry(value);
+            foreach (var property in properties)
+            {
+                dbEntityEntry.Property(property).IsModified = true;
             }
         }
         public async Task<T> DeleteAsync(Guid id, string deletedBy)
@@ -148,7 +179,7 @@ namespace Inventory.Persistance.Repositories
             Expression<Func<T, bool>> predicate,
             params Expression<Func<T, object>>[] includes)
         {
-            IQueryable<T> query = SetIncludeWithFilter(predicate,null, includes);
+            IQueryable<T> query = SetIncludeWithFilter(predicate, null, includes);
             return await query.ToListAsync();
         }
         public IEnumerable<T> GetWithInclude(

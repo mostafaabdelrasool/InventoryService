@@ -17,9 +17,13 @@ namespace Inventory.Application
         {
             this.repository = repository;
         }
-        public async Task<T> GetAsync(Guid id)
+        public async Task<T> GetAsync(Guid id, List<Expression<Func<T, object>>> includes)
         {
-            return await repository.ReadOneAsync(id);
+            return await repository.ReadOneAsync(id, includes);
+        }
+        public async Task<T> GetAsync(Guid id,params string[] includes)
+        {
+            return await repository.ReadOneAsync(id, includes);
         }
         public async Task<IEnumerable<T>> ListAsync(List<Expression<Func<T, object>>> includes)
         {
@@ -96,6 +100,21 @@ namespace Inventory.Application
         public async Task SaveAsync()
         {
             await repository.SaveAsync();
+        }
+        public async Task<T> PartialUpdate(T value, List<string> properties)
+        {
+            try
+            {
+                value.ModifyDate = DateTime.Now;
+                repository.PartialUpdate(value, properties);
+                await repository.SaveAsync();
+                return value;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Inventory.Domain.Models
         public decimal UnitPrice { get; set; }
         public short Quantity { get; set; }
         public float Discount { get; set; }
-
+        public decimal total { get; set; }
         public Orders Order { get; set; }
         public Products Product { get; set; }
         public ProductSizes ProductSize { get; set; }

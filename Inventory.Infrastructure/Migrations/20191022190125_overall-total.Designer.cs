@@ -4,14 +4,16 @@ using Inventory.Persistance.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Inventory.Persistance.Migrations
 {
     [DbContext(typeof(NorthwindContext))]
-    partial class NorthwindContextModelSnapshot : ModelSnapshot
+    [Migration("20191022190125_overall-total")]
+    partial class overalltotal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -331,8 +333,6 @@ namespace Inventory.Persistance.Migrations
 
                     b.Property<decimal>("UnitPrice")
                         .HasColumnType("money");
-
-                    b.Property<decimal>("total");
 
                     b.HasKey("Id");
 

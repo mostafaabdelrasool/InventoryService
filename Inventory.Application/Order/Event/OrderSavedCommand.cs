@@ -19,7 +19,7 @@ namespace Inventory.Application.Order.Event
 
         public async Task NotifyOrderSaved(List<OrderProductDetails> orderDetails)
         {
-          await  _mediator.Send(new OrderUpdateMessage
+          await  _mediator.Publish(new OrderUpdateMessage
             {
                 OrderDetails = orderDetails
             });

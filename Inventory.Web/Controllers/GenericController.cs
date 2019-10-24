@@ -26,7 +26,7 @@ namespace Inventory.Web.Controllers
         [Route("{id:Guid}")]
         public virtual async Task<IActionResult> Get(Guid id)
         {
-            var result = await service.GetAsync(id);
+            var result = await service.GetAsync(id,includes);
             return Ok(result);
         }
         [HttpPut]
@@ -53,6 +53,13 @@ namespace Inventory.Web.Controllers
         {
             var result = await service.Filter(filter);
             return Ok(result);
+        }
+        [HttpPut]
+        [Route("[action]")]
+        public virtual async Task<IActionResult> PartialUpdate([FromBody]T entity, List<string> properties)
+        {
+            await service.PartialUpdate(entity, properties);
+            return Ok();
         }
     }
 }

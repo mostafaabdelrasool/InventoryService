@@ -29,5 +29,10 @@ namespace Inventory.Web.Controllers
             await _updateStockCommand.NotifyOrderSaved(entity.OrderDetails.ToList());
             return Ok(entity);
         }
+        public async override Task<IActionResult> Get(Guid id)
+        {
+            var result = await _service.GetAsync(id, "OrderDetails","Customer", "OrderDetails.Product.ProductSizes");
+            return Ok(result);
+        }
     }
 }
