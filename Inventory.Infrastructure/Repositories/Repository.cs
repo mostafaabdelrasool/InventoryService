@@ -237,7 +237,7 @@ namespace Inventory.Persistance.Repositories
                 {
                     return await query.Where(builder.Item1, builder.Item2).ToListAsync();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
 
                     throw;

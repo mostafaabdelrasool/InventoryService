@@ -24,6 +24,10 @@ using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
 using MediatR;
 using System.Reflection;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Inventory.Web.Controllers;
 
 namespace Inventory.Web
 {
@@ -44,18 +48,18 @@ namespace Inventory.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            #region Core2.1
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
+            //#region Core2.1
+            //services.Configure<CookiePolicyOptions>(options =>
+            //{
+            //    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+            //    options.CheckConsentNeeded = context => true;
+            //    options.MinimumSameSitePolicy = SameSiteMode.None;
+            //});
 
 
-            services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            #endregion
+            //services.AddMvc()
+            //    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            //#endregion
             #region Sentry
             services.Configure<SentryOptions>(Configuration.GetSection("Sentry"));
             services.AddScoped<IErrorReporter, SentryErrorReporter>();
@@ -65,16 +69,26 @@ namespace Inventory.Web
             // Global access to Configuration
             services.AddSingleton(c => Configuration);
             #endregion
+            #region Database 
+            services.AddDbContext<NorthwindContext>(options =>
+                   options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            #endregion
             #region Authentication and Authorization
             // Add basic authentication. Primary used for external api access
-            services
-              .AddAuthentication(BasicAuthenticationDefaults.AuthenticationScheme)
-              .AddBasicAuthentication(
-              options =>
-              {
-                  options.Realm = "MO";
-                  options.Events = new BasicAuthenticationEvents() { };
-              });
+            //services
+            //  .AddAuthentication(BasicAuthenticationDefaults.AuthenticationScheme)
+            //  .AddBasicAuthentication(
+            //  options =>
+            //  {
+            //      options.Realm = "MO";
+            //      options.Events = new BasicAuthenticationEvents() { };
+            //  });
+
+            services.AddDbContext<NorthwindContext>(options =>
+        options.UseSqlServer(
+            Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>()
+                 .AddEntityFrameworkStores<NorthwindContext>();
             // Add JWT Bearer. This should be replaced when we have setup the Identity server
             services
               .AddAuthentication(options =>
@@ -93,19 +107,20 @@ namespace Inventory.Web
                       ValidIssuer = Configuration.GetSection("AppConfiguration:SiteUrl").Value
                   };
               });
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("Authenticated", policy =>
-                    policy.AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme).RequireAuthenticatedUser()
-                );
-            });
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("Authenticated", policy =>
+            //        policy.AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme).RequireAuthenticatedUser()
+            //    );
+            //});
             #endregion
-            #region Database 
-            services.AddDbContext<NorthwindContext>(options =>
-                   options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            #endregion
+          
             #region MVC
-            services.AddMvc().AddJsonOptions(x =>
+            services.AddMvc(options =>
+            {
+                var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+                options.Filters.Add(new AuthorizeFilter(policy));
+            }).AddJsonOptions(x =>
             {
                 var settings = x.SerializerSettings;
                 settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
@@ -127,11 +142,14 @@ namespace Inventory.Web
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "String API", Version = "v1" });
+                c.AddSecurityDefinition("Bearer", new ApiKeyScheme
+                {
+                    Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                    Name = "Authorization",
+                    In = "header",
+                    Type = "apiKey"
+                });
             });
-            #endregion
-            #region MediatorR
-            //var assembly = System.AppDomain.CurrentDomain.Load("Inventory.Application");
-            //services.AddMediatR(assembly);
             #endregion
         }
 

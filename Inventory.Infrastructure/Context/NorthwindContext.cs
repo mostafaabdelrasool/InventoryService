@@ -1,11 +1,12 @@
 ﻿using System;
 using Inventory.Domain.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Inventory.Persistance.Models
 {
-    public partial class NorthwindContext : DbContext
+    public partial class NorthwindContext : IdentityDbContext
     {
         public NorthwindContext()
         {
@@ -37,6 +38,7 @@ namespace Inventory.Persistance.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Products>()
           .Property(p => p.Timestamp)
           .IsRowVersion();

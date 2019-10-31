@@ -25,13 +25,13 @@ namespace Inventory.Web.Controllers
         }
         public override async Task<IActionResult> Post([FromBody] Orders entity)
         {
-            var result = await _service.CreateAsync(entity, "", false);
+            await _service.CreateAsync(entity, "", false);
             await _updateStockCommand.NotifyOrderSaved(entity.OrderDetails.ToList());
             return Ok(entity);
         }
         public async override Task<IActionResult> Get(Guid id)
         {
-            var result = await _service.GetAsync(id, "OrderDetails","Customer", "OrderDetails.Product.ProductSizes");
+            var result = await _service.GetAsync(id, "OrderDetails", "Customer", "OrderDetails.Product.ProductSizes");
             return Ok(result);
         }
     }
