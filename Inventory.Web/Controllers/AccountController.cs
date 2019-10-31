@@ -20,12 +20,13 @@ namespace Inventory.Web.Controllers
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly IConfiguration _config;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public AccountController(SignInManager<IdentityUser> signInManager, IConfiguration config)
+        public AccountController(SignInManager<IdentityUser> signInManager,UserManager<IdentityUser> userManager, IConfiguration config)
         {
             _signInManager = signInManager;
             _config = config;
-
+            _userManager = userManager;
         }
         [HttpPost]
         [Route("[action]")]
@@ -37,6 +38,29 @@ namespace Inventory.Web.Controllers
             if (!result.Succeeded)
                 //Authenticate User, Check if it’s a registered user in Database
                 return null;
+            string token = TokenGeneration();
+            return Ok(token);
+        }
+        [HttpPost]
+        [Route("[action]")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Register(LoginVM login)
+        {
+            if (!ModelState.IsValid)
+            {
+                return null;
+            }
+            var user = new IdentityUser { UserName = login.UserName, Email = login.Email };
+            var result = await _userManager.CreateAsync(user, login.Password);
+            if (!result.Succeeded)
+                //Authenticate User, Check if it’s a registered user in Database
+                return BadRequest(result.Errors);
+            string token = TokenGeneration();
+            return Ok(token);
+        }
+
+        private string TokenGeneration()
+        {
             //Authentication successful, Issue Token with user credentials
             //Provide the security key which was given in the JWToken configuration in Startup.cs
             var key = Encoding.UTF8.GetBytes(_config.GetSection("AppConfiguration:Key").Value);
@@ -52,7 +76,7 @@ namespace Inventory.Web.Controllers
                                     SecurityAlgorithms.HmacSha256Signature)
             );
             var token = new JwtSecurityTokenHandler().WriteToken(JWToken);
-            return Ok(token);
+            return token;
         }
     }
 }
