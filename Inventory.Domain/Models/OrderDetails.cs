@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Inventory.Domain.Models
 {
-    public partial class OrderProductDetails : Entity
+    public  class OrderProductDetails : Entity
     {
         public Guid OrderId { get; set; }
         public Guid ProductId { get; set; }

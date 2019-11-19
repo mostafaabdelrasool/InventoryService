@@ -6,4 +6,10 @@
     <RootNamespace>Inventory.Domain</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Order\" />
+    <Folder Include="Service\" />
+    <Folder Include="Order\AggregateModel\" />
+    <Folder Include="Events\" />
+  </ItemGroup>
 </Project>

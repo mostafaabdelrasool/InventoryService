@@ -1,37 +1,38 @@
 {
   "format": 1,
   "restore": {
-    "D:\\project\\inventory\\Inventory\\BE\\Inventory.Server\\Inventory.Server.csproj": {}
+    "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Server/Inventory.Server.csproj": {}
   },
   "projects": {
-    "D:\\project\\inventory\\Inventory\\BE\\Inventory.Application\\Inventory.Application.csproj": {
+    "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Application/Inventory.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Application\\Inventory.Application.csproj",
+        "projectUniqueName": "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Application/Inventory.Application.csproj",
         "projectName": "Inventory.Application",
-        "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Application\\Inventory.Application.csproj",
-        "packagesPath": "C:\\Users\\Maryam\\.nuget\\packages\\",
-        "outputPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Application\\obj\\",
+        "projectPath": "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Application/Inventory.Application.csproj",
+        "packagesPath": "/Users/mostafaabdelrasool/.nuget/packages/",
+        "outputPath": "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Application/obj/",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Maryam\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/mostafaabdelrasool/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.0"
+          "netcoreapp2.2"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.0": {
+          "netcoreapp2.2": {
             "projectReferences": {
-              "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj": {
-                "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj"
+              "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Domain/Inventory.Domain.csproj": {
+                "projectPath": "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Domain/Inventory.Domain.csproj"
               },
-              "D:\\project\\inventory\\Inventory\\BE\\Inventory.Infrastructure\\Inventory.Persistance.csproj": {
-                "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Infrastructure\\Inventory.Persistance.csproj"
+              "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Infrastructure/Inventory.Persistance.csproj": {
+                "projectPath": "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Infrastructure/Inventory.Persistance.csproj"
               }
             }
           }
@@ -43,7 +44,23 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.0": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -54,37 +71,33 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj": {
+    "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Domain/Inventory.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj",
+        "projectUniqueName": "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Domain/Inventory.Domain.csproj",
         "projectName": "Inventory.Domain",
-        "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj",
-        "packagesPath": "C:\\Users\\Maryam\\.nuget\\packages\\",
-        "outputPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\obj\\",
+        "projectPath": "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Domain/Inventory.Domain.csproj",
+        "packagesPath": "/Users/mostafaabdelrasool/.nuget/packages/",
+        "outputPath": "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Domain/obj/",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Maryam\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/mostafaabdelrasool/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.0"
+          "netcoreapp2.2"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.0": {
+          "netcoreapp2.2": {
             "projectReferences": {}
           }
         },
@@ -95,7 +108,15 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.0": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -106,40 +127,36 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\project\\inventory\\Inventory\\BE\\Inventory.Infrastructure\\Inventory.Persistance.csproj": {
+    "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Infrastructure/Inventory.Persistance.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Infrastructure\\Inventory.Persistance.csproj",
+        "projectUniqueName": "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Infrastructure/Inventory.Persistance.csproj",
         "projectName": "Inventory.Persistance",
-        "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Infrastructure\\Inventory.Persistance.csproj",
-        "packagesPath": "C:\\Users\\Maryam\\.nuget\\packages\\",
-        "outputPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Infrastructure\\obj\\",
+        "projectPath": "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Infrastructure/Inventory.Persistance.csproj",
+        "packagesPath": "/Users/mostafaabdelrasool/.nuget/packages/",
+        "outputPath": "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Infrastructure/obj/",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Maryam\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/mostafaabdelrasool/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.0"
+          "netcoreapp2.2"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.0": {
+          "netcoreapp2.2": {
             "projectReferences": {
-              "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj": {
-                "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj"
+              "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Domain/Inventory.Domain.csproj": {
+                "projectPath": "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Domain/Inventory.Domain.csproj"
               }
             }
           }
@@ -151,29 +168,43 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.0": {
+        "netcoreapp2.2": {
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[2.2.6, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[2.2.6, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
             },
             "System.Linq.Dynamic.Core": {
               "target": "Package",
               "version": "[1.0.19, )"
-            },
-            "Z.EntityFramework.Extensions.EFCore": {
-              "target": "Package",
-              "version": "[3.0.9, )"
             }
           },
           "imports": [
@@ -186,43 +217,39 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\project\\inventory\\Inventory\\BE\\Inventory.Server\\Inventory.Server.csproj": {
+    "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Server/Inventory.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Server\\Inventory.Server.csproj",
+        "projectUniqueName": "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Server/Inventory.Server.csproj",
         "projectName": "Inventory.Server",
-        "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Server\\Inventory.Server.csproj",
-        "packagesPath": "C:\\Users\\Maryam\\.nuget\\packages\\",
-        "outputPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Server\\obj\\",
+        "projectPath": "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Server/Inventory.Server.csproj",
+        "packagesPath": "/Users/mostafaabdelrasool/.nuget/packages/",
+        "outputPath": "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Server/obj/",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Maryam\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/mostafaabdelrasool/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "D:\\project\\inventory\\Inventory\\BE\\Inventory.Application\\Inventory.Application.csproj": {
-                "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Application\\Inventory.Application.csproj"
+              "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Application/Inventory.Application.csproj": {
+                "projectPath": "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Application/Inventory.Application.csproj"
               },
-              "D:\\project\\inventory\\Inventory\\BE\\Inventory.Infrastructure\\Inventory.Persistance.csproj": {
-                "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Infrastructure\\Inventory.Persistance.csproj"
+              "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Infrastructure/Inventory.Persistance.csproj": {
+                "projectPath": "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Infrastructure/Inventory.Persistance.csproj"
               }
             }
           }
@@ -275,7 +302,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }

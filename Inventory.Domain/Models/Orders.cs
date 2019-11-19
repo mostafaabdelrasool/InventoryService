@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Inventory.Domain.Models
 {
-    public partial class Orders : Entity
+    public  class Orders : Entity
     {
         public Orders()
         {

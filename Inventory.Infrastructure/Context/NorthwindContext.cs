@@ -1,5 +1,6 @@
 ﻿using System;
 using Inventory.Domain.Models;
+using Inventory.Domain.Order.AggregateModel;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -30,6 +31,7 @@ namespace Inventory.Persistance.Models
         public virtual DbSet<Shippers> Shippers { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
         public virtual DbSet<Territories> Territories { get; set; }
+        public virtual DbSet<Address> Address { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -432,10 +434,18 @@ namespace Inventory.Persistance.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Territories_Region");
             });
+
             modelBuilder.Entity<ModelDesign>(entity =>
             {
                 entity.HasKey(e => e.Id)
                     .ForSqlServerIsClustered(false);
+            });
+            modelBuilder.Entity<Address>(entity =>
+            {
+                entity.ToTable("Address");
+                entity.Property<int>("Id")  // Id is a shadow property
+        .IsRequired();
+                entity.HasKey("Id");
             });
         }
     }
