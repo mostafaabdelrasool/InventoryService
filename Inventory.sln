@@ -13,7 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inventory.Web", "Inventory.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Server", "Inventory.Server\Inventory.Server.csproj", "{1E2D99A9-FFF2-4F16-9B52-D78A30E98EB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Infrastructrue", "Inventory.Infrastructrue\Inventory.Infrastructrue.csproj", "{8E4D0C0B-492D-45B6-81E9-F08C4758F4A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inventory.Infrastructrue", "Inventory.Infrastructrue\Inventory.Infrastructrue.csproj", "{8E4D0C0B-492D-45B6-81E9-F08C4758F4A3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiceBus", "ServiceBus", "{0F58A9BD-209F-4DEA-B93A-15FFBAF58581}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus", "EventBus\EventBus.csproj", "{4CF593A9-BCD5-42F9-8989-DDD4989E9007}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBusRabbitMQ", "EventBusRabbitMQ\EventBusRabbitMQ.csproj", "{824F4471-0115-4B93-A251-3AF8A49338B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,9 +51,21 @@ Global
 		{8E4D0C0B-492D-45B6-81E9-F08C4758F4A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E4D0C0B-492D-45B6-81E9-F08C4758F4A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E4D0C0B-492D-45B6-81E9-F08C4758F4A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CF593A9-BCD5-42F9-8989-DDD4989E9007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CF593A9-BCD5-42F9-8989-DDD4989E9007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CF593A9-BCD5-42F9-8989-DDD4989E9007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CF593A9-BCD5-42F9-8989-DDD4989E9007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{824F4471-0115-4B93-A251-3AF8A49338B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{824F4471-0115-4B93-A251-3AF8A49338B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{824F4471-0115-4B93-A251-3AF8A49338B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{824F4471-0115-4B93-A251-3AF8A49338B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4CF593A9-BCD5-42F9-8989-DDD4989E9007} = {0F58A9BD-209F-4DEA-B93A-15FFBAF58581}
+		{824F4471-0115-4B93-A251-3AF8A49338B4} = {0F58A9BD-209F-4DEA-B93A-15FFBAF58581}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5F3D3694-D86B-42CD-BE98-BE9A56C8B20B}

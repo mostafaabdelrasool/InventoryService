@@ -1,0 +1,4 @@
+D:\project\inventory\Inventory\BE\EventBusRabbitMQ\bin\Debug\netcoreapp3.0\EventBus.dll
+D:\project\inventory\Inventory\BE\EventBusRabbitMQ\obj\Debug\netcoreapp3.0\EventBusRabbitMQ.csprojAssemblyReference.cache
+D:\project\inventory\Inventory\BE\EventBusRabbitMQ\obj\Debug\netcoreapp3.0\EventBusRabbitMQ.AssemblyInfoInputs.cache
+D:\project\inventory\Inventory\BE\EventBusRabbitMQ\obj\Debug\netcoreapp3.0\EventBusRabbitMQ.AssemblyInfo.cs

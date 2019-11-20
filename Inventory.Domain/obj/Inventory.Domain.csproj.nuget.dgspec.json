@@ -1,28 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Domain/Inventory.Domain.csproj": {}
+    "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj": {}
   },
   "projects": {
-    "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Domain/Inventory.Domain.csproj": {
+    "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Domain/Inventory.Domain.csproj",
+        "projectUniqueName": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj",
         "projectName": "Inventory.Domain",
-        "projectPath": "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Domain/Inventory.Domain.csproj",
-        "packagesPath": "/Users/mostafaabdelrasool/.nuget/packages/",
-        "outputPath": "/Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Domain/obj/",
+        "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj",
+        "packagesPath": "C:\\Users\\Maryam\\.nuget\\packages\\",
+        "outputPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/mostafaabdelrasool/.config/NuGet/NuGet.Config"
+          "C:\\Users\\Maryam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -56,7 +58,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

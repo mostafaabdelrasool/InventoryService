@@ -1,0 +1,3 @@
+D:\project\inventory\Inventory\BE\EventBus\obj\Debug\netcoreapp3.0\EventBus.csprojAssemblyReference.cache
+D:\project\inventory\Inventory\BE\EventBus\obj\Debug\netcoreapp3.0\EventBus.AssemblyInfoInputs.cache
+D:\project\inventory\Inventory\BE\EventBus\obj\Debug\netcoreapp3.0\EventBus.AssemblyInfo.cs
