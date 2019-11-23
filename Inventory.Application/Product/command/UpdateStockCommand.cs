@@ -12,12 +12,12 @@ namespace Inventory.Application.Product.command
 {
     public class UpdateStockCommand : INotification
     {
-        public IReadOnlyCollection<OrderDetailDTO> _orderDetails;
-        public UpdateStockCommand(List<OrderProductDetails> OrderDetails)
+        public Orders Order;
+        public UpdateStockCommand(Orders order)
         {
-            _orderDetails = OrderDetails.ToOrderItemsDTO().ToList();
+            Order = order;
         }
-       
+
     }
     public class OrderDetailDTO
     {

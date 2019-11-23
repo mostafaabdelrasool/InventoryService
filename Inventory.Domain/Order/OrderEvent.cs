@@ -7,9 +7,13 @@ namespace Inventory.Domain.Order
 {
     public class OrderEvent : Event
     {
-        public OrderEvent(string data,string eventName, int version)
-            :base(eventName, version,data)
+        public OrderEvent(Guid AggregateId, string data,string eventName, int version)
+            :base(AggregateId,eventName, version,data)
         {
+        }
+        public OrderEvent()
+        {
+
         }
     }
 }

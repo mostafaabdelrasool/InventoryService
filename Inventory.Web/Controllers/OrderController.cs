@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Inventory.Application.Interfaces;
-using Inventory.Application.Order.Commands;
 using Inventory.Application.Product.command;
 using Inventory.Domain.Models;
 using MediatR;
@@ -29,13 +28,13 @@ namespace Inventory.Web.Controllers
         public override async Task<IActionResult> Post([FromBody] Orders entity)
         {
             await _service.CreateAsync(entity, User.Identity.Name, false);
-            await _mediator.Publish(new UpdateStockCommand(entity.OrderDetails.ToList()));
+            await _mediator.Publish(new UpdateStockCommand(entity));
             return Ok(entity);
         }
         public override async Task<IActionResult> Put([FromBody] Orders entity)
         {
             await _service.Update(entity, User.Identity.Name);
-            await _mediator.Publish(new UpdateStockCommand(entity.OrderDetails.ToList()));
+            await _mediator.Publish(new UpdateStockCommand(entity));
             return Ok();
         }
         public async override Task<IActionResult> Get(Guid id)

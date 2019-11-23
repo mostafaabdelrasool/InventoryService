@@ -2,6 +2,36 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.2": {
+      "FreeImage-dotnet-core/4.3.6": {
+        "type": "package",
+        "dependencies": {
+          "System.Drawing-dotnet-core": "1.2.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/FreeImage-dotnet-core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/FreeImage-dotnet-core.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/osx.10.10-x64/native/FreeImage.dylib": {
+            "assetType": "native",
+            "rid": "osx.10.10-x64"
+          },
+          "runtimes/ubuntu.16.04-x64/native/FreeImage.so": {
+            "assetType": "native",
+            "rid": "ubuntu.16.04-x64"
+          },
+          "runtimes/win7-x64/native/FreeImage.dll": {
+            "assetType": "native",
+            "rid": "win7-x64"
+          },
+          "runtimes/win7-x86/native/FreeImage.dll": {
+            "assetType": "native",
+            "rid": "win7-x86"
+          }
+        }
+      },
       "MediatR/6.0.0": {
         "type": "package",
         "compile": {
@@ -795,6 +825,15 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "Newtonsoft.Json/12.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "Remotion.Linq/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -933,6 +972,31 @@
         },
         "runtime": {
           "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {}
+        }
+      },
+      "System.Drawing-dotnet-core/1.2.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Drawing.Primitives": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Drawing-dotnet-core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Drawing-dotnet-core.dll": {}
+        }
+      },
+      "System.Drawing.Primitives/4.3.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0"
+        },
+        "compile": {
+          "ref/netstandard1.1/System.Drawing.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/System.Drawing.Primitives.dll": {}
         }
       },
       "System.Globalization/4.0.11": {
@@ -1172,11 +1236,11 @@
           "ref/netstandard1.0/_._": {}
         }
       },
-      "System.Runtime/4.1.0": {
+      "System.Runtime/4.3.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "Microsoft.NETCore.Targets": "1.0.1"
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0"
         },
         "compile": {
           "ref/netstandard1.5/System.Runtime.dll": {}
@@ -1191,12 +1255,12 @@
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
-      "System.Runtime.Extensions/4.1.0": {
+      "System.Runtime.Extensions/4.3.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "Microsoft.NETCore.Targets": "1.0.1",
-          "System.Runtime": "4.1.0"
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Runtime": "4.3.0"
         },
         "compile": {
           "ref/netstandard1.5/System.Runtime.Extensions.dll": {}
@@ -1374,6 +1438,20 @@
           "bin/placeholder/Inventory.Domain.dll": {}
         }
       },
+      "Inventory.Infrastructrue/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "dependencies": {
+          "FreeImage-dotnet-core": "4.3.6",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "bin/placeholder/Inventory.Infrastructrue.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Inventory.Infrastructrue.dll": {}
+        }
+      },
       "Inventory.Persistance/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
@@ -1396,6 +1474,32 @@
     }
   },
   "libraries": {
+    "FreeImage-dotnet-core/4.3.6": {
+      "sha512": "/BJLq4W1cE633ahRLBNRY2GI89rxzFznsCiWjB7H4FP0V1nGjS0XsI+ALzGXHuRdIGvcxKkpZObKs74qUmx/JA==",
+      "type": "package",
+      "path": "freeimage-dotnet-core/4.3.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "freeimage-dotnet-core.4.3.6.nupkg.sha512",
+        "freeimage-dotnet-core.nuspec",
+        "lib/net40/FreeImage-dotnet-core.dll",
+        "lib/net45/FreeImage-dotnet-core.dll",
+        "lib/net451/FreeImage-dotnet-core.dll",
+        "lib/net452/FreeImage-dotnet-core.dll",
+        "lib/net46/FreeImage-dotnet-core.dll",
+        "lib/net461/FreeImage-dotnet-core.dll",
+        "lib/netstandard1.3/FreeImage-dotnet-core.dll",
+        "lib/netstandard1.4/FreeImage-dotnet-core.dll",
+        "lib/netstandard1.5/FreeImage-dotnet-core.dll",
+        "lib/netstandard1.6/FreeImage-dotnet-core.dll",
+        "lib/netstandard2.0/FreeImage-dotnet-core.dll",
+        "runtimes/osx.10.10-x64/native/FreeImage.dylib",
+        "runtimes/ubuntu.16.04-x64/native/FreeImage.so",
+        "runtimes/win7-x64/native/FreeImage.dll",
+        "runtimes/win7-x86/native/FreeImage.dll"
+      ]
+    },
     "MediatR/6.0.0": {
       "sha512": "R01T5Af1kSH9lBvlxdTeJOr+ugPwfy0FsFq15XsNAIA8GSUYwHW7lfvYGwhBynwJVXWxRwieqxOxCFEV9GO+SQ==",
       "type": "package",
@@ -2540,6 +2644,37 @@
         "netstandard.library.nuspec"
       ]
     },
+    "Newtonsoft.Json/12.0.3": {
+      "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "type": "package",
+      "path": "newtonsoft.json/12.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.12.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
     "Remotion.Linq/2.2.0": {
       "sha512": "fK/76UmpC0FXBlGDFVPLJHQlDLYnGC+XY3eoDgCgbtrhi0vzbXDQ3n/IYHhqSKqXQfGw/u04A1drWs7rFVkRjw==",
       "type": "package",
@@ -2998,6 +3133,53 @@
         "system.diagnostics.diagnosticsource.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "System.Drawing-dotnet-core/1.2.3": {
+      "sha512": "XqfSnTiMhpX/S14v9luajRgG8hFS//sa2QWK3yrTPx3veFMjL0IuAZ5cV0qPEdWQnCtR0kzjKz6W7Wt15KftMA==",
+      "type": "package",
+      "path": "system.drawing-dotnet-core/1.2.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard1.1/System.Drawing-dotnet-core.dll",
+        "lib/netstandard1.2/System.Drawing-dotnet-core.dll",
+        "lib/netstandard1.3/System.Drawing-dotnet-core.dll",
+        "lib/netstandard1.4/System.Drawing-dotnet-core.dll",
+        "lib/netstandard1.5/System.Drawing-dotnet-core.dll",
+        "lib/netstandard1.6/System.Drawing-dotnet-core.dll",
+        "lib/netstandard2.0/System.Drawing-dotnet-core.dll",
+        "system.drawing-dotnet-core.1.2.3.nupkg.sha512",
+        "system.drawing-dotnet-core.nuspec"
+      ]
+    },
+    "System.Drawing.Primitives/4.3.0": {
+      "sha512": "1QU/c35gwdhvj77fkScXQQbjiVAqIL3fEYn/19NE0CV/ic5TN5PyWAft8HsrbRd4SBLEoErNCkWSzMDc0MmbRw==",
+      "type": "package",
+      "path": "system.drawing.primitives/4.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/System.Drawing.Primitives.dll",
+        "lib/netstandard1.1/System.Drawing.Primitives.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/System.Drawing.Primitives.dll",
+        "ref/netstandard1.1/System.Drawing.Primitives.dll",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.drawing.primitives.4.3.0.nupkg.sha512",
+        "system.drawing.primitives.nuspec"
       ]
     },
     "System.Globalization/4.0.11": {
@@ -3920,10 +4102,10 @@
         "system.resources.resourcemanager.nuspec"
       ]
     },
-    "System.Runtime/4.1.0": {
-      "sha512": "v6c/4Yaa9uWsq+JMhnOFewrYkgdNHNG2eMKuNqRn8P733rNXeRCGvV5FkkjBXn2dbVkPXOsO0xjsEeM1q2zC0g==",
+    "System.Runtime/4.3.0": {
+      "sha512": "JufQi0vPQ0xGnAczR13AUFglDyVYt4Kqnz1AZaiKZ5+GICq0/1MH/mO/eAJHt/mHW1zjKBJd7kV26SrxddAhiw==",
       "type": "package",
-      "path": "system.runtime/4.1.0",
+      "path": "system.runtime/4.3.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4008,7 +4190,7 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.runtime.4.1.0.nupkg.sha512",
+        "system.runtime.4.3.0.nupkg.sha512",
         "system.runtime.nuspec"
       ]
     },
@@ -4037,10 +4219,10 @@
         "version.txt"
       ]
     },
-    "System.Runtime.Extensions/4.1.0": {
-      "sha512": "CUOHjTT/vgP0qGW22U4/hDlOqXmcPq5YicBaXdUR2UiUoLwBT+olO6we4DVbq57jeX5uXH2uerVZhf0qGj+sVQ==",
+    "System.Runtime.Extensions/4.3.0": {
+      "sha512": "guW0uK0fn5fcJJ1tJVXYd7/1h5F+pea1r7FLSOz/f8vPEqbR2ZAknuRDvTQ8PzAilDveOxNjSfr0CHfIQfFk8g==",
       "type": "package",
-      "path": "system.runtime.extensions/4.1.0",
+      "path": "system.runtime.extensions/4.3.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4114,7 +4296,7 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.runtime.extensions.4.1.0.nupkg.sha512",
+        "system.runtime.extensions.4.3.0.nupkg.sha512",
         "system.runtime.extensions.nuspec"
       ]
     },
@@ -4620,6 +4802,11 @@
       "path": "../Inventory.Domain/Inventory.Domain.csproj",
       "msbuildProject": "../Inventory.Domain/Inventory.Domain.csproj"
     },
+    "Inventory.Infrastructrue/1.0.0": {
+      "type": "project",
+      "path": "../Inventory.Infrastructrue/Inventory.Infrastructrue.csproj",
+      "msbuildProject": "../Inventory.Infrastructrue/Inventory.Infrastructrue.csproj"
+    },
     "Inventory.Persistance/1.0.0": {
       "type": "project",
       "path": "../Inventory.Infrastructure/Inventory.Persistance.csproj",
@@ -4629,6 +4816,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "Inventory.Domain >= 1.0.0",
+      "Inventory.Infrastructrue >= 1.0.0",
       "Inventory.Persistance >= 1.0.0",
       "MediatR >= 6.0.0",
       "MediatR.Extensions.Microsoft.DependencyInjection >= 6.0.1",
@@ -4667,6 +4855,9 @@
           "projectReferences": {
             "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj": {
               "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj"
+            },
+            "D:\\project\\inventory\\Inventory\\BE\\Inventory.Infrastructrue\\Inventory.Infrastructrue.csproj": {
+              "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Infrastructrue\\Inventory.Infrastructrue.csproj"
             },
             "D:\\project\\inventory\\Inventory\\BE\\Inventory.Infrastructure\\Inventory.Persistance.csproj": {
               "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Infrastructure\\Inventory.Persistance.csproj"

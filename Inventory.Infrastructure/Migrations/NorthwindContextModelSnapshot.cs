@@ -663,6 +663,53 @@ namespace Inventory.Persistance.Migrations
                     b.ToTable("Territories");
                 });
 
+            modelBuilder.Entity("Inventory.Domain.Order.AggregateModel.Address", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("City");
+
+                    b.Property<string>("Country");
+
+                    b.Property<string>("State");
+
+                    b.Property<string>("Street");
+
+                    b.Property<string>("ZipCode");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Address");
+                });
+
+            modelBuilder.Entity("Inventory.Domain.Order.OrderEvent", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<Guid>("AggregateId");
+
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<string>("Data");
+
+                    b.Property<DateTime>("DeleteDate");
+
+                    b.Property<string>("EventType");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<DateTime>("ModifyDate");
+
+                    b.Property<int>("Version");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OrderEvent");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")

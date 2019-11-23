@@ -1,4 +1,4 @@
-﻿using Inventory.Application.Order.model;
+﻿using Inventory.Application.Product.command;
 using Inventory.Domain.Models;
 using Inventory.Persistance.Interfaces;
 using MediatR;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Product.Handlers
 {
-    public class UpdateProductSizeHandler : INotificationHandler<OrderUpdateMessage>
+    public class UpdateProductSizeHandler : INotificationHandler<UpdateStockCommand>
     {
         private IRepository<ProductSizes> _repository;
 
@@ -20,15 +20,15 @@ namespace Inventory.Application.Product.Handlers
 
             _repository = repository;
         }
-        public async Task Handle(OrderUpdateMessage request, CancellationToken cancellationToken)
+        public async Task Handle(UpdateStockCommand request, CancellationToken cancellationToken)
         {
             try
             {
-                var productIds = request.OrderDetails.ToList().Select(x => x.ProductSizeId);
+                var productIds = request.Order.OrderDetails.ToList().Select(x => x.ProductSizeId);
                 var products = await _repository.GetWithIncludeAsync(x => productIds.Any(y => y == x.Id));
                 products.ToList().ForEach(x =>
                 {
-                    x.UnitInStock -= request.OrderDetails.FirstOrDefault(p => p.ProductSizeId == x.Id).Quantity;
+                    x.UnitInStock -= request.Order.OrderDetails.FirstOrDefault(p => p.ProductSizeId == x.Id).Quantity;
                     _repository.Update(x, "");
                 });
                 await _repository.SaveAsync();

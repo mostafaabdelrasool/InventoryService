@@ -6,11 +6,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Inventory.Domain\Inventory.Domain.csproj" />
+    <ProjectReference Include="..\Inventory.Infrastructrue\Inventory.Infrastructrue.csproj" />
     <ProjectReference Include="..\Inventory.Infrastructure\Inventory.Persistance.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Customer\command\" />
+    <Folder Include="Order\model\" />
     <Folder Include="Product\model\" />
   </ItemGroup>
 

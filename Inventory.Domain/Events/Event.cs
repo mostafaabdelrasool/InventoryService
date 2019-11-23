@@ -1,18 +1,23 @@
 ﻿using System;
 namespace Inventory.Domain.Events
 {
-    public class Event:Message
+    public class Event : Entity, Message
     {
-        public Guid Id { get; private set; }
+        public Guid AggregateId { get; private set; }
         public int Version { get; private set; }
-        public string EventName { get; private set; }
+        public string EventType { get; private set; }
         public string Data { get; private set; }
-        public Event(string eventName,int version,string data)
+        public Event(Guid aggregateId,string eventType, int version, string data)
         {
             Id = Guid.NewGuid();
-            EventName = eventName;
+            EventType = eventType;
             Version = version;
             Data = data;
+            AggregateId = aggregateId;
+        }
+        public Event()
+        {
+
         }
         public void SetVersion(int version)
         {

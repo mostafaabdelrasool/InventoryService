@@ -1,5 +1,6 @@
 ﻿using System;
 using Inventory.Domain.Models;
+using Inventory.Domain.Order;
 using Inventory.Domain.Order.AggregateModel;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -32,7 +33,7 @@ namespace Inventory.Persistance.Models
         public virtual DbSet<Suppliers> Suppliers { get; set; }
         public virtual DbSet<Territories> Territories { get; set; }
         public virtual DbSet<Address> Address { get; set; }
-
+        public virtual DbSet<OrderEvent> OrderEvent { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
@@ -446,6 +447,11 @@ namespace Inventory.Persistance.Models
                 entity.Property<int>("Id")  // Id is a shadow property
         .IsRequired();
                 entity.HasKey("Id");
+            });
+            modelBuilder.Entity<OrderEvent>(entity =>
+            {
+                entity.ToTable("OrderEvent");
+                entity.HasKey(e=>e.Id);
             });
         }
     }
