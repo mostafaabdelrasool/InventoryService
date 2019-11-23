@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inventory.Application.Order.Event
+namespace Inventory.Application.Order.Commands
 {
     public class OrderSavedCommand : IOrderSavedCommand
     {

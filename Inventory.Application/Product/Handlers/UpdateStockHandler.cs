@@ -1,4 +1,5 @@
 ﻿using Inventory.Application.Order.model;
+using Inventory.Application.Product.command;
 using Inventory.Domain.Models;
 using Inventory.Persistance.Interfaces;
 using MediatR;
@@ -10,7 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 namespace Inventory.Application.Product.Handlers
 {
-    public class UpdateStockHandler : INotificationHandler<OrderUpdateMessage>
+    public class UpdateStockHandler : INotificationHandler<UpdateStockCommand>
     {
         private IRepository<Products> _repository;
 
@@ -19,7 +20,7 @@ namespace Inventory.Application.Product.Handlers
 
             _repository = repository;
         }
-        public async Task Handle(OrderUpdateMessage request, CancellationToken cancellationToken)
+        public async Task Handle(UpdateStockCommand request, CancellationToken cancellationToken)
         {
             var productIds = request.OrderDetails.ToList().Select(x => x.ProductId);
             var products = await _repository.GetWithIncludeAsync(x => productIds.Any(y => y == x.Id));

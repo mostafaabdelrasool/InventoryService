@@ -1,11 +1,3 @@
-D:/project/inventory/Inventory/BE/Inventory.Infrastructrue/bin/Debug/netcoreapp2.2/Inventory.Infrastructrue.deps.json
-D:/project/inventory/Inventory/BE/Inventory.Infrastructrue/bin/Debug/netcoreapp2.2/Inventory.Infrastructrue.dll
-D:/project/inventory/Inventory/BE/Inventory.Infrastructrue/bin/Debug/netcoreapp2.2/Inventory.Infrastructrue.pdb
-D:/project/inventory/Inventory/BE/Inventory.Infrastructrue/obj/Debug/netcoreapp2.2/Inventory.Infrastructrue.csprojAssemblyReference.cache
-D:/project/inventory/Inventory/BE/Inventory.Infrastructrue/obj/Debug/netcoreapp2.2/Inventory.Infrastructrue.AssemblyInfoInputs.cache
-D:/project/inventory/Inventory/BE/Inventory.Infrastructrue/obj/Debug/netcoreapp2.2/Inventory.Infrastructrue.AssemblyInfo.cs
-D:/project/inventory/Inventory/BE/Inventory.Infrastructrue/obj/Debug/netcoreapp2.2/Inventory.Infrastructrue.dll
-D:/project/inventory/Inventory/BE/Inventory.Infrastructrue/obj/Debug/netcoreapp2.2/Inventory.Infrastructrue.pdb
 /Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Infrastructrue/bin/Debug/netcoreapp2.2/Inventory.Infrastructrue.deps.json
 /Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Infrastructrue/bin/Debug/netcoreapp2.2/Inventory.Infrastructrue.dll
 /Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Infrastructrue/bin/Debug/netcoreapp2.2/Inventory.Infrastructrue.pdb
@@ -14,3 +6,10 @@ D:/project/inventory/Inventory/BE/Inventory.Infrastructrue/obj/Debug/netcoreapp2
 /Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Infrastructrue/obj/Debug/netcoreapp2.2/Inventory.Infrastructrue.AssemblyInfo.cs
 /Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Infrastructrue/obj/Debug/netcoreapp2.2/Inventory.Infrastructrue.dll
 /Users/mostafaabdelrasool/Desktop/Projects/InventoryService/Inventory.Infrastructrue/obj/Debug/netcoreapp2.2/Inventory.Infrastructrue.pdb
+D:\project\inventory\Inventory\BE\Inventory.Infrastructrue\bin\Debug\netcoreapp2.2\Inventory.Infrastructrue.deps.json
+D:\project\inventory\Inventory\BE\Inventory.Infrastructrue\bin\Debug\netcoreapp2.2\Inventory.Infrastructrue.dll
+D:\project\inventory\Inventory\BE\Inventory.Infrastructrue\bin\Debug\netcoreapp2.2\Inventory.Infrastructrue.pdb
+D:\project\inventory\Inventory\BE\Inventory.Infrastructrue\obj\Debug\netcoreapp2.2\Inventory.Infrastructrue.AssemblyInfoInputs.cache
+D:\project\inventory\Inventory\BE\Inventory.Infrastructrue\obj\Debug\netcoreapp2.2\Inventory.Infrastructrue.AssemblyInfo.cs
+D:\project\inventory\Inventory\BE\Inventory.Infrastructrue\obj\Debug\netcoreapp2.2\Inventory.Infrastructrue.dll
+D:\project\inventory\Inventory\BE\Inventory.Infrastructrue\obj\Debug\netcoreapp2.2\Inventory.Infrastructrue.pdb

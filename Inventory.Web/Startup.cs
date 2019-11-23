@@ -28,6 +28,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Inventory.Web.Controllers;
+using EventBusRabbitMQ;
+using RabbitMQ.Client;
+using EventBus.Abstractions;
+using EventBus;
 
 namespace Inventory.Web
 {
@@ -114,7 +118,7 @@ namespace Inventory.Web
             //    );
             //});
             #endregion
-          
+
             #region MVC
             services.AddMvc(options =>
             {
@@ -151,8 +155,70 @@ namespace Inventory.Web
                 });
             });
             #endregion
-        }
+            //#region Message
+            //services.AddSingleton<IRabbitMQPersistentConnection>(sp =>
+            //{
+            //    var logger = sp.GetRequiredService<ILogger<DefaultRabbitMQPersistentConnection>>();
 
+            //    var factory = new ConnectionFactory()
+            //    {
+            //        HostName = Configuration["EventBusConnection"],
+            //        DispatchConsumersAsync = true
+            //    };
+
+            //    if (!string.IsNullOrEmpty(Configuration["EventBusUserName"]))
+            //    {
+            //        factory.UserName = Configuration["EventBusUserName"];
+            //    }
+
+            //    if (!string.IsNullOrEmpty(Configuration["EventBusPassword"]))
+            //    {
+            //        factory.Password = Configuration["EventBusPassword"];
+            //    }
+
+            //    var retryCount = 5;
+            //    if (!string.IsNullOrEmpty(Configuration["EventBusRetryCount"]))
+            //    {
+            //        retryCount = int.Parse(Configuration["EventBusRetryCount"]);
+            //    }
+
+            //    return new DefaultRabbitMQPersistentConnection(factory, logger, retryCount);
+            //});
+            //RegisterEventBus(services);
+            //#endregion
+        }
+        private void RegisterEventBus(IServiceCollection services)
+        {
+            var subscriptionClientName = Configuration["SubscriptionClientName"];
+            services.AddSingleton<IEventBus, EventBusHandlerRabbitMQ>(sp =>
+            {
+                var rabbitMQPersistentConnection = sp.GetRequiredService<IRabbitMQPersistentConnection>();
+                var logger = sp.GetRequiredService<ILogger<EventBusHandlerRabbitMQ>>();
+                var eventBusSubcriptionsManager = sp.GetRequiredService<IEventBusSubscriptionsManager>();
+
+                var retryCount = 5;
+                if (!string.IsNullOrEmpty(Configuration["EventBusRetryCount"]))
+                {
+                    retryCount = int.Parse(Configuration["EventBusRetryCount"]);
+                }
+
+                return new EventBusHandlerRabbitMQ(rabbitMQPersistentConnection,
+                                            logger,
+                                            eventBusSubcriptionsManager,
+                                            subscriptionClientName,
+                                            retryCount);
+            });
+
+
+            services.AddSingleton<IEventBusSubscriptionsManager, InMemoryEventBusSubscriptionsManager>();
+
+        }
+        private void ConfigureEventBus(IApplicationBuilder app)
+        {
+            var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
+
+         //   eventBus.Subscribe<ProductPriceChangedIntegrationEvent, ProductPriceChangedIntegrationEventHandler>();
+        }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
@@ -217,7 +283,9 @@ namespace Inventory.Web
             app.UseMvcWithDefaultRoute();
             app.UseDefaultFiles();
             app.UseStaticFiles();
-
+            //#region Messaging
+            //ConfigureEventBus(app);
+            //#endregion
         }
     }
 }

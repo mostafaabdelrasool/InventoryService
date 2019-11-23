@@ -1,0 +1,102 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.2",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.2": {
+      "EventBusRabbitMQ/1.0.0": {
+        "dependencies": {
+          "EventBus": "1.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "3.0.1",
+          "Polly": "7.1.1",
+          "RabbitMQ.Client": "5.1.2"
+        },
+        "runtime": {
+          "EventBusRabbitMQ.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/3.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "assemblyVersion": "3.0.1.0",
+            "fileVersion": "3.0.119.53103"
+          }
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
+          }
+        }
+      },
+      "Polly/7.1.1": {
+        "runtime": {
+          "lib/netstandard2.0/Polly.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.1.1.0"
+          }
+        }
+      },
+      "RabbitMQ.Client/5.1.2": {
+        "runtime": {
+          "lib/netstandard2.0/RabbitMQ.Client.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.2.0"
+          }
+        }
+      },
+      "EventBus/1.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "EventBus.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "EventBusRabbitMQ/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Extensions.Logging.Abstractions/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hqEFHyp+IJleZ31SVRh/TYm1NKNqVFbxqJ9KN20GguYJ3V/cT4SftxuxTc71MI8cYl3myFAcrXyJf05hxJ3f4Q==",
+      "path": "microsoft.extensions.logging.abstractions/3.0.1",
+      "hashPath": "microsoft.extensions.logging.abstractions.3.0.1.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
+    "Polly/7.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-okRGHVvn0bGCeMBgaCZShlSez8rxjgthyDf/NRTYsSh5kb8IbKnX7W15d3s95Kq9uzwj7tFYiXNrCvn6d0XoeA==",
+      "path": "polly/7.1.1",
+      "hashPath": "polly.7.1.1.nupkg.sha512"
+    },
+    "RabbitMQ.Client/5.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Xhj+un0pw4N7h37SZWptxl/NEv7f1RLHwZhXjqzkCm3w3IdbFJh+HjVyPaciD848BUYLGoEQzadx90nShsbs4Q==",
+      "path": "rabbitmq.client/5.1.2",
+      "hashPath": "rabbitmq.client.5.1.2.nupkg.sha512"
+    },
+    "EventBus/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

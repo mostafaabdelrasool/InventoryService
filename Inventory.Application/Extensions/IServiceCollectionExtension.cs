@@ -1,6 +1,6 @@
 ﻿using Inventory.Application.Customer.query;
 using Inventory.Application.Interfaces;
-using Inventory.Application.Order.Event;
+using Inventory.Application.Order.Commands;
 using Inventory.Application.Product.command;
 using Inventory.Application.Product.query;
 using Inventory.Domain;

@@ -24,7 +24,7 @@ namespace Inventory.Persistance.Models
         public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<Employees> Employees { get; set; }
         public virtual DbSet<EmployeeTerritories> EmployeeTerritories { get; set; }
-        public virtual DbSet<OrderProductDetails> OrderDetails { get; set; }
+        public virtual DbSet<Domain.Models.OrderProductDetails> OrderDetails { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Region> Region { get; set; }
@@ -214,7 +214,7 @@ namespace Inventory.Persistance.Models
                     .HasConstraintName("FK_EmployeeTerritories_Territories");
             });
 
-            modelBuilder.Entity<OrderProductDetails>(entity =>
+            modelBuilder.Entity<Domain.Models.OrderProductDetails>(entity =>
             {
                 entity.HasKey(e => new { e.Id });
 

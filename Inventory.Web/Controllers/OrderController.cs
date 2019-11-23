@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Inventory.Application.Interfaces;
-using Inventory.Application.Order.Event;
+using Inventory.Application.Order.Commands;
+using Inventory.Application.Product.command;
 using Inventory.Domain.Models;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,20 +16,27 @@ namespace Inventory.Web.Controllers
     [ApiController]
     public class OrderController : GenericController<Orders>
     {
-        private readonly IOrderSavedCommand _updateStockCommand;
+        private readonly IMediator _mediator;
         private readonly IService<Orders> _service;
 
-        public OrderController(IService<Orders> service, IOrderSavedCommand updateStockCommand) : base(service)
+        public OrderController(IService<Orders> service,
+           IMediator mediator) : base(service)
         {
-            _updateStockCommand = updateStockCommand;
+            _mediator = mediator;
             _service = service;
             includes.Add(x => x.Customer);
         }
         public override async Task<IActionResult> Post([FromBody] Orders entity)
         {
-            await _service.CreateAsync(entity, "", false);
-            await _updateStockCommand.NotifyOrderSaved(entity.OrderDetails.ToList());
+            await _service.CreateAsync(entity, User.Identity.Name, false);
+            await _mediator.Publish(new UpdateStockCommand(entity.OrderDetails.ToList()));
             return Ok(entity);
+        }
+        public override async Task<IActionResult> Put([FromBody] Orders entity)
+        {
+            await _service.Update(entity, User.Identity.Name);
+            await _mediator.Publish(new UpdateStockCommand(entity.OrderDetails.ToList()));
+            return Ok();
         }
         public async override Task<IActionResult> Get(Guid id)
         {

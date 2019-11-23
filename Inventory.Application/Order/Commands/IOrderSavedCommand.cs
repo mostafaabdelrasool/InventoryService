@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Inventory.Domain.Models;
 
-namespace Inventory.Application.Order.Event
+namespace Inventory.Application.Order.Commands
 {
     public interface IOrderSavedCommand
     {
