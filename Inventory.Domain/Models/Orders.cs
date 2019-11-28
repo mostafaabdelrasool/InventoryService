@@ -1,6 +1,7 @@
 ﻿using Inventory.Domain;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Inventory.Domain.Models
 {
@@ -33,6 +34,7 @@ namespace Inventory.Domain.Models
         public Employees Employee { get; set; }
         public Shippers ShipViaNavigation { get; set; }
         public ICollection<OrderProductDetails> OrderDetails { get; set; }
+      
     }
     public enum ShipStatus
     {

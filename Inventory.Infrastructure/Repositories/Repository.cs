@@ -24,16 +24,6 @@ namespace Inventory.Persistance.Repositories
             this.Set = DatabaseContext.Set<T>();
         }
 
-        public async Task<T> CreateAsync(T value, string createdBy)
-        {
-            if (value == null)
-            {
-                throw new ArgumentNullException();
-            }
-            value.CreateDate = DateTime.Now;
-            await Set.AddAsync(value);
-            return value;
-        }
         public NorthwindContext GetContext()
         {
             return DatabaseContext;
@@ -244,6 +234,10 @@ namespace Inventory.Persistance.Repositories
                 }
             }
             return null;
+        }
+        public async Task<List<T>> SelectQuery(string query, params object[] parameters)
+        {
+            return await Set.FromSql(query, parameters).ToListAsync();
         }
     }
 }

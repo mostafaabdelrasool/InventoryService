@@ -30,5 +30,15 @@ namespace Inventory.Domain.Models
         public byte[] Timestamp { get; set; }
         public ICollection<OrderProductDetails> OrderDetails { get; set; }
         public ICollection<ProductSizes> ProductSizes { get; private set; }
+        public void AddOrReductUnitInStockFromOrder(short currentQuantity, short lasQuantity)
+        {
+            var addOrReducedAmount = currentQuantity - lasQuantity;
+            this.UnitsInStock = addOrReducedAmount > 0 ? (short)(this.UnitsInStock - addOrReducedAmount)
+            : (short)(this.UnitsInStock + (addOrReducedAmount * -1));
+        }
+        public void ReductUnitInStockFromOrder(short currentQuantity)
+        {
+            this.UnitsInStock -= currentQuantity;
+        }
     }
 }

@@ -7,16 +7,19 @@ namespace Inventory.Infrastructrue.Json
 {
     public static class CastJson
     {
-        public static string toJson(this object data)
+       
+        public static string ToJson(this object data)
         {
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             string output = JsonConvert.SerializeObject(data, settings);
             return output;
         }
-        public static T toType<T>(this string data)
+        public static T ToType<T>(this string data)
         {
-            var result=JsonConvert.DeserializeObject<T>(data);
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            var result=JsonConvert.DeserializeObject<T>(data, settings);
             return result;
         }
     }

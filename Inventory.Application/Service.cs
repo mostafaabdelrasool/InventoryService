@@ -41,7 +41,7 @@ namespace Inventory.Application
             try
             {
                 value.CreateDate = DateTime.Now;
-                var result = await repository.CreateAsync(value, createdBy);
+                var result =  repository.Create(value, createdBy);
                 if (save)
                 {
                     await repository.SaveAsync();
@@ -57,12 +57,11 @@ namespace Inventory.Application
         {
             try
             {
-                value.ModifyDate = DateTime.Now;
                 repository.Update(value, updatedBy);
                 await repository.SaveAsync();
                 return value;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;

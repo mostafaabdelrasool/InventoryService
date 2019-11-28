@@ -13,3 +13,4 @@ D:\project\inventory\Inventory\BE\Inventory.Domain\bin\Debug\netcoreapp2.2\Inven
 D:\project\inventory\Inventory\BE\Inventory.Domain\bin\Debug\netcoreapp2.2\Inventory.Domain.pdb
 D:\project\inventory\Inventory\BE\Inventory.Domain\obj\Debug\netcoreapp2.2\Inventory.Domain.dll
 D:\project\inventory\Inventory\BE\Inventory.Domain\obj\Debug\netcoreapp2.2\Inventory.Domain.pdb
+D:\project\inventory\Inventory\BE\Inventory.Domain\obj\Debug\netcoreapp2.2\Inventory.Domain.csprojAssemblyReference.cache

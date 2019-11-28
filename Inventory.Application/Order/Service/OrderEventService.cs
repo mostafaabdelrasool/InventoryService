@@ -18,12 +18,12 @@ namespace Inventory.Application.Order.Service
         {
             _repository = repository;
         }
-        public async Task SaveEvent(Orders order,OrderEventType eventType)
+        public async Task SaveEvent(Orders order, OrderEventType eventType)
         {
             var events = await _repository.GetWithIncludeAsync(x => x.AggregateId == order.Id);
             var result = events.ToList();
-            await _repository.CreateAsync(new OrderEvent(order.Id, order.toJson(),
-               eventType.Name, result.Count == 0 ? 1 : result.Max(x => x.Version)), "");
+            _repository.Create(new OrderEvent(order.Id, order.ToJson(),
+              eventType.Name, result.Count == 0 ? 1 : (result.Max(x => x.Version)) + 1), "");
             await _repository.SaveAsync();
         }
     }

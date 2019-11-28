@@ -1,5 +1,6 @@
 ﻿using Inventory.Application.Customer.query;
 using Inventory.Application.Interfaces;
+using Inventory.Application.Order.Query;
 using Inventory.Application.Order.Service;
 using Inventory.Application.Product.query;
 using Inventory.Domain;
@@ -20,6 +21,7 @@ namespace Inventory.Application.Extensions
             services.AddScoped<IProductQueryService, ProductQueryService>();
             services.AddScoped(typeof(IService<>), typeof(Service<>));
             services.AddScoped<IOrderEventService, OrderEventService>();
+            services.AddScoped<IQueryOrderEvent, QueryOrderEvent>();
             services.AddMediatR(Assembly.GetExecutingAssembly());
             return services;
         }

@@ -10,7 +10,6 @@ namespace Inventory.Persistance.Interfaces
 {
     public interface IRepository<T> 
     {
-        Task<T> CreateAsync(T value, string createdBy);
         Task<List<T>> CreateRangeAsync(List<T> values, string createdBy);
         List<T> CreateRange(List<T> values, string createdBy);
         Task<T> DeleteAsync(Guid id, string deletdBy);
@@ -35,5 +34,6 @@ namespace Inventory.Persistance.Interfaces
         Task<List<T>> DynamicQuery(List<string> filter, params Expression<Func<T, object>>[] includes);
         void PartialUpdate(T value, List<string> properties);
         Task<T> ReadOneAsync(Guid id, params string[] includes);
+        Task<List<T>> SelectQuery(string query, params object[] parameters);
     }
 }

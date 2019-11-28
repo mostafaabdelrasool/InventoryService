@@ -32,6 +32,7 @@ using EventBusRabbitMQ;
 using RabbitMQ.Client;
 using EventBus.Abstractions;
 using EventBus;
+using Inventory.Application.Config;
 
 namespace Inventory.Web
 {
@@ -186,6 +187,12 @@ namespace Inventory.Web
             //});
             //RegisterEventBus(services);
             //#endregion
+            #region config
+            IConfigurationSection sec = Configuration.GetSection("ConnectionStrings:DefaultConnection");
+            services.Configure<ConnectionsConfig>(op=> {
+                op.ConnectionString = sec.Value;
+            });
+            #endregion
         }
         private void RegisterEventBus(IServiceCollection services)
         {
