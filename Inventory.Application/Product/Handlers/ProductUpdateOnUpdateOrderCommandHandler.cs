@@ -36,7 +36,7 @@ namespace Inventory.Application.Product.Handlers
                 var currentOrder = notification.Order.OrderDetails.FirstOrDefault(p => p.ProductId == x.Id);
                 if (lastOrder != null)
                 {
-                    x.AddOrReductUnitInStockFromOrder(currentOrder.Quantity, currentOrder.Quantity);
+                    x.AddOrReductUnitInStockFromOrder(currentOrder.Quantity, lastOrder.Quantity);
                 }
                 else
                 {

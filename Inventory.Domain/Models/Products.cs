@@ -40,5 +40,9 @@ namespace Inventory.Domain.Models
         {
             this.UnitsInStock -= currentQuantity;
         }
+        public void RevertItemToStock(short currentQuantity)
+        {
+            this.UnitsInStock += currentQuantity;
+        }
     }
 }

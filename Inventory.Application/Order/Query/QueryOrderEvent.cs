@@ -31,8 +31,13 @@ namespace Inventory.Application.Order.Query
             @"select Data,version from OrderEvent where version =(
              Select Max(version) 
                 From OrderEvent )
-				and AggregateId=@OrderId"
-                 , new { OrderId }
+				and AggregateId=@OrderId and (EventType=@UpdateEvent or EventType=@CreateEvent)"
+                 , new
+                 {
+                     OrderId = OrderId,
+                     UpdateEvent = OrderEventType.OrderUpdated.Name,
+                     CreateEvent = OrderEventType.OrderCreated.Name
+                 }
              );
                 if (result.AsList().Count > 0)
                     return mapToOrder(result.AsList()[0]);

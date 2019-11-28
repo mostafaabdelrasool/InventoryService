@@ -9,6 +9,6 @@ namespace Inventory.Domain.Order
     public interface IOrderEventService
     {
         Task SaveEvent(Orders order, OrderEventType eventType);
-       
+        Task SaveEvent(dynamic data, OrderEventType eventType);
     }
 }

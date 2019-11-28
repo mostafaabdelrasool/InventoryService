@@ -19,6 +19,7 @@ namespace Inventory.Persistance.Interfaces
         void Attach(T entity);
         Task<int> SaveAsync();
         T Update(T value, string updatedBy);
+        Task<T> GetFirtOrDefaultAsync(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes);
         Task<IEnumerable<T>> GetWithIncludeAsync(
             Expression<Func<T, bool>> predicate,
             params Expression<Func<T, object>>[] includes);

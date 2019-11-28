@@ -239,5 +239,11 @@ namespace Inventory.Persistance.Repositories
         {
             return await Set.FromSql(query, parameters).ToListAsync();
         }
+
+        public Task<T> GetFirtOrDefaultAsync(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes)
+        {
+            IQueryable<T> query = SetIncludeWithFilter(predicate, null, includes);
+            return query.FirstOrDefaultAsync();
+        }
     }
 }
