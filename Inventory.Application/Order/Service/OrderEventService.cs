@@ -26,13 +26,6 @@ namespace Inventory.Application.Order.Service
               eventType.Name, result.Count == 0 ? 1 : (result.Max(x => x.Version)) + 1), "");
             await _repository.SaveAsync();
         }
-        public async Task SaveEvent(dynamic data, OrderEventType eventType)
-        {
-            List<OrderEvent> result = await GetOrderEvent(data.OrderId);
-            _repository.Create(new OrderEvent(data.OrderId, data.ToJson(),
-              eventType.Name, result.Count == 0 ? 1 : (result.Max(x => x.Version)) + 1), "");
-            await _repository.SaveAsync();
-        }
         private async Task<List<OrderEvent>> GetOrderEvent(Guid orderId)
         {
             var events = await _repository.GetWithIncludeAsync(x => x.AggregateId == orderId);

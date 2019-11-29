@@ -45,10 +45,9 @@ namespace Inventory.Web.Controllers
         }
         [HttpPut]
         [Route("[action]")]
-        public async Task<IActionResult> DeleteOrderItem([FromBody] OrderDetailDTO entity)
+        public async Task<IActionResult> DeleteOrderItem([FromBody] Orders entity)
         {
-            await _mediator.Publish(new DeleteOrderItemCommand(entity.Id, entity.OrderId,
-                entity.ProductId, entity.ProductSizeId, entity.Quantity));
+            await _mediator.Publish(new DeleteOrderItemCommand(entity));
             return Ok();
         }
         public async override Task<IActionResult> Get(Guid id)

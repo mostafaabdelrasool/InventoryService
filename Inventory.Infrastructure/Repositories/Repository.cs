@@ -143,14 +143,12 @@ namespace Inventory.Persistance.Repositories
             entity.State = EntityState.Modified;
         }
 
-        public async Task<T> RemoveAsync(Guid id, string removedBy)
+        public void Remove(Guid id, string removedBy)
         {
             try
             {
                 T value = new T { Id = id };
                 DatabaseContext.Remove(value);
-                await SaveAsync();
-                return value;
             }
             catch (Exception ex)
             {

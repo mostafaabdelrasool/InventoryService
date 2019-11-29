@@ -9,7 +9,7 @@ namespace Inventory.Application.Interfaces
     {
         Task<T> CreateAsync(T value,string createdBy,bool save=true);
         Task DeleteAsync(Guid id, string deletedBy);
-        Task<T> RemoveAsync(Guid id, string removedBy);
+        Task RemoveAsync(Guid id, string removedBy);
         Task<IEnumerable<T>> ListAsync(List<Expression<Func<T, object>>> includes=null);
         Task<T> GetAsync(Guid id, List<Expression<Func<T, object>>> includes=null);
         Task<T> Update(T value,string updatedBy);

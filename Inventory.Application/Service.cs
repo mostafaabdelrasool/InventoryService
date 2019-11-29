@@ -79,11 +79,12 @@ namespace Inventory.Application
                 throw;
             }
         }
-        public async Task<T> RemoveAsync(Guid id, string removedBy)
+        public async Task RemoveAsync(Guid id, string removedBy)
         {
             try
             {
-                return await repository.RemoveAsync(id, removedBy);
+                repository.Remove(id, removedBy);
+                await repository.SaveAsync();
             }
             catch (Exception)
             {
