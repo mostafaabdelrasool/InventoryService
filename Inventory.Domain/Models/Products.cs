@@ -23,6 +23,7 @@ namespace Inventory.Domain.Models
         public short? ReorderLevel { get; set; }
         public bool Discontinued { get; set; }
         public decimal? CostPrice { get; set; }
+        public decimal? Discount { get; set; }
         public Categories Category { get; set; }
         public Suppliers Supplier { get; set; }
         public string image { get; set; }
