@@ -27,20 +27,24 @@ namespace Inventory.Application.Product.Handlers
         public async Task Handle(UpdateOrderCommand notification, CancellationToken cancellationToken)
         {
             var lastEvent = await _queryOrderEvent.GetLastEvent(notification.Order.Id);
-            var productIds = notification.Order.OrderDetails.ToList().Select(x => x.ProductId);
-            var products = await _repository.GetWithIncludeAsync(x => productIds.Any(y => y == x.Id));
+            var productIds = notification.Order.OrderDetails.ToList().GroupBy(x=>x.ProductId)
+                .Select(x=>new { x.Key,Total=x.Sum(y=>y.Quantity)});
+            var products = await _repository.GetWithIncludeAsync(x => productIds.Any(y => y.Key == x.Id));
             products.ToList().ForEach(x =>
             {
-                var lastOrder = lastEvent != null? lastEvent.OrderDetails.ToList().Find(i => i.ProductId == x.Id)
-                :null;
-                var currentOrder = notification.Order.OrderDetails.FirstOrDefault(p => p.ProductId == x.Id);
-                if (lastOrder != null)
+                var itemInLastOrder = lastEvent != null? lastEvent.OrderDetails.ToList().GroupBy(y => y.ProductId)
+                .Select(y => new { y.Key, Total = y.Sum(z=> z.Quantity) }).FirstOrDefault()
+                : null;
+                var itemInCurrentOrder = productIds.FirstOrDefault(p => p.Key == x.Id);
+              
+                if (itemInLastOrder != null)
                 {
-                    x.AddOrReductUnitInStockFromOrder(currentOrder.Quantity, lastOrder.Quantity);
+                    x.AddOrReductUnitInStockFromOrder((short)itemInCurrentOrder.Total, 
+                        (short)itemInLastOrder.Total);
                 }
                 else
                 {
-                    x.ReductUnitInStockFromOrder(currentOrder.Quantity);
+                    x.ReductUnitInStockFromOrder((short)itemInCurrentOrder.Total);
                 }
 
                 _repository.Update(x, "");
