@@ -22,6 +22,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Product.Application.Integration;
 using Product.Persistance;
 using RabbitMQ.Client;
 using Swashbuckle.AspNetCore.Swagger;
@@ -161,12 +162,12 @@ namespace Product.Web
 
 
             services.AddSingleton<IEventBusSubscriptionsManager, InMemoryEventBusSubscriptionsManager>();
-            //services.AddTransient<UpdateOrderItemStockEventHandler>();
+            services.AddTransient<UpdateOrderItemStockEventHandler>();
         }
         private void ConfigureEventBus(IApplicationBuilder app)
         {
             var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
-            //eventBus.Subscribe<UpdateOrderItemStockEvent, UpdateOrderItemStockEventHandler>();
+            eventBus.Subscribe<UpdateOrderItemStockEvent, UpdateOrderItemStockEventHandler>();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

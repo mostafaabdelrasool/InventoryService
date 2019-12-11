@@ -267,6 +267,68 @@
         }
       }
     },
+    "D:\\project\\inventory\\Inventory\\BE\\Product.Application\\Product.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\project\\inventory\\Inventory\\BE\\Product.Application\\Product.Application.csproj",
+        "projectName": "Product.Application",
+        "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Product.Application\\Product.Application.csproj",
+        "packagesPath": "C:\\Users\\Maryam\\.nuget\\packages\\",
+        "outputPath": "D:\\project\\inventory\\Inventory\\BE\\Product.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Maryam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "D:\\project\\inventory\\Inventory\\BE\\EventBus\\EventBus.csproj": {
+                "projectPath": "D:\\project\\inventory\\Inventory\\BE\\EventBus\\EventBus.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "D:\\project\\inventory\\Inventory\\BE\\Product.Domain\\Product.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -440,6 +502,12 @@
               },
               "D:\\project\\inventory\\Inventory\\BE\\EventBus\\EventBus.csproj": {
                 "projectPath": "D:\\project\\inventory\\Inventory\\BE\\EventBus\\EventBus.csproj"
+              },
+              "D:\\project\\inventory\\Inventory\\BE\\Product.Application\\Product.Application.csproj": {
+                "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Product.Application\\Product.Application.csproj"
+              },
+              "D:\\project\\inventory\\Inventory\\BE\\Product.Domain\\Product.Domain.csproj": {
+                "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Product.Domain\\Product.Domain.csproj"
               },
               "D:\\project\\inventory\\Inventory\\BE\\Product.Persistance\\Product.Persistance.csproj": {
                 "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Product.Persistance\\Product.Persistance.csproj"

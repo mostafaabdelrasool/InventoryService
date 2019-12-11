@@ -27,3 +27,5 @@ D:\project\inventory\Inventory\BE\Product.Web\bin\Debug\netcoreapp2.2\Product.Pe
 D:\project\inventory\Inventory\BE\Product.Web\bin\Debug\netcoreapp2.2\Product.Persistance.pdb
 D:\project\inventory\Inventory\BE\Product.Web\bin\Debug\netcoreapp2.2\Domain.Service.pdb
 D:\project\inventory\Inventory\BE\Product.Web\bin\Debug\netcoreapp2.2\Product.Domain.pdb
+D:\project\inventory\Inventory\BE\Product.Web\bin\Debug\netcoreapp2.2\Product.Application.dll
+D:\project\inventory\Inventory\BE\Product.Web\bin\Debug\netcoreapp2.2\Product.Application.pdb

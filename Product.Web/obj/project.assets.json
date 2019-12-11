@@ -4620,6 +4620,19 @@
           "bin/placeholder/Inventory.Infrastructrue.dll": {}
         }
       },
+      "Product.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "dependencies": {
+          "EventBus": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Product.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Product.Application.dll": {}
+        }
+      },
       "Product.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
@@ -12591,6 +12604,11 @@
       "path": "../Inventory.Infrastructrue/Inventory.Infrastructrue.csproj",
       "msbuildProject": "../Inventory.Infrastructrue/Inventory.Infrastructrue.csproj"
     },
+    "Product.Application/1.0.0": {
+      "type": "project",
+      "path": "../Product.Application/Product.Application.csproj",
+      "msbuildProject": "../Product.Application/Product.Application.csproj"
+    },
     "Product.Domain/1.0.0": {
       "type": "project",
       "path": "../Product.Domain/Product.Domain.csproj",
@@ -12611,6 +12629,8 @@
       "Microsoft.NETCore.App >= 2.2.0",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.9.5",
       "Newtonsoft.Json >= 12.0.3",
+      "Product.Application >= 1.0.0",
+      "Product.Domain >= 1.0.0",
       "Product.Persistance >= 1.0.0",
       "Swashbuckle.AspNetCore.Swagger >= 3.0.0",
       "Swashbuckle.AspNetCore.SwaggerGen >= 3.0.0",
@@ -12652,6 +12672,12 @@
             },
             "D:\\project\\inventory\\Inventory\\BE\\EventBus\\EventBus.csproj": {
               "projectPath": "D:\\project\\inventory\\Inventory\\BE\\EventBus\\EventBus.csproj"
+            },
+            "D:\\project\\inventory\\Inventory\\BE\\Product.Application\\Product.Application.csproj": {
+              "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Product.Application\\Product.Application.csproj"
+            },
+            "D:\\project\\inventory\\Inventory\\BE\\Product.Domain\\Product.Domain.csproj": {
+              "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Product.Domain\\Product.Domain.csproj"
             },
             "D:\\project\\inventory\\Inventory\\BE\\Product.Persistance\\Product.Persistance.csproj": {
               "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Product.Persistance\\Product.Persistance.csproj"

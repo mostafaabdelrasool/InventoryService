@@ -20,6 +20,8 @@
   <ItemGroup>
     <ProjectReference Include="..\EventBusRabbitMQ\EventBusRabbitMQ.csproj" />
     <ProjectReference Include="..\EventBus\EventBus.csproj" />
+    <ProjectReference Include="..\Product.Application\Product.Application.csproj" />
+    <ProjectReference Include="..\Product.Domain\Product.Domain.csproj" />
     <ProjectReference Include="..\Product.Persistance\Product.Persistance.csproj" />
   </ItemGroup>
 

@@ -31,6 +31,8 @@
           "Microsoft.NETCore.App": "2.2.0",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.9.5",
           "Newtonsoft.Json": "12.0.3",
+          "Product.Application": "1.0.0",
+          "Product.Domain": "1.0.0",
           "Product.Persistance": "1.0.0",
           "Swashbuckle.AspNetCore.Swagger": "3.0.0",
           "Swashbuckle.AspNetCore.SwaggerGen": "3.0.0",
@@ -442,6 +444,17 @@
         },
         "compile": {
           "Inventory.Infrastructrue.dll": {}
+        }
+      },
+      "Product.Application/1.0.0": {
+        "dependencies": {
+          "EventBus": "1.0.0"
+        },
+        "runtime": {
+          "Product.Application.dll": {}
+        },
+        "compile": {
+          "Product.Application.dll": {}
         }
       },
       "Product.Domain/1.0.0": {
@@ -3730,6 +3743,11 @@
       "sha512": ""
     },
     "Inventory.Infrastructrue/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Product.Application/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

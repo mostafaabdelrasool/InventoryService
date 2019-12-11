@@ -209,12 +209,6 @@ namespace Inventory.Web
 
 
             services.AddSingleton<IEventBusSubscriptionsManager, InMemoryEventBusSubscriptionsManager>();
-            services.AddTransient<UpdateOrderItemStockEventHandler>();
-        }
-        private void ConfigureEventBus(IApplicationBuilder app)
-        {
-            var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
-            eventBus.Subscribe<UpdateOrderItemStockEvent, UpdateOrderItemStockEventHandler>();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -280,9 +274,6 @@ namespace Inventory.Web
             app.UseMvcWithDefaultRoute();
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            #region Messaging
-            ConfigureEventBus(app);
-            #endregion
         }
     }
 }
