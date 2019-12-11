@@ -1,0 +1,7 @@
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Debug\netcoreapp3.0\Product.Persistance.deps.json
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Debug\netcoreapp3.0\Product.Persistance.dll
+D:\project\inventory\Inventory\BE\Product.Persistance\obj\Debug\netcoreapp3.0\Product.Persistance.csprojAssemblyReference.cache
+D:\project\inventory\Inventory\BE\Product.Persistance\obj\Debug\netcoreapp3.0\Product.Persistance.AssemblyInfoInputs.cache
+D:\project\inventory\Inventory\BE\Product.Persistance\obj\Debug\netcoreapp3.0\Product.Persistance.AssemblyInfo.cs
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Debug\netcoreapp3.0\Product.Persistance.runtimeconfig.json
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Debug\netcoreapp3.0\Product.Persistance.runtimeconfig.dev.json

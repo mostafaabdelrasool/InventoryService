@@ -1434,6 +1434,16 @@
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
       },
+      "Domain.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "compile": {
+          "bin/placeholder/Domain.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.Service.dll": {}
+        }
+      },
       "EventBus/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
@@ -1450,6 +1460,9 @@
       "Inventory.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
+        "dependencies": {
+          "Domain.Service": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Inventory.Domain.dll": {}
         },
@@ -4855,6 +4868,11 @@
         "system.threading.tasks.4.0.11.nupkg.sha512",
         "system.threading.tasks.nuspec"
       ]
+    },
+    "Domain.Service/1.0.0": {
+      "type": "project",
+      "path": "../Domain.Service/Domain.Service.csproj",
+      "msbuildProject": "../Domain.Service/Domain.Service.csproj"
     },
     "EventBus/1.0.0": {
       "type": "project",

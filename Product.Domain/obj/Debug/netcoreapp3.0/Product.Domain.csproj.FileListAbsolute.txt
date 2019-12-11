@@ -1,0 +1,3 @@
+D:\project\inventory\Inventory\BE\Product.Domain\obj\Debug\netcoreapp3.0\Product.Domain.csprojAssemblyReference.cache
+D:\project\inventory\Inventory\BE\Product.Domain\obj\Debug\netcoreapp3.0\Product.Domain.AssemblyInfoInputs.cache
+D:\project\inventory\Inventory\BE\Product.Domain\obj\Debug\netcoreapp3.0\Product.Domain.AssemblyInfo.cs

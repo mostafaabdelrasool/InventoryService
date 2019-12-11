@@ -24,3 +24,5 @@ D:\project\inventory\Inventory\BE\Inventory.Infrastructure\bin\Debug\netcoreapp2
 D:\project\inventory\Inventory\BE\Inventory.Infrastructure\bin\Debug\netcoreapp2.2\Inventory.Domain.dll
 D:\project\inventory\Inventory\BE\Inventory.Infrastructure\bin\Debug\netcoreapp2.2\Inventory.Domain.pdb
 D:\project\inventory\Inventory\BE\Inventory.Infrastructure\obj\Debug\netcoreapp2.2\Inventory.Persistance.csproj.CopyComplete
+D:\project\inventory\Inventory\BE\Inventory.Infrastructure\bin\Debug\netcoreapp2.2\Domain.Service.dll
+D:\project\inventory\Inventory\BE\Inventory.Infrastructure\bin\Debug\netcoreapp2.2\Domain.Service.pdb

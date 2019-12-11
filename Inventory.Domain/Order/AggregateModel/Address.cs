@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Domain.Service;
+using System;
 using System.Collections.Generic;
-using Inventory.Domain.Service;
 
 namespace Inventory.Domain.Order.AggregateModel
 {

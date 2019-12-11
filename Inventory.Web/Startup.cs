@@ -145,7 +145,7 @@ namespace Inventory.Web
                 });
             });
             #endregion
-            //#region Message
+            #region RabbitMQ
             services.AddSingleton<IRabbitMQPersistentConnection>(sp =>
             {
                 var logger = sp.GetRequiredService<ILogger<DefaultRabbitMQPersistentConnection>>();
@@ -175,7 +175,7 @@ namespace Inventory.Web
                 return new DefaultRabbitMQPersistentConnection(factory, logger, retryCount);
             });
             RegisterEventBus(services);
-            //#endregion
+            #endregion
             #region config
             IConfigurationSection sec = Configuration.GetSection("ConnectionStrings:DefaultConnection");
             services.Configure<ConnectionsConfig>(op =>
@@ -280,9 +280,9 @@ namespace Inventory.Web
             app.UseMvcWithDefaultRoute();
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            //#region Messaging
+            #region Messaging
             ConfigureEventBus(app);
-            //#endregion
+            #endregion
         }
     }
 }

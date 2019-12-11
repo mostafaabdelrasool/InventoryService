@@ -1,0 +1,15 @@
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Debug\netcoreapp2.2\Product.Persistance.deps.json
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Debug\netcoreapp2.2\Product.Persistance.runtimeconfig.json
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Debug\netcoreapp2.2\Product.Persistance.runtimeconfig.dev.json
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Debug\netcoreapp2.2\Product.Persistance.dll
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Debug\netcoreapp2.2\Product.Persistance.pdb
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Debug\netcoreapp2.2\Domain.Service.dll
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Debug\netcoreapp2.2\Product.Domain.dll
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Debug\netcoreapp2.2\Product.Domain.pdb
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Debug\netcoreapp2.2\Domain.Service.pdb
+D:\project\inventory\Inventory\BE\Product.Persistance\obj\Debug\netcoreapp2.2\Product.Persistance.csprojAssemblyReference.cache
+D:\project\inventory\Inventory\BE\Product.Persistance\obj\Debug\netcoreapp2.2\Product.Persistance.AssemblyInfoInputs.cache
+D:\project\inventory\Inventory\BE\Product.Persistance\obj\Debug\netcoreapp2.2\Product.Persistance.AssemblyInfo.cs
+D:\project\inventory\Inventory\BE\Product.Persistance\obj\Debug\netcoreapp2.2\Product.Persistance.csproj.CopyComplete
+D:\project\inventory\Inventory\BE\Product.Persistance\obj\Debug\netcoreapp2.2\Product.Persistance.dll
+D:\project\inventory\Inventory\BE\Product.Persistance\obj\Debug\netcoreapp2.2\Product.Persistance.pdb

@@ -1,4 +1,4 @@
-﻿using Inventory.Domain.Service;
+﻿using Domain.Service;
 using System;
 using System.Collections.Generic;
 using System.Text;

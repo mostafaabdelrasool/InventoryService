@@ -207,6 +207,16 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "Domain.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "compile": {
+          "bin/placeholder/Domain.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.Service.dll": {}
+        }
       }
     }
   },
@@ -679,10 +689,16 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "Domain.Service/1.0.0": {
+      "type": "project",
+      "path": "../Domain.Service/Domain.Service.csproj",
+      "msbuildProject": "../Domain.Service/Domain.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
+      "Domain.Service >= 1.0.0",
       "Microsoft.NETCore.App >= 2.2.0"
     ]
   },
@@ -715,7 +731,11 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\project\\inventory\\Inventory\\BE\\Domain.Service\\Domain.Service.csproj": {
+              "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Domain.Service\\Domain.Service.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

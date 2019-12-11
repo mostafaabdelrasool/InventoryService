@@ -10,7 +10,7 @@
         "dependencies": {
           "EventBus": "1.0.0",
           "Inventory.Infrastructrue": "1.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "3.0.1",
+          "Microsoft.Extensions.Logging.Abstractions": "2.2.0",
           "Polly": "7.1.1",
           "RabbitMQ.Client": "5.1.2"
         },
@@ -51,11 +51,11 @@
           }
         }
       },
-      "Microsoft.Extensions.Logging.Abstractions/3.0.1": {
+      "Microsoft.Extensions.Logging.Abstractions/2.2.0": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
-            "assemblyVersion": "3.0.1.0",
-            "fileVersion": "3.0.119.53103"
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.18315"
           }
         }
       },
@@ -138,12 +138,12 @@
       "path": "freeimage-dotnet-core/4.3.6",
       "hashPath": "freeimage-dotnet-core.4.3.6.nupkg.sha512"
     },
-    "Microsoft.Extensions.Logging.Abstractions/3.0.1": {
+    "Microsoft.Extensions.Logging.Abstractions/2.2.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-hqEFHyp+IJleZ31SVRh/TYm1NKNqVFbxqJ9KN20GguYJ3V/cT4SftxuxTc71MI8cYl3myFAcrXyJf05hxJ3f4Q==",
-      "path": "microsoft.extensions.logging.abstractions/3.0.1",
-      "hashPath": "microsoft.extensions.logging.abstractions.3.0.1.nupkg.sha512"
+      "sha512": "sha512-B2WqEox8o+4KUOpL7rZPyh6qYjik8tHi2tN8Z9jZkHzED8ElYgZa/h6K+xliB435SqUcWT290Fr2aa8BtZjn8A==",
+      "path": "microsoft.extensions.logging.abstractions/2.2.0",
+      "hashPath": "microsoft.extensions.logging.abstractions.2.2.0.nupkg.sha512"
     },
     "Newtonsoft.Json/12.0.3": {
       "type": "package",

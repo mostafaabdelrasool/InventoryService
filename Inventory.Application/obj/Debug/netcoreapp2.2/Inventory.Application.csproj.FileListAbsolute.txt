@@ -28,3 +28,5 @@ D:\project\inventory\Inventory\BE\Inventory.Application\bin\Debug\netcoreapp2.2\
 D:\project\inventory\Inventory\BE\Inventory.Application\bin\Debug\netcoreapp2.2\Inventory.Infrastructrue.pdb
 D:\project\inventory\Inventory\BE\Inventory.Application\bin\Debug\netcoreapp2.2\EventBus.dll
 D:\project\inventory\Inventory\BE\Inventory.Application\bin\Debug\netcoreapp2.2\EventBus.pdb
+D:\project\inventory\Inventory\BE\Inventory.Application\bin\Debug\netcoreapp2.2\Domain.Service.dll
+D:\project\inventory\Inventory\BE\Inventory.Application\bin\Debug\netcoreapp2.2\Domain.Service.pdb
