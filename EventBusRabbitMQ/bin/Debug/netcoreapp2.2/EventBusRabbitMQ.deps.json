@@ -9,12 +9,46 @@
       "EventBusRabbitMQ/1.0.0": {
         "dependencies": {
           "EventBus": "1.0.0",
+          "Inventory.Infrastructrue": "1.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "3.0.1",
           "Polly": "7.1.1",
           "RabbitMQ.Client": "5.1.2"
         },
         "runtime": {
           "EventBusRabbitMQ.dll": {}
+        }
+      },
+      "FreeImage-dotnet-core/4.3.6": {
+        "dependencies": {
+          "System.Drawing-dotnet-core": "1.2.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FreeImage-dotnet-core.dll": {
+            "assemblyVersion": "4.3.6.0",
+            "fileVersion": "4.3.6.0"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/osx.10.10-x64/native/FreeImage.dylib": {
+            "rid": "osx.10.10-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ubuntu.16.04-x64/native/FreeImage.so": {
+            "rid": "ubuntu.16.04-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win7-x64/native/FreeImage.dll": {
+            "rid": "win7-x64",
+            "assetType": "native",
+            "fileVersion": "3.17.0.0"
+          },
+          "runtimes/win7-x86/native/FreeImage.dll": {
+            "rid": "win7-x86",
+            "assetType": "native",
+            "fileVersion": "3.17.0.0"
+          }
         }
       },
       "Microsoft.Extensions.Logging.Abstractions/3.0.1": {
@@ -49,12 +83,44 @@
           }
         }
       },
+      "System.Drawing-dotnet-core/1.2.3": {
+        "dependencies": {
+          "System.Drawing.Primitives": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Drawing-dotnet-core.dll": {
+            "assemblyVersion": "1.2.3.0",
+            "fileVersion": "1.2.3.0"
+          }
+        }
+      },
+      "System.Drawing.Primitives/4.3.0": {
+        "dependencies": {
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0"
+        }
+      },
+      "System.Runtime/4.3.0": {},
+      "System.Runtime.Extensions/4.3.0": {
+        "dependencies": {
+          "System.Runtime": "4.3.0"
+        }
+      },
       "EventBus/1.0.0": {
         "dependencies": {
           "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "EventBus.dll": {}
+        }
+      },
+      "Inventory.Infrastructrue/1.0.0": {
+        "dependencies": {
+          "FreeImage-dotnet-core": "4.3.6",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "Inventory.Infrastructrue.dll": {}
         }
       }
     }
@@ -64,6 +130,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "FreeImage-dotnet-core/4.3.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/BJLq4W1cE633ahRLBNRY2GI89rxzFznsCiWjB7H4FP0V1nGjS0XsI+ALzGXHuRdIGvcxKkpZObKs74qUmx/JA==",
+      "path": "freeimage-dotnet-core/4.3.6",
+      "hashPath": "freeimage-dotnet-core.4.3.6.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging.Abstractions/3.0.1": {
       "type": "package",
@@ -93,7 +166,40 @@
       "path": "rabbitmq.client/5.1.2",
       "hashPath": "rabbitmq.client.5.1.2.nupkg.sha512"
     },
+    "System.Drawing-dotnet-core/1.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XqfSnTiMhpX/S14v9luajRgG8hFS//sa2QWK3yrTPx3veFMjL0IuAZ5cV0qPEdWQnCtR0kzjKz6W7Wt15KftMA==",
+      "path": "system.drawing-dotnet-core/1.2.3",
+      "hashPath": "system.drawing-dotnet-core.1.2.3.nupkg.sha512"
+    },
+    "System.Drawing.Primitives/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1QU/c35gwdhvj77fkScXQQbjiVAqIL3fEYn/19NE0CV/ic5TN5PyWAft8HsrbRd4SBLEoErNCkWSzMDc0MmbRw==",
+      "path": "system.drawing.primitives/4.3.0",
+      "hashPath": "system.drawing.primitives.4.3.0.nupkg.sha512"
+    },
+    "System.Runtime/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JufQi0vPQ0xGnAczR13AUFglDyVYt4Kqnz1AZaiKZ5+GICq0/1MH/mO/eAJHt/mHW1zjKBJd7kV26SrxddAhiw==",
+      "path": "system.runtime/4.3.0",
+      "hashPath": "system.runtime.4.3.0.nupkg.sha512"
+    },
+    "System.Runtime.Extensions/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-guW0uK0fn5fcJJ1tJVXYd7/1h5F+pea1r7FLSOz/f8vPEqbR2ZAknuRDvTQ8PzAilDveOxNjSfr0CHfIQfFk8g==",
+      "path": "system.runtime.extensions/4.3.0",
+      "hashPath": "system.runtime.extensions.4.3.0.nupkg.sha512"
+    },
     "EventBus/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Inventory.Infrastructrue/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

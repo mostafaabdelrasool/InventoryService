@@ -1434,6 +1434,19 @@
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
       },
+      "EventBus/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "bin/placeholder/EventBus.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EventBus.dll": {}
+        }
+      },
       "Inventory.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
@@ -4843,6 +4856,11 @@
         "system.threading.tasks.nuspec"
       ]
     },
+    "EventBus/1.0.0": {
+      "type": "project",
+      "path": "../EventBus/EventBus.csproj",
+      "msbuildProject": "../EventBus/EventBus.csproj"
+    },
     "Inventory.Domain/1.0.0": {
       "type": "project",
       "path": "../Inventory.Domain/Inventory.Domain.csproj",
@@ -4862,6 +4880,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "Dapper >= 2.0.30",
+      "EventBus >= 1.0.0",
       "Inventory.Domain >= 1.0.0",
       "Inventory.Infrastructrue >= 1.0.0",
       "Inventory.Persistance >= 1.0.0",
@@ -4900,6 +4919,9 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
+            "D:\\project\\inventory\\Inventory\\BE\\EventBus\\EventBus.csproj": {
+              "projectPath": "D:\\project\\inventory\\Inventory\\BE\\EventBus\\EventBus.csproj"
+            },
             "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj": {
               "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Inventory.Domain\\Inventory.Domain.csproj"
             },

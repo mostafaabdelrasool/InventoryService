@@ -26,3 +26,5 @@ D:\project\inventory\Inventory\BE\Inventory.Application\obj\Debug\netcoreapp2.2\
 D:\project\inventory\Inventory\BE\Inventory.Application\obj\Debug\netcoreapp2.2\Inventory.Application.csprojAssemblyReference.cache
 D:\project\inventory\Inventory\BE\Inventory.Application\bin\Debug\netcoreapp2.2\Inventory.Infrastructrue.dll
 D:\project\inventory\Inventory\BE\Inventory.Application\bin\Debug\netcoreapp2.2\Inventory.Infrastructrue.pdb
+D:\project\inventory\Inventory\BE\Inventory.Application\bin\Debug\netcoreapp2.2\EventBus.dll
+D:\project\inventory\Inventory\BE\Inventory.Application\bin\Debug\netcoreapp2.2\EventBus.pdb

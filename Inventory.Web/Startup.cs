@@ -33,6 +33,7 @@ using RabbitMQ.Client;
 using EventBus.Abstractions;
 using EventBus;
 using Inventory.Application.Config;
+using Inventory.Application.Integration;
 
 namespace Inventory.Web
 {
@@ -53,18 +54,6 @@ namespace Inventory.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //#region Core2.1
-            //services.Configure<CookiePolicyOptions>(options =>
-            //{
-            //    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-            //    options.CheckConsentNeeded = context => true;
-            //    options.MinimumSameSitePolicy = SameSiteMode.None;
-            //});
-
-
-            //services.AddMvc()
-            //    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            //#endregion
             #region Sentry
             services.Configure<SentryOptions>(Configuration.GetSection("Sentry"));
             services.AddScoped<IErrorReporter, SentryErrorReporter>();
@@ -157,39 +146,40 @@ namespace Inventory.Web
             });
             #endregion
             //#region Message
-            //services.AddSingleton<IRabbitMQPersistentConnection>(sp =>
-            //{
-            //    var logger = sp.GetRequiredService<ILogger<DefaultRabbitMQPersistentConnection>>();
+            services.AddSingleton<IRabbitMQPersistentConnection>(sp =>
+            {
+                var logger = sp.GetRequiredService<ILogger<DefaultRabbitMQPersistentConnection>>();
 
-            //    var factory = new ConnectionFactory()
-            //    {
-            //        HostName = Configuration["EventBusConnection"],
-            //        DispatchConsumersAsync = true
-            //    };
+                var factory = new ConnectionFactory()
+                {
+                    HostName = Configuration["EventBusConnection"],
+                    DispatchConsumersAsync = true
+                };
 
-            //    if (!string.IsNullOrEmpty(Configuration["EventBusUserName"]))
-            //    {
-            //        factory.UserName = Configuration["EventBusUserName"];
-            //    }
+                if (!string.IsNullOrEmpty(Configuration["EventBusUserName"]))
+                {
+                    factory.UserName = Configuration["EventBusUserName"];
+                }
 
-            //    if (!string.IsNullOrEmpty(Configuration["EventBusPassword"]))
-            //    {
-            //        factory.Password = Configuration["EventBusPassword"];
-            //    }
+                if (!string.IsNullOrEmpty(Configuration["EventBusPassword"]))
+                {
+                    factory.Password = Configuration["EventBusPassword"];
+                }
 
-            //    var retryCount = 5;
-            //    if (!string.IsNullOrEmpty(Configuration["EventBusRetryCount"]))
-            //    {
-            //        retryCount = int.Parse(Configuration["EventBusRetryCount"]);
-            //    }
+                var retryCount = 5;
+                if (!string.IsNullOrEmpty(Configuration["EventBusRetryCount"]))
+                {
+                    retryCount = int.Parse(Configuration["EventBusRetryCount"]);
+                }
 
-            //    return new DefaultRabbitMQPersistentConnection(factory, logger, retryCount);
-            //});
-            //RegisterEventBus(services);
+                return new DefaultRabbitMQPersistentConnection(factory, logger, retryCount);
+            });
+            RegisterEventBus(services);
             //#endregion
             #region config
             IConfigurationSection sec = Configuration.GetSection("ConnectionStrings:DefaultConnection");
-            services.Configure<ConnectionsConfig>(op=> {
+            services.Configure<ConnectionsConfig>(op =>
+            {
                 op.ConnectionString = sec.Value;
             });
             #endregion
@@ -212,19 +202,19 @@ namespace Inventory.Web
                 return new EventBusHandlerRabbitMQ(rabbitMQPersistentConnection,
                                             logger,
                                             eventBusSubcriptionsManager,
+                                            services.BuildServiceProvider(),
                                             subscriptionClientName,
                                             retryCount);
             });
 
 
             services.AddSingleton<IEventBusSubscriptionsManager, InMemoryEventBusSubscriptionsManager>();
-
+            services.AddTransient<UpdateOrderItemStockEventHandler>();
         }
         private void ConfigureEventBus(IApplicationBuilder app)
         {
             var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
-
-         //   eventBus.Subscribe<ProductPriceChangedIntegrationEvent, ProductPriceChangedIntegrationEventHandler>();
+            eventBus.Subscribe<UpdateOrderItemStockEvent, UpdateOrderItemStockEventHandler>();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -291,7 +281,7 @@ namespace Inventory.Web
             app.UseDefaultFiles();
             app.UseStaticFiles();
             //#region Messaging
-            //ConfigureEventBus(app);
+            ConfigureEventBus(app);
             //#endregion
         }
     }

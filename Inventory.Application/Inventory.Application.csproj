@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EventBus\EventBus.csproj" />
     <ProjectReference Include="..\Inventory.Domain\Inventory.Domain.csproj" />
     <ProjectReference Include="..\Inventory.Infrastructrue\Inventory.Infrastructrue.csproj" />
     <ProjectReference Include="..\Inventory.Infrastructure\Inventory.Persistance.csproj" />

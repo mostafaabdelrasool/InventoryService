@@ -9,3 +9,5 @@ D:\project\inventory\Inventory\BE\EventBusRabbitMQ\bin\Debug\netcoreapp2.2\Event
 D:\project\inventory\Inventory\BE\EventBusRabbitMQ\obj\Debug\netcoreapp2.2\EventBusRabbitMQ.csproj.CopyComplete
 D:\project\inventory\Inventory\BE\EventBusRabbitMQ\obj\Debug\netcoreapp2.2\EventBusRabbitMQ.dll
 D:\project\inventory\Inventory\BE\EventBusRabbitMQ\obj\Debug\netcoreapp2.2\EventBusRabbitMQ.pdb
+D:\project\inventory\Inventory\BE\EventBusRabbitMQ\bin\Debug\netcoreapp2.2\Inventory.Infrastructrue.dll
+D:\project\inventory\Inventory\BE\EventBusRabbitMQ\bin\Debug\netcoreapp2.2\Inventory.Infrastructrue.pdb

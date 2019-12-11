@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EventBus.Abstractions;
 using Inventory.Application.Interfaces;
 using Inventory.Application.Order.Commands;
 using Inventory.Application.Product.command;
@@ -18,12 +19,14 @@ namespace Inventory.Web.Controllers
     {
         private readonly IMediator _mediator;
         private readonly IService<Orders> _service;
+        private readonly IEventBus _eventBus;
 
         public OrderController(IService<Orders> service,
-           IMediator mediator) : base(service)
+           IMediator mediator,IEventBus eventBus) : base(service)
         {
             _mediator = mediator;
             _service = service;
+            _eventBus = eventBus;
             includes.Add(x => x.Customer);
         }
         public override async Task<IActionResult> Post([FromBody] Orders entity)
@@ -41,6 +44,7 @@ namespace Inventory.Web.Controllers
             });
             await _service.Update(entity, User.Identity.Name);
             await _mediator.Publish(new UpdateOrderCommand(entity));
+            _eventBus.Publish(new Application.Integration.UpdateOrderItemStockEvent(entity.Id, entity.OrderDetails));
             return Ok();
         }
         [HttpPut]
