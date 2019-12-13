@@ -29,7 +29,7 @@ namespace Product.Web.Seed
                 DataSet ds = new DataSet();
                 OleDbDataAdapter d = new OleDbDataAdapter("SELECT * from [Sheet1$]", con);
                 d.Fill(ds);
-               
+
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
 
@@ -37,7 +37,7 @@ namespace Product.Web.Seed
                     {
                         var total = GetColumValue(row["M"]) + GetColumValue(row["L"]) + GetColumValue(row["XL"])
                             + GetColumValue(row["2XL"]) + GetColumValue(row["3XL"]);
-                        var product = new Domain.Aggregate.Products(row["Name"]+" "+row["rasma"].ToString(), 160, (short)total, 0, 1);
+                        var product = new Domain.Aggregate.Products(row["Name"] + " " + row["rasma"].ToString(), 160, (short)total, 0, 1);
                         product.GetNewProductNumber();
                         if (GetColumValue(row["M"]) != 0)
                         {
@@ -63,18 +63,9 @@ namespace Product.Web.Seed
                     }
                 }
             }
-            
+
             _repostiory.CreateRange(products, "");
-            try
-            {
-                await _repostiory.SaveAsync();
-
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
+            await _repostiory.SaveAsync();
         }
         private int GetColumValue(object value)
         {

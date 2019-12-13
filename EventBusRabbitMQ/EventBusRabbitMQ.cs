@@ -27,7 +27,6 @@ namespace EventBusRabbitMQ
         private readonly IRabbitMQPersistentConnection _persistentConnection;
         private readonly ILogger<EventBusHandlerRabbitMQ> _logger;
         private readonly IEventBusSubscriptionsManager _subsManager;
-        private readonly string AUTOFAC_SCOPE_NAME = "eshop_event_bus";
         private readonly int _retryCount;
         private readonly IServiceProvider _service;
         private IModel _consumerChannel;

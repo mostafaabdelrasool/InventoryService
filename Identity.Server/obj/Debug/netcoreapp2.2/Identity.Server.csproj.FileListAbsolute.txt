@@ -8,9 +8,9 @@ D:\project\inventory\Inventory\BE\Identity.Server\bin\Debug\netcoreapp2.2\Identi
 D:\project\inventory\Inventory\BE\Identity.Server\bin\Debug\netcoreapp2.2\Identity.Server.runtimeconfig.dev.json
 D:\project\inventory\Inventory\BE\Identity.Server\bin\Debug\netcoreapp2.2\Identity.Server.dll
 D:\project\inventory\Inventory\BE\Identity.Server\bin\Debug\netcoreapp2.2\Identity.Server.pdb
-D:\project\inventory\Inventory\BE\Identity.Server\obj\Debug\netcoreapp2.2\Identity.Server.csprojAssemblyReference.cache
 D:\project\inventory\Inventory\BE\Identity.Server\obj\Debug\netcoreapp2.2\Identity.Server.RazorAssemblyInfo.cache
 D:\project\inventory\Inventory\BE\Identity.Server\obj\Debug\netcoreapp2.2\Identity.Server.RazorAssemblyInfo.cs
 D:\project\inventory\Inventory\BE\Identity.Server\obj\Debug\netcoreapp2.2\Identity.Server.RazorTargetAssemblyInfo.cache
 D:\project\inventory\Inventory\BE\Identity.Server\obj\Debug\netcoreapp2.2\Identity.Server.dll
 D:\project\inventory\Inventory\BE\Identity.Server\obj\Debug\netcoreapp2.2\Identity.Server.pdb
+D:\project\inventory\Inventory\BE\Identity.Server\obj\Debug\netcoreapp2.2\Identity.Server.csprojAssemblyReference.cache

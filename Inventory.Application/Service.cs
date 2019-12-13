@@ -61,7 +61,7 @@ namespace Inventory.Application
                 await repository.SaveAsync();
                 return value;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw;

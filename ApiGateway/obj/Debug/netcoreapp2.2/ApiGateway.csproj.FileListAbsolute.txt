@@ -1,0 +1,16 @@
+D:\project\inventory\Inventory\BE\ApiGateway\bin\Debug\netcoreapp2.2\appsettings.Development.json
+D:\project\inventory\Inventory\BE\ApiGateway\bin\Debug\netcoreapp2.2\appsettings.json
+D:\project\inventory\Inventory\BE\ApiGateway\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
+D:\project\inventory\Inventory\BE\ApiGateway\bin\Debug\netcoreapp2.2\ApiGateway.deps.json
+D:\project\inventory\Inventory\BE\ApiGateway\bin\Debug\netcoreapp2.2\ApiGateway.runtimeconfig.json
+D:\project\inventory\Inventory\BE\ApiGateway\bin\Debug\netcoreapp2.2\ApiGateway.runtimeconfig.dev.json
+D:\project\inventory\Inventory\BE\ApiGateway\bin\Debug\netcoreapp2.2\ApiGateway.dll
+D:\project\inventory\Inventory\BE\ApiGateway\bin\Debug\netcoreapp2.2\ApiGateway.pdb
+D:\project\inventory\Inventory\BE\ApiGateway\obj\Debug\netcoreapp2.2\ApiGateway.RazorAssemblyInfo.cache
+D:\project\inventory\Inventory\BE\ApiGateway\obj\Debug\netcoreapp2.2\ApiGateway.RazorAssemblyInfo.cs
+D:\project\inventory\Inventory\BE\ApiGateway\obj\Debug\netcoreapp2.2\ApiGateway.AssemblyInfoInputs.cache
+D:\project\inventory\Inventory\BE\ApiGateway\obj\Debug\netcoreapp2.2\ApiGateway.AssemblyInfo.cs
+D:\project\inventory\Inventory\BE\ApiGateway\obj\Debug\netcoreapp2.2\ApiGateway.RazorTargetAssemblyInfo.cache
+D:\project\inventory\Inventory\BE\ApiGateway\obj\Debug\netcoreapp2.2\ApiGateway.dll
+D:\project\inventory\Inventory\BE\ApiGateway\obj\Debug\netcoreapp2.2\ApiGateway.pdb
+D:\project\inventory\Inventory\BE\ApiGateway\bin\Debug\netcoreapp2.2\configuration.json
