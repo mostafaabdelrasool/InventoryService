@@ -15,6 +15,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="3.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="3.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUi" Version="3.0.0" />
+    <PackageReference Include="System.Data.OleDb" Version="4.7.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +24,10 @@
     <ProjectReference Include="..\Product.Application\Product.Application.csproj" />
     <ProjectReference Include="..\Product.Domain\Product.Domain.csproj" />
     <ProjectReference Include="..\Product.Persistance\Product.Persistance.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
 
 </Project>

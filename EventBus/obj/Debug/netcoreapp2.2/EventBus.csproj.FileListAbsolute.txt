@@ -5,3 +5,4 @@ D:\project\inventory\Inventory\BE\EventBus\obj\Debug\netcoreapp2.2\EventBus.Asse
 D:\project\inventory\Inventory\BE\EventBus\obj\Debug\netcoreapp2.2\EventBus.AssemblyInfo.cs
 D:\project\inventory\Inventory\BE\EventBus\obj\Debug\netcoreapp2.2\EventBus.dll
 D:\project\inventory\Inventory\BE\EventBus\obj\Debug\netcoreapp2.2\EventBus.pdb
+D:\project\inventory\Inventory\BE\EventBus\obj\Debug\netcoreapp2.2\EventBus.csprojAssemblyReference.cache

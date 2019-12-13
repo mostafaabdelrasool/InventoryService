@@ -16,7 +16,7 @@ namespace Product.Persistance
         }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
-        public virtual DbSet<ProductSize> ProductSize { get; set; }
+        public virtual DbSet<ProductSize> ProductSizes { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
@@ -57,7 +57,7 @@ namespace Product.Persistance
 
                 entity.Property(e => e.ProductName)
                     .IsRequired()
-                    .HasMaxLength(40);
+                    .HasMaxLength(200);
 
                 entity.Property(e => e.QuantityPerUnit).HasMaxLength(20);
 
@@ -75,6 +75,15 @@ namespace Product.Persistance
                     .HasForeignKey(d => d.CategoryId)
                     .HasConstraintName("FK_Products_Categories");
             });
+            modelBuilder.Entity<ProductSize>(entity =>
+            {
+                entity.Property(e => e.ProductId).HasColumnName("ProductId");
+                entity.HasOne(d => d.Products)
+                   .WithMany(d=>d.ProductSizes)
+                   .HasForeignKey(d => d.ProductId)
+                   .HasConstraintName("FK_Products_ProductSizes");
+            });
+
         }
     }
 }

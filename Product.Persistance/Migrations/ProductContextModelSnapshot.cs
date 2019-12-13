@@ -57,19 +57,6 @@ namespace Product.Persistance.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ProductSize");
-                });
-
-            modelBuilder.Entity("Product.Domain.Aggregate.ProductSizes", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
                     b.Property<DateTime>("CreateDate");
 
                     b.Property<DateTime>("DeleteDate");
@@ -80,19 +67,16 @@ namespace Product.Persistance.Migrations
 
                     b.Property<DateTime>("ModifyDate");
 
-                    b.Property<Guid>("ProductId");
+                    b.Property<int>("ProductId")
+                        .HasColumnName("ProductId");
 
-                    b.Property<int?>("ProductsId");
-
-                    b.Property<int?>("SizeId");
+                    b.Property<string>("Size");
 
                     b.Property<int>("UnitInStock");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductsId");
-
-                    b.HasIndex("SizeId");
+                    b.HasIndex("ProductId");
 
                     b.ToTable("ProductSizes");
                 });
@@ -120,9 +104,11 @@ namespace Product.Persistance.Migrations
 
                     b.Property<DateTime>("ModifyDate");
 
+                    b.Property<string>("ProductCode");
+
                     b.Property<string>("ProductName")
                         .IsRequired()
-                        .HasMaxLength(40);
+                        .HasMaxLength(200);
 
                     b.Property<string>("QuantityPerUnit")
                         .HasMaxLength(20);
@@ -161,15 +147,13 @@ namespace Product.Persistance.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("Product.Domain.Aggregate.ProductSizes", b =>
+            modelBuilder.Entity("Product.Domain.Aggregate.ProductSize", b =>
                 {
-                    b.HasOne("Product.Domain.Aggregate.Products")
+                    b.HasOne("Product.Domain.Aggregate.Products", "Products")
                         .WithMany("ProductSizes")
-                        .HasForeignKey("ProductsId");
-
-                    b.HasOne("Product.Domain.Aggregate.ProductSize", "Size")
-                        .WithMany()
-                        .HasForeignKey("SizeId");
+                        .HasForeignKey("ProductId")
+                        .HasConstraintName("FK_Products_ProductSizes")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Product.Domain.Aggregate.Products", b =>

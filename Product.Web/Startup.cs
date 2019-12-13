@@ -24,6 +24,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Product.Application.Integration;
 using Product.Persistance;
+using Product.Persistance.Extensions;
+using Product.Web.Extension;
+using Product.Web.Seed;
 using RabbitMQ.Client;
 using Swashbuckle.AspNetCore.Swagger;
 
@@ -64,9 +67,10 @@ namespace Product.Web
             #region Database 
             services.AddDbContext<ProductContext>(options =>
                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddTransient<InsertProductFromSheet>();
             #endregion
             #region DI
-
+            services.AddPersistance();
             #endregion
             #region CrossOriging
             services.AddCors();

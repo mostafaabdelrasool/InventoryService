@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Text;
 
 namespace Product.Domain.Aggregate
@@ -9,6 +10,7 @@ namespace Product.Domain.Aggregate
     public class Products : Entity, IAggregateRoot
     {
         public string ProductName { get; private set; }
+        public string ProductCode { get; private set; }
         public int? CategoryId { get; private set; }
         public string QuantityPerUnit { get; private set; }
         public decimal? UnitPrice { get; private set; }
@@ -22,8 +24,8 @@ namespace Product.Domain.Aggregate
         public string image { get; private set; }
         [Timestamp]
         public byte[] Timestamp { get; set; }
-        private readonly List<ProductSizes> _productSizes;
-        public IReadOnlyCollection<ProductSizes> ProductSizes => _productSizes;
+        private readonly List<ProductSize> _productSizes;
+        public IReadOnlyCollection<ProductSize> ProductSizes => _productSizes;
         public void AddOrReductUnitInStockFromOrder(short currentQuantity, short lasQuantity)
         {
             var addOrReducedAmount = currentQuantity - lasQuantity;
@@ -38,9 +40,42 @@ namespace Product.Domain.Aggregate
         {
             this.UnitsInStock += currentQuantity;
         }
-        protected Products()
+        public Products()
         {
-            _productSizes = new List<ProductSizes>();
+            _productSizes = new List<ProductSize>();
+        }
+        public Products(string productName, decimal? unitPrice, short? unitsInStock, decimal? discount,
+             int? categoryId) : this()
+        {
+            ProductName = productName;
+            UnitPrice = unitPrice;
+            UnitsInStock = unitsInStock;
+            Discount = discount;
+            CategoryId = categoryId;
+        }
+        public void AddProductSize(string productSize, string dimension, int stock)
+        {
+            var productSizes = new ProductSize(0, productSize, dimension, stock);
+            _productSizes.Add(productSizes);
+        }
+        public void GetNewProductNumber()
+        {
+            var now = DateTime.Now.Ticks; // '1492341545873'
+                                          // pad with extra random digit
+            Random rnd = new Random();
+            now += now + rnd.Next(1, 500);
+            var stringNow = now.ToString();
+            var dates = new List<string> { stringNow.Substring(4, 4), RandomString() };
+            var newNumber = string.Join("-", dates);
+            ProductCode = newNumber;
+        }
+
+        public string RandomString()
+        {
+            Random random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, 4)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
         }
     }
 }

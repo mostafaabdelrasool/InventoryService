@@ -10,8 +10,8 @@ using Product.Persistance;
 namespace Product.Persistance.Migrations
 {
     [DbContext(typeof(ProductContext))]
-    [Migration("20191211124322_init-db")]
-    partial class initdb
+    [Migration("20191213115706_fix-product-size")]
+    partial class fixproductsize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -59,19 +59,6 @@ namespace Product.Persistance.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ProductSize");
-                });
-
-            modelBuilder.Entity("Product.Domain.Aggregate.ProductSizes", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
                     b.Property<DateTime>("CreateDate");
 
                     b.Property<DateTime>("DeleteDate");
@@ -82,19 +69,20 @@ namespace Product.Persistance.Migrations
 
                     b.Property<DateTime>("ModifyDate");
 
-                    b.Property<Guid>("ProductId");
+                    b.Property<int>("ProductId")
+                        .HasColumnName("ProductId");
 
                     b.Property<int?>("ProductsId");
 
-                    b.Property<int?>("SizeId");
+                    b.Property<string>("Size");
 
                     b.Property<int>("UnitInStock");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductsId");
+                    b.HasIndex("ProductId");
 
-                    b.HasIndex("SizeId");
+                    b.HasIndex("ProductsId");
 
                     b.ToTable("ProductSizes");
                 });
@@ -121,6 +109,8 @@ namespace Product.Persistance.Migrations
                     b.Property<bool>("IsDeleted");
 
                     b.Property<DateTime>("ModifyDate");
+
+                    b.Property<string>("ProductCode");
 
                     b.Property<string>("ProductName")
                         .IsRequired()
@@ -163,15 +153,17 @@ namespace Product.Persistance.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("Product.Domain.Aggregate.ProductSizes", b =>
+            modelBuilder.Entity("Product.Domain.Aggregate.ProductSize", b =>
                 {
+                    b.HasOne("Product.Domain.Aggregate.Products", "Products")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .HasConstraintName("FK_Products_ProductSizes")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("Product.Domain.Aggregate.Products")
                         .WithMany("ProductSizes")
                         .HasForeignKey("ProductsId");
-
-                    b.HasOne("Product.Domain.Aggregate.ProductSize", "Size")
-                        .WithMany()
-                        .HasForeignKey("SizeId");
                 });
 
             modelBuilder.Entity("Product.Domain.Aggregate.Products", b =>
