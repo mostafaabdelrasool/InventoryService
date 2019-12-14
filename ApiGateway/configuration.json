@@ -2,7 +2,7 @@
   "ReRoutes": [
     {
       "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "httpz",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
@@ -10,10 +10,10 @@
         }
       ],
       "UpstreamPathTemplate": "/api/Product/{everything}",
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "IdentityApiKey",
-        "AllowedScopes": []
-      }
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "IdentityApiKey",
+      //  "AllowedScopes": []
+      //}
     }
   ],
   "GlobalConfiguration": {

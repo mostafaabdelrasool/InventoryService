@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Ocelot.Administration;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
@@ -18,14 +19,9 @@ namespace ApiGateway
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public Startup(IConfiguration configuration)
         {
-            var builder = new ConfigurationBuilder()
-              .SetBasePath(env.ContentRootPath)
-              .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-              .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-              .AddEnvironmentVariables();
-            Configuration = builder.Build();
+            Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
@@ -34,7 +30,7 @@ namespace ApiGateway
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddOcelot(Configuration);
+            services.AddOcelot(Configuration).AddAdministration("/administration", "secret");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

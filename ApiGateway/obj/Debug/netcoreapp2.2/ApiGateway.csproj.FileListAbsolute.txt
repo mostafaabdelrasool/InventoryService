@@ -14,3 +14,4 @@ D:\project\inventory\Inventory\BE\ApiGateway\obj\Debug\netcoreapp2.2\ApiGateway.
 D:\project\inventory\Inventory\BE\ApiGateway\obj\Debug\netcoreapp2.2\ApiGateway.dll
 D:\project\inventory\Inventory\BE\ApiGateway\obj\Debug\netcoreapp2.2\ApiGateway.pdb
 D:\project\inventory\Inventory\BE\ApiGateway\bin\Debug\netcoreapp2.2\configuration.json
+D:\project\inventory\Inventory\BE\ApiGateway\obj\Debug\netcoreapp2.2\ApiGateway.csprojAssemblyReference.cache

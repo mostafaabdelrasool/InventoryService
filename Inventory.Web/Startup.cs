@@ -255,7 +255,7 @@ namespace Inventory.Web
             #endregion
             #region CrossOriging
             app.UseCors(builder =>
-                       builder.WithOrigins("http://localhost:4200", "http://localhost:3000")
+                       builder.WithOrigins("http://localhost:4200", "http://localhost:3000", "http://localhost:44371")
                        .AllowAnyHeader().AllowAnyMethod());
             #endregion
             app.UseMiddleware<SentryMiddleware>();
