@@ -29,3 +29,5 @@ D:\project\inventory\Inventory\BE\Product.Web\bin\Debug\netcoreapp2.2\Domain.Ser
 D:\project\inventory\Inventory\BE\Product.Web\bin\Debug\netcoreapp2.2\Product.Domain.pdb
 D:\project\inventory\Inventory\BE\Product.Web\bin\Debug\netcoreapp2.2\Product.Application.dll
 D:\project\inventory\Inventory\BE\Product.Web\bin\Debug\netcoreapp2.2\Product.Application.pdb
+D:\project\inventory\Inventory\BE\Product.Web\bin\Debug\netcoreapp2.2\Domain.Application.dll
+D:\project\inventory\Inventory\BE\Product.Web\bin\Debug\netcoreapp2.2\Domain.Application.pdb

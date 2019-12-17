@@ -5,3 +5,4 @@ D:\project\inventory\Inventory\BE\Domain.Service\obj\Debug\netcoreapp2.2\Domain.
 D:\project\inventory\Inventory\BE\Domain.Service\obj\Debug\netcoreapp2.2\Domain.Service.AssemblyInfo.cs
 D:\project\inventory\Inventory\BE\Domain.Service\obj\Debug\netcoreapp2.2\Domain.Service.dll
 D:\project\inventory\Inventory\BE\Domain.Service\obj\Debug\netcoreapp2.2\Domain.Service.pdb
+D:\project\inventory\Inventory\BE\Domain.Service\obj\Debug\netcoreapp2.2\Domain.Service.csprojAssemblyReference.cache

@@ -17,7 +17,7 @@ namespace Product.Domain.Aggregate
             Dimensions = dimensions;
             UnitInStock = unitInStock;
         }
-        protected ProductSize()
+        public ProductSize()
         {
 
         }

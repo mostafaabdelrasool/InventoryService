@@ -9,3 +9,7 @@ D:\project\inventory\Inventory\BE\Product.Application\obj\Debug\netcoreapp2.2\Pr
 D:\project\inventory\Inventory\BE\Product.Application\obj\Debug\netcoreapp2.2\Product.Application.csproj.CopyComplete
 D:\project\inventory\Inventory\BE\Product.Application\obj\Debug\netcoreapp2.2\Product.Application.dll
 D:\project\inventory\Inventory\BE\Product.Application\obj\Debug\netcoreapp2.2\Product.Application.pdb
+D:\project\inventory\Inventory\BE\Product.Application\bin\Debug\netcoreapp2.2\Domain.Service.dll
+D:\project\inventory\Inventory\BE\Product.Application\bin\Debug\netcoreapp2.2\Product.Domain.dll
+D:\project\inventory\Inventory\BE\Product.Application\bin\Debug\netcoreapp2.2\Product.Domain.pdb
+D:\project\inventory\Inventory\BE\Product.Application\bin\Debug\netcoreapp2.2\Domain.Service.pdb

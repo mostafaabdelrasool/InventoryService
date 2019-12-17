@@ -22,6 +22,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Product.Application.Extensions;
 using Product.Application.Integration;
 using Product.Persistance;
 using Product.Persistance.Extensions;
@@ -49,7 +50,6 @@ namespace Product.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             #region MVC
             services.AddMvc(options =>
             {
@@ -71,6 +71,8 @@ namespace Product.Web
             #endregion
             #region DI
             services.AddPersistance();
+            services.AddApplication();
+            services.AddWeb();
             #endregion
             #region CrossOriging
             services.AddCors();
@@ -133,10 +135,10 @@ namespace Product.Web
                   options.TokenValidationParameters = new TokenValidationParameters()
                   {
                       IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetSection("AppConfiguration:Key").Value)),
-                      ValidAudience = Configuration.GetSection("AppConfiguration:SiteUrl").Value,
                       ValidateIssuerSigningKey = true,
                       ValidateLifetime = true,
-                      ValidIssuer = Configuration.GetSection("AppConfiguration:SiteUrl").Value
+                      ValidateAudience = false,
+                      ValidateIssuer = false
                   };
               });
             #endregion

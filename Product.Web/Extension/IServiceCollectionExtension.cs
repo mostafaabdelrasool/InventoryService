@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Domain.Application;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Product.Web.Seed;
 using System;
@@ -18,6 +19,11 @@ namespace Product.Web.Extension
                 seed.Insert().GetAwaiter().GetResult(); ;
             }
             return app;
+        }
+        public static IServiceCollection AddWeb(this IServiceCollection services)
+        {
+            services.AddScoped(typeof(IService<,>), typeof(Service<,>));
+            return services;
         }
     }
 }

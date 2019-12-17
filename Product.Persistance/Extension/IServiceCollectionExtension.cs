@@ -10,6 +10,7 @@ namespace Product.Persistance.Extensions
         public static IServiceCollection AddPersistance(this IServiceCollection services)
         {
             services.AddScoped(typeof(ICommandRepository<>), typeof(CommandRepository<>));
+            services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
             return services;
         }
     }

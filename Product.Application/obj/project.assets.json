@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.2": {
+      "Microsoft.Extensions.DependencyInjection.Abstractions/2.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        }
+      },
       "Microsoft.NETCore.App/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -217,6 +226,16 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "Domain.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "compile": {
+          "bin/placeholder/Domain.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.Service.dll": {}
+        }
+      },
       "EventBus/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
@@ -229,10 +248,36 @@
         "runtime": {
           "bin/placeholder/EventBus.dll": {}
         }
+      },
+      "Product.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "dependencies": {
+          "Domain.Service": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Product.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Product.Domain.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "Microsoft.Extensions.DependencyInjection.Abstractions/2.2.0": {
+      "sha512": "f9hstgjVmr6rmrfGSpfsVOl2irKAgr1QjrSi3FgnS7kulxband50f2brRLwySAQTADPZeTdow0mpSMcoAdadCw==",
+      "type": "package",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "microsoft.extensions.dependencyinjection.abstractions.2.2.0.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.nuspec"
+      ]
+    },
     "Microsoft.NETCore.App/2.2.0": {
       "sha512": "7z5l8Jp324S8bU8+yyWeYHXUFYvKyiI5lqS1dXgTzOx1H69Qbf6df12kCKlNX45LpMfCMd4U3M6p7Rl5Zk7SLA==",
       "type": "package",
@@ -733,16 +778,28 @@
         "packageIcon.png"
       ]
     },
+    "Domain.Service/1.0.0": {
+      "type": "project",
+      "path": "../Domain.Service/Domain.Service.csproj",
+      "msbuildProject": "../Domain.Service/Domain.Service.csproj"
+    },
     "EventBus/1.0.0": {
       "type": "project",
       "path": "../EventBus/EventBus.csproj",
       "msbuildProject": "../EventBus/EventBus.csproj"
+    },
+    "Product.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Product.Domain/Product.Domain.csproj",
+      "msbuildProject": "../Product.Domain/Product.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "EventBus >= 1.0.0",
-      "Microsoft.NETCore.App >= 2.2.0"
+      "Microsoft.Extensions.DependencyInjection.Abstractions >= 2.2.0",
+      "Microsoft.NETCore.App >= 2.2.0",
+      "Product.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -777,6 +834,9 @@
           "projectReferences": {
             "D:\\project\\inventory\\Inventory\\BE\\EventBus\\EventBus.csproj": {
               "projectPath": "D:\\project\\inventory\\Inventory\\BE\\EventBus\\EventBus.csproj"
+            },
+            "D:\\project\\inventory\\Inventory\\BE\\Product.Domain\\Product.Domain.csproj": {
+              "projectPath": "D:\\project\\inventory\\Inventory\\BE\\Product.Domain\\Product.Domain.csproj"
             }
           }
         }
@@ -790,6 +850,10 @@
     "frameworks": {
       "netcoreapp2.2": {
         "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": {
+            "target": "Package",
+            "version": "[2.2.0, )"
+          },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",

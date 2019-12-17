@@ -58,7 +58,14 @@ namespace Inventory.Web.Controllers
             string token = TokenGeneration();
             return Ok(token);
         }
-
+        [HttpGet]
+        [Route("[action]")]
+        [AllowAnonymous]
+        public void xx()
+        
+        {
+           
+        }
         private string TokenGeneration()
         {
             //Authentication successful, Issue Token with user credentials

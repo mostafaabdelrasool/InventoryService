@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Ocelot.Administration;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
@@ -30,6 +32,21 @@ namespace ApiGateway
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            #region CrossOriging
+            services.AddCors();
+            #endregion
+            #region Authentication
+            services.AddAuthentication()
+              .AddJwtBearer("IdentityApiKey", x =>
+              {
+                  x.RequireHttpsMetadata = false;
+                  //x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+                  //{
+                  //    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetSection("AppConfiguration:Key").Value)),
+                  //    //ValidAudiences = new[] { "orders", "basket", "locations", "marketing", "mobileshoppingagg", "webshoppingagg" }
+                  //};
+              });
+            #endregion
             services.AddOcelot(Configuration).AddAdministration("/administration", "secret");
         }
 
@@ -45,7 +62,11 @@ namespace ApiGateway
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            #region CrossOriging
+            app.UseCors(builder =>
+                       builder.WithOrigins("http://localhost:4200", "http://localhost:3000")
+                       .AllowAnyHeader().AllowAnyMethod());
+            #endregion
             app.UseHttpsRedirection();
             await app.UseOcelot();
             app.UseMvc();

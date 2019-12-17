@@ -68,16 +68,6 @@ namespace Inventory.Web
                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             #endregion
             #region Authentication and Authorization
-            // Add basic authentication. Primary used for external api access
-            //services
-            //  .AddAuthentication(BasicAuthenticationDefaults.AuthenticationScheme)
-            //  .AddBasicAuthentication(
-            //  options =>
-            //  {
-            //      options.Realm = "MO";
-            //      options.Events = new BasicAuthenticationEvents() { };
-            //  });
-
             services.AddDbContext<NorthwindContext>(options =>
         options.UseSqlServer(
             Configuration.GetConnectionString("DefaultConnection")));
@@ -85,12 +75,12 @@ namespace Inventory.Web
                  .AddEntityFrameworkStores<NorthwindContext>();
             // Add JWT Bearer. This should be replaced when we have setup the Identity server
             services
-              .AddAuthentication(options =>
+              .AddAuthentication( options =>
               {
                   options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                   options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
               })
-              .AddJwtBearer(options =>
+              .AddJwtBearer( options =>
               {
                   options.TokenValidationParameters = new TokenValidationParameters()
                   {
