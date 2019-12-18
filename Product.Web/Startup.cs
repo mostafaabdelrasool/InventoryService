@@ -176,6 +176,7 @@ namespace Product.Web
             var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
             eventBus.Subscribe<ProductUpdateOnUpdateOrderEvent, ProductUpdateOnUpdateOrderEventHandler>();
             eventBus.Subscribe<DeleteOrderItemEvent, DeleteOrderItemEventHandler>();
+            eventBus.Subscribe<UpdateStockOnCreateOrderEvent, UpdateStockOnCreateOrderEventHandler>();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

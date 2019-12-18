@@ -21,14 +21,14 @@ namespace Inventory.Application.Product.Handlers
         }
         public async Task Handle(UpdateStockCommand request, CancellationToken cancellationToken)
         {
-            var productIds = request.Order.OrderDetails.ToList().Select(x => x.ProductId);
-            var products = await _repository.GetWithIncludeAsync(x => productIds.Any(y => y == x.Id));
-            products.ToList().ForEach(x =>
-            {
-                x.UnitsInStock -= request.Order.OrderDetails.FirstOrDefault(p => p.ProductId == x.Id).Quantity;
-                _repository.Update(x, "");
-            });
-             await _repository.SaveAsync();
+            //var productIds = request.Order.OrderDetails.ToList().Select(x => x.ProductId);
+            //var products = await _repository.GetWithIncludeAsync(x => productIds.Any(y => y == x.Id));
+            //products.ToList().ForEach(x =>
+            //{
+            //    x.UnitsInStock -= request.Order.OrderDetails.FirstOrDefault(p => p.ProductId == x.Id).Quantity;
+            //    _repository.Update(x, "");
+            //});
+            // await _repository.SaveAsync();
         }
     }
 }

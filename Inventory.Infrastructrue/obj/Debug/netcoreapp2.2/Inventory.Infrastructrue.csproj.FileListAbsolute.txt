@@ -13,4 +13,3 @@ D:\project\inventory\Inventory\BE\Inventory.Infrastructrue\obj\Debug\netcoreapp2
 D:\project\inventory\Inventory\BE\Inventory.Infrastructrue\obj\Debug\netcoreapp2.2\Inventory.Infrastructrue.AssemblyInfo.cs
 D:\project\inventory\Inventory\BE\Inventory.Infrastructrue\obj\Debug\netcoreapp2.2\Inventory.Infrastructrue.dll
 D:\project\inventory\Inventory\BE\Inventory.Infrastructrue\obj\Debug\netcoreapp2.2\Inventory.Infrastructrue.pdb
-D:\project\inventory\Inventory\BE\Inventory.Infrastructrue\obj\Debug\netcoreapp2.2\Inventory.Infrastructrue.csprojAssemblyReference.cache

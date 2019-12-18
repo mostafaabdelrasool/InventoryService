@@ -23,8 +23,8 @@ namespace Inventory.Application.Product.command
     {
         public Guid Id { get; set; }
         public Guid OrderId { get; set; }
-        public Guid ProductId { get; set; }
-        public Guid ProductSizeId { get; set; }
+        public int ProductId { get; set; }
+        public int ProductSizeId { get; set; }
         public decimal UnitPrice { get; set; }
         public short Quantity { get; set; }
         public float Discount { get; set; }

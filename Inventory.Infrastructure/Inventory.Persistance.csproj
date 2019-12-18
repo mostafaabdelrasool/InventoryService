@@ -25,6 +25,8 @@
     <Compile Remove="Migrations\20191021130608_change-order-detailkeys.Designer.cs" />
     <Compile Remove="Migrations\20191126125331_update-order.cs" />
     <Compile Remove="Migrations\20191126125331_update-order.Designer.cs" />
+    <Compile Remove="Migrations\20191218142610_remove-order-product-relation.cs" />
+    <Compile Remove="Migrations\20191218142610_remove-order-product-relation.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

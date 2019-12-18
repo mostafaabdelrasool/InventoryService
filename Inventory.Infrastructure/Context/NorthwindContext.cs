@@ -240,17 +240,6 @@ namespace Inventory.Persistance.Models
                     .HasForeignKey(d => d.OrderId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Order_Details_Orders");
-
-                entity.HasOne(d => d.Product)
-                    .WithMany(p => p.OrderDetails)
-                    .HasForeignKey(d => d.ProductId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Order_Details_Products");
-                entity.HasOne(d => d.ProductSize)
-                  .WithMany(p => p.OrderDetails)
-                  .HasForeignKey(d => d.ProductSizeId)
-                  .OnDelete(DeleteBehavior.ClientSetNull)
-                  .HasConstraintName("FK_Order_Details_Products_sizes");
             });
 
             modelBuilder.Entity<Orders>(entity =>

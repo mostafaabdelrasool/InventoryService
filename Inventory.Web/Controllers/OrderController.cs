@@ -39,14 +39,8 @@ namespace Inventory.Web.Controllers
         }
         public override async Task<IActionResult> Put([FromBody] Orders entity)
         {
-            entity.OrderDetails.ToList().ForEach(x =>
-            {
-                x.Product = null;
-                x.ProductSize = null;
-            });
             await _service.Update(entity, User.Identity.Name);
             await _mediator.Publish(new UpdateOrderCommand(entity));
-           
             return Ok();
         }
         [HttpPut]
