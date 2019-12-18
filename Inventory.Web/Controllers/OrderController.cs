@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EventBus.Abstractions;
+using Inventory.Application.Integration;
+using Inventory.Application.IntegrationEvents;
 using Inventory.Application.Interfaces;
 using Inventory.Application.Order.Commands;
 using Inventory.Application.Product.command;
@@ -44,7 +46,7 @@ namespace Inventory.Web.Controllers
             });
             await _service.Update(entity, User.Identity.Name);
             await _mediator.Publish(new UpdateOrderCommand(entity));
-            _eventBus.Publish(new Application.Integration.UpdateOrderItemStockEvent(entity.Id, entity.OrderDetails));
+           
             return Ok();
         }
         [HttpPut]
@@ -52,6 +54,7 @@ namespace Inventory.Web.Controllers
         public async Task<IActionResult> DeleteOrderItem([FromBody] Orders entity)
         {
             await _mediator.Publish(new DeleteOrderItemCommand(entity));
+            _eventBus.Publish(new DeleteOrderItemEvent(entity.Id, entity.OrderDetails.ToList()[0]));
             return Ok();
         }
         public async override Task<IActionResult> Get(Guid id)

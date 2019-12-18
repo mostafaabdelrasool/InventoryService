@@ -17,9 +17,17 @@ namespace Inventory.Infrastructrue.Json
         }
         public static T ToType<T>(this string data)
         {
+            return (T)Excute(data, typeof(T));
+        }
+        public static object ToType(this string data,Type type)
+        {
+            return  Convert.ChangeType( Excute(data, type),type);
+        }
+        private static object Excute(string data ,Type type)
+        {
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-            var result=JsonConvert.DeserializeObject<T>(data, settings);
+            var result = JsonConvert.DeserializeObject(data,type, settings);
             return result;
         }
     }

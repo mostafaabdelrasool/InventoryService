@@ -1,4 +1,6 @@
-﻿using Inventory.Application.Order.Commands;
+﻿using EventBus.Abstractions;
+using Inventory.Application.Integration;
+using Inventory.Application.Order.Commands;
 using Inventory.Application.Order.Query;
 using Inventory.Domain.Models;
 using Inventory.Domain.Order;
@@ -17,39 +19,44 @@ namespace Inventory.Application.Product.Handlers
     {
         private readonly IRepository<Products> _repository;
         private readonly IQueryOrderEvent _queryOrderEvent;
+        private readonly IEventBus _eventBus;
 
-        public ProductUpdateOnUpdateOrderCommandHandler(IRepository<Products> repository, IQueryOrderEvent queryOrderEvent)
+        public ProductUpdateOnUpdateOrderCommandHandler(IRepository<Products> repository,
+            IQueryOrderEvent queryOrderEvent, IEventBus eventBus)
         {
             _repository = repository;
             _queryOrderEvent = queryOrderEvent;
+            _eventBus = eventBus;
         }
 
         public async Task Handle(UpdateOrderCommand notification, CancellationToken cancellationToken)
         {
             var lastEvent = await _queryOrderEvent.GetLastEvent(notification.Order.Id);
-            var productIds = notification.Order.OrderDetails.ToList().GroupBy(x=>x.ProductId)
-                .Select(x=>new { x.Key,Total=x.Sum(y=>y.Quantity)});
-            var products = await _repository.GetWithIncludeAsync(x => productIds.Any(y => y.Key == x.Id));
-            products.ToList().ForEach(x =>
-            {
-                var itemInLastOrder = lastEvent != null? lastEvent.OrderDetails.ToList().GroupBy(y => y.ProductId)
-                .Select(y => new { y.Key, Total = y.Sum(z=> z.Quantity) }).FirstOrDefault()
-                : null;
-                var itemInCurrentOrder = productIds.FirstOrDefault(p => p.Key == x.Id);
+            _eventBus.Publish(new ProductUpdateOnUpdateOrderEvent(notification.Order.Id, 
+                notification.Order.OrderDetails, lastEvent.OrderDetails));
+            //var productIds = notification.Order.OrderDetails.ToList().GroupBy(x=>x.ProductId)
+            //    .Select(x=>new { x.Key,Total=x.Sum(y=>y.Quantity)});
+            //var products = await _repository.GetWithIncludeAsync(x => productIds.Any(y => y.Key == x.Id));
+            //products.ToList().ForEach(x =>
+            //{
+            //    var itemInLastOrder = lastEvent != null? lastEvent.OrderDetails.ToList().GroupBy(y => y.ProductId)
+            //    .Select(y => new { y.Key, Total = y.Sum(z=> z.Quantity) }).FirstOrDefault()
+            //    : null;
+            //    var itemInCurrentOrder = productIds.FirstOrDefault(p => p.Key == x.Id);
               
-                if (itemInLastOrder != null)
-                {
-                    x.AddOrReductUnitInStockFromOrder((short)itemInCurrentOrder.Total, 
-                        (short)itemInLastOrder.Total);
-                }
-                else
-                {
-                    x.ReductUnitInStockFromOrder((short)itemInCurrentOrder.Total);
-                }
+            //    if (itemInLastOrder != null)
+            //    {
+            //        x.AddOrReductUnitInStockFromOrder((short)itemInCurrentOrder.Total, 
+            //            (short)itemInLastOrder.Total);
+            //    }
+            //    else
+            //    {
+            //        x.ReductUnitInStockFromOrder((short)itemInCurrentOrder.Total);
+            //    }
 
-                _repository.Update(x, "");
-            });
-            await _repository.SaveAsync();
+            //    _repository.Update(x, "");
+            //});
+            //await _repository.SaveAsync();
         }
     }
 }

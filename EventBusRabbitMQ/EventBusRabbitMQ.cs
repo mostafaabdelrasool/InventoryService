@@ -271,7 +271,7 @@ namespace EventBusRabbitMQ
                     var handler = _service.GetService(subscription.HandlerType);
                     if (handler == null) continue;
                     var eventType = _subsManager.GetEventTypeByName(eventName);
-                    var integrationEvent = JsonConvert.DeserializeObject(message, eventType);
+                    var integrationEvent = message.ToType(eventType); // JsonConvert.DeserializeObject(message, eventType);
                     var concreteType = typeof(IIntegrationEventHandler<>).MakeGenericType(eventType);
                     await (Task)concreteType.GetMethod("Handle").Invoke(handler, new object[] { integrationEvent });
                 }

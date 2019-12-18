@@ -24,6 +24,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Product.Application.Extensions;
 using Product.Application.Integration;
+using Product.Application.IntegrationEvents;
 using Product.Persistance;
 using Product.Persistance.Extensions;
 using Product.Web.Extension;
@@ -168,12 +169,13 @@ namespace Product.Web
 
 
             services.AddSingleton<IEventBusSubscriptionsManager, InMemoryEventBusSubscriptionsManager>();
-            services.AddTransient<UpdateOrderItemStockEventHandler>();
+            services.AddTransient<ProductUpdateOnUpdateOrderEventHandler>();
         }
         private void ConfigureEventBus(IApplicationBuilder app)
         {
             var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
-            eventBus.Subscribe<UpdateOrderItemStockEvent, UpdateOrderItemStockEventHandler>();
+            eventBus.Subscribe<ProductUpdateOnUpdateOrderEvent, ProductUpdateOnUpdateOrderEventHandler>();
+            eventBus.Subscribe<DeleteOrderItemEvent, DeleteOrderItemEventHandler>();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
