@@ -1,4 +1,5 @@
 ﻿using Inventory.Application.Order.Commands;
+using Inventory.Application.Order.model;
 using Inventory.Domain.Models;
 using Inventory.Domain.Order;
 using Inventory.Infrastructrue.Json;
@@ -19,7 +20,7 @@ namespace Inventory.Application.Order.Service
         {
             _repository = repository;
         }
-        public async Task SaveEvent(Orders order, OrderEventType eventType)
+        public async Task SaveEvent(OrderDTO order, OrderEventType eventType)
         {
             List<OrderEvent> result = await GetOrderEvent(order.Id);
             _repository.Create(new OrderEvent(order.Id, order.ToJson(),

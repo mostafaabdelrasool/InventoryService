@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Inventory.Application.Config;
+using Inventory.Application.Order.model;
 using Inventory.Domain.Models;
 using Inventory.Domain.Order;
 using Inventory.Infrastructrue.Json;
@@ -21,7 +22,7 @@ namespace Inventory.Application.Order.Query
         {
             _connectionString = config.Value.ConnectionString;
         }
-        public async Task<Orders> GetLastEvent(Guid OrderId)
+        public async Task<OrderDTO> GetLastEvent(Guid OrderId)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -46,10 +47,10 @@ namespace Inventory.Application.Order.Query
             }
         }
 
-        private Orders mapToOrder(dynamic dynamic)
+        private OrderDTO mapToOrder(dynamic dynamic)
         {
             string data = dynamic.Data;
-            return data.ToType<Orders>();
+            return data.ToType<OrderDTO>();
         }
     }
 }

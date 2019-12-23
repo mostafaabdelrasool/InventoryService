@@ -9,7 +9,6 @@ namespace Inventory.Web.Extensions
   {
     public static IServiceCollection AddWeb(this IServiceCollection services)
     {
-      services.AddTransient<IRepository<Categories>, Repository<Categories>>();
       return services;
     }
   }

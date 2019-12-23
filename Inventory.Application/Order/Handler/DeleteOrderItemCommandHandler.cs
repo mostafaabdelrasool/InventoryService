@@ -1,4 +1,5 @@
 ﻿using Inventory.Application.Order.Commands;
+using Inventory.Application.Order.Service;
 using Inventory.Domain.Models;
 using Inventory.Domain.Order;
 using Inventory.Persistance.Interfaces;

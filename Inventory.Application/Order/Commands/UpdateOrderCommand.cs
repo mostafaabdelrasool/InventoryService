@@ -1,4 +1,5 @@
-﻿using Inventory.Domain.Models;
+﻿using Inventory.Application.Order.model;
+using Inventory.Domain.Models;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,8 +9,8 @@ namespace Inventory.Application.Order.Commands
 {
     public class UpdateOrderCommand : INotification
     {
-        public Orders Order;
-        public UpdateOrderCommand(Orders order)
+        public OrderDTO Order;
+        public UpdateOrderCommand(OrderDTO order)
         {
             Order = order;
         }

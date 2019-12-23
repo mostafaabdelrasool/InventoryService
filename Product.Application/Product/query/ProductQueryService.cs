@@ -18,8 +18,8 @@ namespace Product.Application.Product.query
         }
         public async Task<List<Products>> Search(string q)
         {
-            var result = await repository.GetWithIncludeAsync(x => x.ProductName.Contains(q) && 
-            !x.IsDeleted,x=>x.ProductSizes,x=>x.ProductSizes);
+            var result = await repository.GetWithIncludeAsync(x => (x.ProductName.Contains(q) || x.ProductCode.Contains(q)) && 
+            !x.IsDeleted,x=>x.ProductSizes);
             return result.ToList();
         }
     }

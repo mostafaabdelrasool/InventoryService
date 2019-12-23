@@ -1,4 +1,5 @@
 ﻿using EventBus.Events;
+using Inventory.Application.Order.model;
 using Inventory.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -9,11 +10,11 @@ namespace Inventory.Application.Integration
     public class ProductUpdateOnUpdateOrderEvent : IntegrationEvent
     {
         public Guid OrderId { get; }
-        public IEnumerable<OrderProductDetails> OrderDetail { get; }
+        public IEnumerable<OrderDetailDTO> OrderDetail { get; }
 
-        public IEnumerable<OrderProductDetails> LastOrderDetail { get; }
+        public IEnumerable<OrderDetailDTO> LastOrderDetail { get; }
         public ProductUpdateOnUpdateOrderEvent(Guid orderId,
-            IEnumerable<OrderProductDetails> orderDetail, IEnumerable<OrderProductDetails> lastOrderDetail)
+            IEnumerable<OrderDetailDTO> orderDetail, IEnumerable<OrderDetailDTO> lastOrderDetail)
         {
             OrderId = orderId;
             OrderDetail = orderDetail;

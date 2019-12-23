@@ -85,10 +85,11 @@ namespace Inventory.Web
                   options.TokenValidationParameters = new TokenValidationParameters()
                   {
                       IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetSection("AppConfiguration:Key").Value)),
-                      ValidAudience = Configuration.GetSection("AppConfiguration:SiteUrl").Value,
+                      //ValidAudience = Configuration.GetSection("AppConfiguration:SiteUrl").Value,
                       ValidateIssuerSigningKey = true,
                       ValidateLifetime = true,
-                      ValidIssuer = Configuration.GetSection("AppConfiguration:SiteUrl").Value
+                      ValidateAudience = false,
+                      ValidateIssuer = false
                   };
               });
             //services.AddAuthorization(options =>

@@ -8,7 +8,7 @@ namespace Inventory.Domain.Models
     {
         public Suppliers()
         {
-            Products = new HashSet<Products>();
+            //Products = new HashSet<Products>();
         }
 
         public string CompanyName { get; set; }
@@ -23,6 +23,6 @@ namespace Inventory.Domain.Models
         public string Fax { get; set; }
         public string HomePage { get; set; }
 
-        public ICollection<Products> Products { get; set; }
+        //public ICollection<Products> Products { get; set; }
     }
 }

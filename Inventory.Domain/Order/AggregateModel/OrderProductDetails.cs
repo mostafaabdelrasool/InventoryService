@@ -5,6 +5,7 @@ namespace Inventory.Domain.Order.AggregateModel
     {
         public OrderProductDetails()
         {
+            
         }
     }
 }

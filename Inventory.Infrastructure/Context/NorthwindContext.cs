@@ -19,7 +19,6 @@ namespace Inventory.Persistance.Models
         {
         }
 
-        public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<CustomerCustomerDemo> CustomerCustomerDemo { get; set; }
         public virtual DbSet<CustomerDemographics> CustomerDemographics { get; set; }
         public virtual DbSet<Customers> Customers { get; set; }
@@ -27,7 +26,6 @@ namespace Inventory.Persistance.Models
         public virtual DbSet<EmployeeTerritories> EmployeeTerritories { get; set; }
         public virtual DbSet<Domain.Models.OrderProductDetails> OrderDetails { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
-        public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Region> Region { get; set; }
         public virtual DbSet<Shippers> Shippers { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
@@ -42,25 +40,6 @@ namespace Inventory.Persistance.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Products>()
-          .Property(p => p.Timestamp)
-          .IsRowVersion();
-            modelBuilder.Entity<Categories>(entity =>
-            {
-                entity.HasKey(e => e.Id);
-
-                entity.HasIndex(e => e.CategoryName)
-                    .HasName("CategoryName");
-
-                entity.Property(e => e.CategoryName)
-                    .IsRequired()
-                    .HasMaxLength(200);
-
-                entity.Property(e => e.Description).HasColumnType("ntext");
-
-                entity.Property(e => e.Picture).HasColumnType("image");
-            });
-
             modelBuilder.Entity<CustomerCustomerDemo>(entity =>
             {
                 entity.HasKey(e => new { e.CustomerId, e.CustomerTypeId })
@@ -229,7 +208,8 @@ namespace Inventory.Persistance.Models
 
                 entity.Property(e => e.OrderId).HasColumnName("OrderID");
 
-                entity.Property(e => e.ProductId).HasColumnName("ProductID");
+                entity.Property(e => e.ProductId).HasColumnName("ProductId");
+                entity.Property(e => e.ProductSizeId).HasColumnName("ProductSizeId");
 
                 entity.Property(e => e.Quantity).HasDefaultValueSql("((1))");
 
@@ -308,49 +288,6 @@ namespace Inventory.Persistance.Models
                     .HasConstraintName("FK_Orders_Shippers");
             });
 
-            modelBuilder.Entity<Products>(entity =>
-            {
-                entity.HasKey(e => e.Id);
-
-                entity.HasIndex(e => e.CategoryId)
-                    .HasName("CategoryID");
-
-                entity.HasIndex(e => e.ProductName)
-                    .HasName("ProductName");
-
-                entity.HasIndex(e => e.SupplierId)
-                    .HasName("SuppliersProducts");
-
-                entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
-
-                entity.Property(e => e.ProductName)
-                    .IsRequired()
-                    .HasMaxLength(40);
-
-                entity.Property(e => e.QuantityPerUnit).HasMaxLength(20);
-
-                entity.Property(e => e.ReorderLevel).HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.SupplierId).HasColumnName("SupplierID");
-
-                entity.Property(e => e.UnitPrice)
-                    .HasColumnType("money")
-                    .HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.UnitsInStock).HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.UnitsOnOrder).HasDefaultValueSql("((0))");
-
-                entity.HasOne(d => d.Category)
-                    .WithMany(p => p.Products)
-                    .HasForeignKey(d => d.CategoryId)
-                    .HasConstraintName("FK_Products_Categories");
-
-                entity.HasOne(d => d.Supplier)
-                    .WithMany(p => p.Products)
-                    .HasForeignKey(d => d.SupplierId)
-                    .HasConstraintName("FK_Products_Suppliers");
-            });
 
             modelBuilder.Entity<Region>(entity =>
             {

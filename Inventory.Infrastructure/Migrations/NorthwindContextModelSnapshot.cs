@@ -19,37 +19,6 @@ namespace Inventory.Persistance.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Inventory.Domain.Models.Categories", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("CategoryName")
-                        .IsRequired()
-                        .HasMaxLength(200);
-
-                    b.Property<DateTime>("CreateDate");
-
-                    b.Property<DateTime>("DeleteDate");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("ntext");
-
-                    b.Property<bool>("IsDeleted");
-
-                    b.Property<DateTime>("ModifyDate");
-
-                    b.Property<byte[]>("Picture")
-                        .HasColumnType("image");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryName")
-                        .HasName("CategoryName");
-
-                    b.ToTable("Categories");
-                });
-
             modelBuilder.Entity("Inventory.Domain.Models.CustomerCustomerDemo", b =>
                 {
                     b.Property<Guid>("CustomerId")
@@ -321,13 +290,10 @@ namespace Inventory.Persistance.Migrations
                         .HasColumnName("OrderID");
 
                     b.Property<int>("ProductId")
-                        .HasColumnName("ProductID");
+                        .HasColumnName("ProductId");
 
-                    b.Property<int>("ProductSizeId");
-
-                    b.Property<Guid?>("ProductSizesId");
-
-                    b.Property<Guid?>("ProductsId");
+                    b.Property<int>("ProductSizeId")
+                        .HasColumnName("ProductSizeId");
 
                     b.Property<short>("Quantity")
                         .ValueGeneratedOnAdd()
@@ -345,10 +311,6 @@ namespace Inventory.Persistance.Migrations
 
                     b.HasIndex("ProductId")
                         .HasName("ProductsOrder_Details");
-
-                    b.HasIndex("ProductSizesId");
-
-                    b.HasIndex("ProductsId");
 
                     b.ToTable("Order Details");
                 });
@@ -438,103 +400,6 @@ namespace Inventory.Persistance.Migrations
                         .HasName("ShippedDate");
 
                     b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("Inventory.Domain.Models.ProductSizes", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("CreateDate");
-
-                    b.Property<DateTime>("DeleteDate");
-
-                    b.Property<string>("Dimensions");
-
-                    b.Property<bool>("IsDeleted");
-
-                    b.Property<DateTime>("ModifyDate");
-
-                    b.Property<Guid>("ProductId");
-
-                    b.Property<string>("Size");
-
-                    b.Property<int>("UnitInStock");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductSizes");
-                });
-
-            modelBuilder.Entity("Inventory.Domain.Models.Products", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<Guid?>("CategoryId")
-                        .HasColumnName("CategoryID");
-
-                    b.Property<decimal?>("CostPrice");
-
-                    b.Property<DateTime>("CreateDate");
-
-                    b.Property<DateTime>("DeleteDate");
-
-                    b.Property<bool>("Discontinued");
-
-                    b.Property<decimal?>("Discount");
-
-                    b.Property<bool>("IsDeleted");
-
-                    b.Property<DateTime>("ModifyDate");
-
-                    b.Property<string>("ProductName")
-                        .IsRequired()
-                        .HasMaxLength(40);
-
-                    b.Property<string>("QuantityPerUnit")
-                        .HasMaxLength(20);
-
-                    b.Property<short?>("ReorderLevel")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValueSql("((0))");
-
-                    b.Property<Guid?>("SupplierId")
-                        .HasColumnName("SupplierID");
-
-                    b.Property<byte[]>("Timestamp")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate();
-
-                    b.Property<decimal?>("UnitPrice")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("money")
-                        .HasDefaultValueSql("((0))");
-
-                    b.Property<short?>("UnitsInStock")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValueSql("((0))");
-
-                    b.Property<short?>("UnitsOnOrder")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValueSql("((0))");
-
-                    b.Property<string>("image");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId")
-                        .HasName("CategoryID");
-
-                    b.HasIndex("ProductName")
-                        .HasName("ProductName");
-
-                    b.HasIndex("SupplierId")
-                        .HasName("SuppliersProducts");
-
-                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("Inventory.Domain.Models.Region", b =>
@@ -919,14 +784,6 @@ namespace Inventory.Persistance.Migrations
                         .WithMany("OrderDetails")
                         .HasForeignKey("OrderId")
                         .HasConstraintName("FK_Order_Details_Orders");
-
-                    b.HasOne("Inventory.Domain.Models.ProductSizes")
-                        .WithMany("OrderDetails")
-                        .HasForeignKey("ProductSizesId");
-
-                    b.HasOne("Inventory.Domain.Models.Products")
-                        .WithMany("OrderDetails")
-                        .HasForeignKey("ProductsId");
                 });
 
             modelBuilder.Entity("Inventory.Domain.Models.Orders", b =>
@@ -946,27 +803,6 @@ namespace Inventory.Persistance.Migrations
                         .WithMany("Orders")
                         .HasForeignKey("ShipVia")
                         .HasConstraintName("FK_Orders_Shippers");
-                });
-
-            modelBuilder.Entity("Inventory.Domain.Models.ProductSizes", b =>
-                {
-                    b.HasOne("Inventory.Domain.Models.Products", "Product")
-                        .WithMany("ProductSizes")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Inventory.Domain.Models.Products", b =>
-                {
-                    b.HasOne("Inventory.Domain.Models.Categories", "Category")
-                        .WithMany("Products")
-                        .HasForeignKey("CategoryId")
-                        .HasConstraintName("FK_Products_Categories");
-
-                    b.HasOne("Inventory.Domain.Models.Suppliers", "Supplier")
-                        .WithMany("Products")
-                        .HasForeignKey("SupplierId")
-                        .HasConstraintName("FK_Products_Suppliers");
                 });
 
             modelBuilder.Entity("Inventory.Domain.Models.Territories", b =>

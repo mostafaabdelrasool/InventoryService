@@ -11,7 +11,7 @@
             CategoryName = categoryName;
             Description = description;
         }
-        protected Categories()
+        public Categories()
         {
 
         }

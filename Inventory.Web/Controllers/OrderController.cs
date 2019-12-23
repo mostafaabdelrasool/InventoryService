@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EventBus.Abstractions;
+using Inventory.Application.Extensions.Mapper;
 using Inventory.Application.Integration;
 using Inventory.Application.IntegrationEvents;
 using Inventory.Application.Interfaces;
+using Inventory.Application.Order.command;
 using Inventory.Application.Order.Commands;
-using Inventory.Application.Product.command;
+using Inventory.Application.Order.model;
 using Inventory.Domain.Models;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -21,39 +23,42 @@ namespace Inventory.Web.Controllers
     {
         private readonly IMediator _mediator;
         private readonly IService<Orders> _service;
-        private readonly IEventBus _eventBus;
 
         public OrderController(IService<Orders> service,
-           IMediator mediator,IEventBus eventBus) : base(service)
+           IMediator mediator) : base(service)
         {
             _mediator = mediator;
             _service = service;
-            _eventBus = eventBus;
+           
             includes.Add(x => x.Customer);
         }
-        public override async Task<IActionResult> Post([FromBody] Orders entity)
+        [HttpPost]
+        [Route("Post")]
+        public  async Task<IActionResult> Add([FromBody] OrderDTO entity)
         {
-            await _service.CreateAsync(entity, User.Identity.Name, false);
+            await _service.CreateAsync(entity.ToOrderEntity(), User.Identity.Name);
             await _mediator.Publish(new UpdateStockCommand(entity));
             return Ok(entity);
         }
-        public override async Task<IActionResult> Put([FromBody] Orders entity)
+        [HttpPut]
+        [Route("Put")]
+        public  async Task<IActionResult> Update([FromBody] OrderDTO entity)
         {
-            await _service.Update(entity, User.Identity.Name);
+            await _service.Update(entity.ToOrderEntity(), User.Identity.Name);
             await _mediator.Publish(new UpdateOrderCommand(entity));
             return Ok();
         }
         [HttpPut]
         [Route("[action]")]
-        public async Task<IActionResult> DeleteOrderItem([FromBody] Orders entity)
+        public async Task<IActionResult> DeleteOrderItem([FromBody] OrderDTO entity)
         {
             await _mediator.Publish(new DeleteOrderItemCommand(entity));
-            _eventBus.Publish(new DeleteOrderItemEvent(entity.Id, entity.OrderDetails.ToList()[0]));
+            
             return Ok();
         }
         public async override Task<IActionResult> Get(Guid id)
         {
-            var result = await _service.GetAsync(id, "OrderDetails", "Customer", "OrderDetails.Product.ProductSizes");
+            var result = await _service.GetAsync(id, "OrderDetails", "Customer");
             return Ok(result);
         }
     }

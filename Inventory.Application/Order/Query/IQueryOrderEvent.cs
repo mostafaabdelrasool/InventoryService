@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Inventory.Application.Order.model;
 using Inventory.Domain.Models;
 using Inventory.Domain.Order;
 
@@ -7,6 +8,6 @@ namespace Inventory.Application.Order.Query
 {
     public interface IQueryOrderEvent
     {
-        Task<Orders> GetLastEvent(Guid OrderId);
+        Task<OrderDTO> GetLastEvent(Guid OrderId);
     }
 }
