@@ -26,9 +26,9 @@ namespace Inventory.Application.Order.model
         public decimal? OverallTotal { get; set; }
         public string OrderNumber { get; set; }
         public ShipStatus ShipStatus { get; set; }
-        public Customers Customer { get; set; }
+        public CustomerDTO Customer { get; set; }
         public Employees Employee { get; set; }
-        public ICollection<OrderDetailDTO> OrderDetails { get; set; }
+        public List<OrderDetailDTO> OrderDetails { get; set; }
     }
     public class OrderDetailDTO
     {
@@ -45,13 +45,16 @@ namespace Inventory.Application.Order.model
     public class ProductDTO
     {
         public int Id { get; set; }
-        public string ProductName { get; private set; }
-        public string ProductCode { get; private set; }
-        public ProductSizeDTO ProductSize { get; set; }
+        public string ProductName { get;  set; }
+        public string ProductCode { get;  set; }
+        public string ProductSize { get; set; }
     }
-    public class ProductSizeDTO
+    public class CustomerDTO
     {
-        public int Id { get; set; }
-        public string Size { get; set; }
+        public string Address { get; set; }
+        public string companyName { get; set; }
+        public string City { get; set; }
+        public string Phone { get; set; }
+        public Guid Id { get; set; }
     }
 }

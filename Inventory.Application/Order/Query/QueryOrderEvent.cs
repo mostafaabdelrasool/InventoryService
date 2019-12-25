@@ -31,8 +31,9 @@ namespace Inventory.Application.Order.Query
                 var result = await connection.QueryAsync<dynamic>(
             @"select Data,version from OrderEvent where version =(
              Select Max(version) 
-                From OrderEvent )
-				and AggregateId=@OrderId and (EventType=@UpdateEvent or EventType=@CreateEvent)"
+                From OrderEvent 
+                  where AggregateId=@OrderId and (EventType=@UpdateEvent or EventType=@CreateEvent))
+				and AggregateId=@OrderId"
                  , new
                  {
                      OrderId = OrderId,

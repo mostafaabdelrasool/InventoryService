@@ -4,6 +4,7 @@ using Inventory.Domain.Models;
 using Inventory.Infrastructrue.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Inventory.Application.Extensions.Mapper
@@ -13,7 +14,15 @@ namespace Inventory.Application.Extensions.Mapper
         public static Orders ToOrderEntity(this OrderDTO order)
         {
             var json = order.ToJson();
-            return json.ToType<Orders>(); 
+            var result = json.ToType<Orders>();
+            result.Customer = null;
+            return result; 
+        }
+        public static OrderDTO ToOrderDTO(this Orders order)
+        {
+            var json = order.ToJson();
+            var result = json.ToType<OrderDTO>();
+            return result;
         }
         public static IEnumerable<OrderDetailDTO> ToOrderItemsDTO(this IEnumerable<OrderProductDetails> items)
         {

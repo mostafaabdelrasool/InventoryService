@@ -16,7 +16,6 @@ namespace Product.Persistance
         }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
-        public virtual DbSet<ProductSize> ProductSizes { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
@@ -74,14 +73,6 @@ namespace Product.Persistance
                     .WithMany()
                     .HasForeignKey(d => d.CategoryId)
                     .HasConstraintName("FK_Products_Categories");
-            });
-            modelBuilder.Entity<ProductSize>(entity =>
-            {
-                entity.Property(e => e.ProductId).HasColumnName("ProductId");
-                entity.HasOne(d => d.Products)
-                   .WithMany(d=>d.ProductSizes)
-                   .HasForeignKey(d => d.ProductId)
-                   .HasConstraintName("FK_Products_ProductSizes");
             });
 
         }

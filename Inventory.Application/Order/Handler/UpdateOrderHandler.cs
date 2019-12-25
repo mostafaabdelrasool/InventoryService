@@ -20,7 +20,8 @@ namespace Inventory.Application.Order.Handler
         private readonly IEventBus _eventBus;
         private readonly IQueryOrderEvent _queryOrderEvent;
 
-        public UpdateOrderHandler(IOrderEventService orderEventService, IQueryOrderEvent queryOrderEvent, IEventBus eventBus)
+        public UpdateOrderHandler(IOrderEventService orderEventService,
+            IQueryOrderEvent queryOrderEvent, IEventBus eventBus)
         {
             _orderEventService = orderEventService;
             _eventBus = eventBus;

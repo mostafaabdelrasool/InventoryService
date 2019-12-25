@@ -19,8 +19,14 @@ namespace Product.Application.Product.query
         public async Task<List<Products>> Search(string q)
         {
             var result = await repository.GetWithIncludeAsync(x => (x.ProductName.Contains(q) || x.ProductCode.Contains(q)) && 
-            !x.IsDeleted,x=>x.ProductSizes);
+            !x.IsDeleted);
             return result.ToList();
+        }
+
+        public async Task<bool> ValidateStock(int productId, int amount)
+        {
+            var result = await repository.GetWithIncludeAsync(x =>x.Id==productId && x.UnitsInStock<amount);
+            return result == null;
         }
     }
 }

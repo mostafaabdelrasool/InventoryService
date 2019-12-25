@@ -35,31 +35,42 @@ namespace Product.Web.Seed
 
                     if (!string.IsNullOrEmpty(row["rasma"].ToString()))
                     {
-                        var total = GetColumValue(row["M"]) + GetColumValue(row["L"]) + GetColumValue(row["XL"])
-                            + GetColumValue(row["2XL"]) + GetColumValue(row["3XL"]);
-                        var product = new Domain.Aggregate.Products(row["Name"] + " " + row["rasma"].ToString(), 160, (short)total, 0, 1);
-                        product.GetNewProductNumber();
                         if (GetColumValue(row["M"]) != 0)
                         {
-                            product.AddProductSize("M", "20*20", GetColumValue(row["M"]));
+                            var product = new Products(row["Name"] + " " +
+                           row["rasma"].ToString(), 160, (short)GetColumValue(row["M"]), 0, 1,"M");
+                            product.GetNewProductNumber();
+                            products.Add(product);
                         }
                         if (GetColumValue(row["L"]) != 0)
                         {
-                            product.AddProductSize("L", "20*20", GetColumValue(row["L"]));
+                            var product = new Products(row["Name"] + " " +
+                          row["rasma"].ToString(), 160, (short)GetColumValue(row["L"]), 0, 1, "L");
+                            product.GetNewProductNumber();
+                            products.Add(product);
                         }
                         if (GetColumValue(row["XL"]) != 0)
                         {
-                            product.AddProductSize("XL", "20*20", GetColumValue(row["XL"]));
+                            var product = new Products(row["Name"] + " " +
+                           row["rasma"].ToString(), 160, (short)GetColumValue(row["XL"]), 0, 1, "XL");
+                            product.GetNewProductNumber();
+                            products.Add(product);
                         }
                         if (GetColumValue(row["2XL"]) != 0)
                         {
-                            product.AddProductSize("2XL", "20*20", GetColumValue(row["2XL"]));
+                            var product = new Products(row["Name"] + " " +
+                          row["rasma"].ToString(), 160, (short)GetColumValue(row["2XL"]), 0, 1, "2XL");
+                            product.GetNewProductNumber();
+                            products.Add(product);
                         }
                         if (GetColumValue(row["3XL"]) != 0)
                         {
-                            product.AddProductSize("3XL", "20*20", GetColumValue(row["3XL"]));
+                            var product = new Products(row["Name"] + " " +
+                           row["rasma"].ToString(), 160, (short)GetColumValue(row["3XL"]), 0, 1, "3XL");
+                            product.GetNewProductNumber();
+                            products.Add(product);
                         }
-                        products.Add(product);
+                       
                     }
                 }
             }

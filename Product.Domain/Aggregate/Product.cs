@@ -24,8 +24,8 @@ namespace Product.Domain.Aggregate
         public string image { get; private set; }
         [Timestamp]
         public byte[] Timestamp { get; set; }
-        private readonly List<ProductSize> _productSizes;
-        public IReadOnlyCollection<ProductSize> ProductSizes => _productSizes;
+        public string ProductSize { get; private set; }
+
         public void AddOrReductUnitInStockFromOrder(short currentQuantity, short lasQuantity)
         {
             var addOrReducedAmount = currentQuantity - lasQuantity;
@@ -42,21 +42,17 @@ namespace Product.Domain.Aggregate
         }
         public Products()
         {
-            _productSizes = new List<ProductSize>();
+
         }
         public Products(string productName, decimal? unitPrice, short? unitsInStock, decimal? discount,
-             int? categoryId) : this()
+             int? categoryId,string productSize):this() 
         {
             ProductName = productName;
             UnitPrice = unitPrice;
             UnitsInStock = unitsInStock;
             Discount = discount;
             CategoryId = categoryId;
-        }
-        public void AddProductSize(string productSize, string dimension, int stock)
-        {
-            var productSizes = new ProductSize(0, productSize, dimension, stock);
-            _productSizes.Add(productSizes);
+            ProductSize = productSize;
         }
         public void GetNewProductNumber()
         {
@@ -65,7 +61,7 @@ namespace Product.Domain.Aggregate
             Random rnd = new Random();
             now += now + rnd.Next(1, 500);
             var stringNow = now.ToString();
-            var dates = new List<string> { stringNow.Substring(4, 4), RandomString() };
+            var dates = new List<string> { stringNow.Substring(0, 4),stringNow.Substring(4, 8), RandomString() };
             var newNumber = string.Join("-", dates);
             ProductCode = newNumber;
         }

@@ -8,7 +8,6 @@ namespace Product.Application.Extensions
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddScoped<IProductSizesQueryService, ProductSizesQueryService>();
             services.AddScoped<IProductQueryService, ProductQueryService>();
             return services;
         }

@@ -51,36 +51,6 @@ namespace Product.Persistance.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("Product.Domain.Aggregate.ProductSize", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreateDate");
-
-                    b.Property<DateTime>("DeleteDate");
-
-                    b.Property<string>("Dimensions");
-
-                    b.Property<bool>("IsDeleted");
-
-                    b.Property<DateTime>("ModifyDate");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnName("ProductId");
-
-                    b.Property<string>("Size");
-
-                    b.Property<int>("UnitInStock");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductSizes");
-                });
-
             modelBuilder.Entity("Product.Domain.Aggregate.Products", b =>
                 {
                     b.Property<int>("Id")
@@ -109,6 +79,8 @@ namespace Product.Persistance.Migrations
                     b.Property<string>("ProductName")
                         .IsRequired()
                         .HasMaxLength(200);
+
+                    b.Property<string>("ProductSize");
 
                     b.Property<string>("QuantityPerUnit")
                         .HasMaxLength(20);
@@ -145,15 +117,6 @@ namespace Product.Persistance.Migrations
                         .HasName("ProductName");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("Product.Domain.Aggregate.ProductSize", b =>
-                {
-                    b.HasOne("Product.Domain.Aggregate.Products", "Products")
-                        .WithMany("ProductSizes")
-                        .HasForeignKey("ProductId")
-                        .HasConstraintName("FK_Products_ProductSizes")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Product.Domain.Aggregate.Products", b =>

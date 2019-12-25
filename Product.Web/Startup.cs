@@ -170,6 +170,8 @@ namespace Product.Web
 
             services.AddSingleton<IEventBusSubscriptionsManager, InMemoryEventBusSubscriptionsManager>();
             services.AddTransient<ProductUpdateOnUpdateOrderEventHandler>();
+            services.AddTransient<DeleteOrderItemEventHandler>();
+            services.AddTransient<UpdateStockOnCreateOrderEventHandler>();
         }
         private void ConfigureEventBus(IApplicationBuilder app)
         {
@@ -192,6 +194,7 @@ namespace Product.Web
                     // For more details on creating database during deployment see http://go.microsoft.com/fwlink/?LinkID=615859
                     var context = serviceScope.ServiceProvider.GetService<ProductContext>();
                     context.Database.Migrate();
+                    //app.AddSeed();
                     #endregion
                 }
                 #region Swagger

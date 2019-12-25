@@ -27,5 +27,12 @@ namespace Product.Web.Controllers
             var result = await _queryService.Search(q);
             return Ok(result);
         }
+        [HttpGet]
+        [Route("[action]")]
+        public virtual async Task<IActionResult> ValidateStock(int productId,int amount)
+        {
+            var result = await _queryService.ValidateStock(productId, amount);
+            return Ok(result);
+        }
     }
 }

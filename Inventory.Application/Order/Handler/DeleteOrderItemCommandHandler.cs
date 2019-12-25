@@ -1,4 +1,6 @@
-﻿using Inventory.Application.Order.Commands;
+﻿using EventBus.Abstractions;
+using Inventory.Application.IntegrationEvents;
+using Inventory.Application.Order.Commands;
 using Inventory.Application.Order.Service;
 using Inventory.Domain.Models;
 using Inventory.Domain.Order;
@@ -18,13 +20,14 @@ namespace Inventory.Application.Order.Handler
         private readonly IOrderEventService _orderEventService;
         private readonly IRepository<Orders> _repository;
         private readonly IRepository<OrderProductDetails> _orderDetailRepository;
-
+        private readonly IEventBus _eventBus;
         public DeleteOrderItemCommandHandler(IOrderEventService orderEventService,
-            IRepository<Orders> repository,IRepository<OrderProductDetails>orderDetailRepository)
+            IRepository<Orders> repository,IRepository<OrderProductDetails>orderDetailRepository, IEventBus eventBus)
         {
             _orderEventService = orderEventService;
             _repository =repository;
             _orderDetailRepository = orderDetailRepository;
+            _eventBus = eventBus;
         }
         public async Task Handle(DeleteOrderItemCommand notification, CancellationToken cancellationToken)
         {
@@ -37,6 +40,8 @@ namespace Inventory.Application.Order.Handler
             _orderDetailRepository.Remove(notification.Order.OrderDetails.ToList()[0].Id,"");
             await _repository.SaveAsync();
             await _orderEventService.SaveEvent(notification.Order, OrderEventType.DeleteOrderItem);
+            _eventBus.Publish(new DeleteOrderItemEvent(notification.Order.Id,
+              notification.Order.OrderDetails.ToList()[0]));
         }
     }
 }

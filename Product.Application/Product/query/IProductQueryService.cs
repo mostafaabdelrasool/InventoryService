@@ -8,5 +8,6 @@ namespace Product.Application.Product.query
     public interface IProductQueryService
     {
         Task<List<Products>> Search(string q);
+        Task<bool> ValidateStock(int productId, int amount);
     }
 }
