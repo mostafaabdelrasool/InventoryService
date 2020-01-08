@@ -174,6 +174,7 @@ namespace Inventory.Web
                 op.ConnectionString = sec.Value;
             });
             #endregion
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
         private void RegisterEventBus(IServiceCollection services)
         {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using EventBus.Abstractions;
 using Inventory.Application.Extensions.Mapper;
@@ -38,7 +39,8 @@ namespace Inventory.Web.Controllers
         [Route("Post")]
         public async Task<IActionResult> Add([FromBody] OrderDTO entity)
         {
-            var result = await _service.CreateAsync(entity.ToOrderEntity(), User.Identity.Name);
+            var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var result = await _service.CreateAsync(entity.ToOrderEntity(), user);
             var saved = await _service.GetAsync(result.Id, "Customer", "OrderDetails");
             //assign product to order detail to save in the event store
             var dto = saved.ToOrderDTO();
@@ -54,7 +56,8 @@ namespace Inventory.Web.Controllers
         [Route("Put")]
         public async Task<IActionResult> Update([FromBody] OrderDTO entity)
         {
-            await _service.Update(entity.ToOrderEntity(), User.Identity.Name);
+            var user= User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            await _service.Update(entity.ToOrderEntity(), user);
             await _mediator.Publish(new UpdateOrderCommand(entity));
             return Ok();
         }

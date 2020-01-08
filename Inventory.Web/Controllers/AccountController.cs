@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Inventory.Web.Models;
@@ -38,7 +39,7 @@ namespace Inventory.Web.Controllers
             if (!result.Succeeded)
                 //Authenticate User, Check if it’s a registered user in Database
                 return null;
-            string token = TokenGeneration();
+            string token = TokenGeneration(login.UserName);
             return Ok(token);
         }
         [HttpPost]
@@ -50,12 +51,12 @@ namespace Inventory.Web.Controllers
             {
                 return null;
             }
-            var user = new IdentityUser { UserName = login.UserName, Email = login.Email };
+            var user = new IdentityUser { UserName = login.UserName, Email = login.Email};
             var result = await _userManager.CreateAsync(user, login.Password);
             if (!result.Succeeded)
                 //Authenticate User, Check if it’s a registered user in Database
                 return BadRequest(result.Errors);
-            string token = TokenGeneration();
+            string token = TokenGeneration(login.Email);
             return Ok(token);
         }
         [HttpGet]
@@ -66,8 +67,12 @@ namespace Inventory.Web.Controllers
         {
            
         }
-        private string TokenGeneration()
+        private string TokenGeneration(string id)
         {
+            var claims = new List<Claim>{
+                new Claim(ClaimTypes.NameIdentifier,id)
+            };
+
             //Authentication successful, Issue Token with user credentials
             //Provide the security key which was given in the JWToken configuration in Startup.cs
             var key = Encoding.UTF8.GetBytes(_config.GetSection("AppConfiguration:Key").Value);
@@ -80,7 +85,8 @@ namespace Inventory.Web.Controllers
                 expires: new DateTimeOffset(DateTime.Now.AddDays(1)).DateTime,
                 //Using HS256 Algorithm to encrypt Token
                 signingCredentials: new SigningCredentials(new SymmetricSecurityKey(key),
-                                    SecurityAlgorithms.HmacSha256Signature)
+                                    SecurityAlgorithms.HmacSha256Signature),
+                claims:claims
             );
             var token = new JwtSecurityTokenHandler().WriteToken(JWToken);
             return token;
