@@ -24,14 +24,14 @@ namespace Inventory.Application.Extensions.Mapper
             var result = json.ToType<OrderDTO>();
             return result;
         }
-        public static IEnumerable<OrderDetailDTO> ToOrderItemsDTO(this IEnumerable<OrderProductDetails> items)
+        public static IEnumerable<OrderDetailDTO> ToOrderItemsDTO(this IEnumerable<OrderDetails> items)
         {
             foreach (var item in items)
             {
                 yield return item.ToOrderItemDTO();
             }
         }
-        public static OrderDetailDTO ToOrderItemDTO(this OrderProductDetails item)
+        public static OrderDetailDTO ToOrderItemDTO(this OrderDetails item)
         {
             return new OrderDetailDTO()
             {

@@ -1,7 +1,6 @@
 ﻿using System;
 using Inventory.Domain.Models;
 using Inventory.Domain.Order;
-using Inventory.Domain.Order.AggregateModel;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -24,13 +23,13 @@ namespace Inventory.Persistance.Models
         public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<Employees> Employees { get; set; }
         public virtual DbSet<EmployeeTerritories> EmployeeTerritories { get; set; }
-        public virtual DbSet<Domain.Models.OrderProductDetails> OrderDetails { get; set; }
+        public virtual DbSet<Domain.Models.OrderDetails> OrderDetails { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<Region> Region { get; set; }
         public virtual DbSet<Shippers> Shippers { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
         public virtual DbSet<Territories> Territories { get; set; }
-        public virtual DbSet<Address> Address { get; set; }
+        //public virtual DbSet<Address> Address { get; set; }
         public virtual DbSet<OrderEvent> OrderEvent { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -194,7 +193,7 @@ namespace Inventory.Persistance.Models
                     .HasConstraintName("FK_EmployeeTerritories_Territories");
             });
 
-            modelBuilder.Entity<Domain.Models.OrderProductDetails>(entity =>
+            modelBuilder.Entity<OrderDetails>(entity =>
             {
                 entity.HasKey(e => new { e.Id });
                 entity.ToTable("OrderDetails");
@@ -362,13 +361,13 @@ namespace Inventory.Persistance.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Territories_Region");
             });
-            modelBuilder.Entity<Address>(entity =>
-            {
-                entity.ToTable("Address");
-                entity.Property<int>("Id")  // Id is a shadow property
-        .IsRequired();
-                entity.HasKey("Id");
-            });
+        //    modelBuilder.Entity<Address>(entity =>
+        //    {
+        //        entity.ToTable("Address");
+        //        entity.Property<int>("Id")  // Id is a shadow property
+        //.IsRequired();
+        //        entity.HasKey("Id");
+        //    });
             modelBuilder.Entity<OrderEvent>(entity =>
             {
                 entity.ToTable("OrderEvent");

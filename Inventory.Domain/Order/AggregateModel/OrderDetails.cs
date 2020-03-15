@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Inventory.Domain.Order.AggregateModel
 {
-    public class OrderProductDetails
+    public class OrderDetailss
     {
         public Guid OrderId { get; set; }
         public int ProductId { get; set; }
@@ -11,7 +11,7 @@ namespace Inventory.Domain.Order.AggregateModel
         public float Discount { get; set; }
         public decimal Total { get; set; }
         public Order Order { get; set; }
-        public OrderProductDetails()
+        public OrderDetails()
         {
             
         }

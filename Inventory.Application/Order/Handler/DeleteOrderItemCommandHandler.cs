@@ -19,10 +19,10 @@ namespace Inventory.Application.Order.Handler
     {
         private readonly IOrderEventService _orderEventService;
         private readonly IRepository<Orders> _repository;
-        private readonly IRepository<OrderProductDetails> _orderDetailRepository;
+        private readonly IRepository<OrderDetails> _orderDetailRepository;
         private readonly IEventBus _eventBus;
         public DeleteOrderItemCommandHandler(IOrderEventService orderEventService,
-            IRepository<Orders> repository,IRepository<OrderProductDetails>orderDetailRepository, IEventBus eventBus)
+            IRepository<Orders> repository,IRepository<OrderDetails>orderDetailRepository, IEventBus eventBus)
         {
             _orderEventService = orderEventService;
             _repository =repository;

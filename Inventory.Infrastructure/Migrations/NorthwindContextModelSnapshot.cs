@@ -291,52 +291,7 @@ namespace Inventory.Persistance.Migrations
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("Inventory.Domain.Models.ModelDesign", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Code")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long>("Cost")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DeleteDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Dimension")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Manifature")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ModifyDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long>("SalesPrice")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Sizes")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id")
-                        .HasAnnotation("SqlServer:Clustered", false);
-
-                    b.ToTable("ModelDesign");
-                });
-
-            modelBuilder.Entity("Inventory.Domain.Models.OrderProductDetails", b =>
+            modelBuilder.Entity("Inventory.Domain.Models.OrderDetails", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -666,33 +621,6 @@ namespace Inventory.Persistance.Migrations
                     b.ToTable("Territories");
                 });
 
-            modelBuilder.Entity("Inventory.Domain.Order.AggregateModel.Address", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Country")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("State")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Street")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ZipCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Address");
-                });
-
             modelBuilder.Entity("Inventory.Domain.Order.OrderEvent", b =>
                 {
                     b.Property<Guid>("Id")
@@ -962,7 +890,7 @@ namespace Inventory.Persistance.Migrations
                         .HasConstraintName("FK_Employees_Employees");
                 });
 
-            modelBuilder.Entity("Inventory.Domain.Models.OrderProductDetails", b =>
+            modelBuilder.Entity("Inventory.Domain.Models.OrderDetails", b =>
                 {
                     b.HasOne("Inventory.Domain.Models.Orders", "Order")
                         .WithMany("OrderDetails")

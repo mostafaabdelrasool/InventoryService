@@ -7,7 +7,7 @@ namespace Inventory.Domain.Order.AggregateModel
 {
     public class Order:Entity,IAggregateRoot
     {
-        private readonly List<OrderProductDetails> _orderDetails;
+        private readonly List<OrderDetails> _orderDetails;
         public Guid CustomerId { get; set; }
         public Guid? EmployeeId { get; set; }
         public DateTime? OrderDate { get; set; }
@@ -29,10 +29,10 @@ namespace Inventory.Domain.Order.AggregateModel
         public Customers Customer { get; set; }
         public Employees Employee { get; set; }
         public Shippers ShipViaNavigation { get; set; }
-        public IReadOnlyCollection<OrderProductDetails> OrderItems => _orderDetails;
+        public IReadOnlyCollection<OrderDetails> OrderItems => _orderDetails;
         protected Order()
         {
-            _orderDetails = new List<OrderProductDetails>();
+            _orderDetails = new List<OrderDetails>();
         }
     }
 }
