@@ -15,7 +15,7 @@ namespace Inventory.Persistance.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
+                .HasAnnotation("ProductVersion", "3.1.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -23,21 +23,28 @@ namespace Inventory.Persistance.Migrations
                 {
                     b.Property<Guid>("CustomerId")
                         .HasColumnName("CustomerID")
+                        .HasColumnType("uniqueidentifier")
                         .HasMaxLength(5);
 
                     b.Property<string>("CustomerTypeId")
                         .HasColumnName("CustomerTypeID")
+                        .HasColumnType("nvarchar(10)")
                         .HasMaxLength(10);
 
-                    b.Property<DateTime>("CreateDate");
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DeleteDate");
+                    b.Property<DateTime>("DeleteDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<Guid>("Id");
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
-                    b.Property<DateTime>("ModifyDate");
+                    b.Property<DateTime>("ModifyDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("CustomerId", "CustomerTypeId")
                         .HasAnnotation("SqlServer:Clustered", false);
@@ -51,20 +58,26 @@ namespace Inventory.Persistance.Migrations
                 {
                     b.Property<string>("CustomerTypeId")
                         .HasColumnName("CustomerTypeID")
+                        .HasColumnType("nvarchar(10)")
                         .HasMaxLength(10);
 
-                    b.Property<DateTime>("CreateDate");
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("CustomerDesc")
                         .HasColumnType("ntext");
 
-                    b.Property<DateTime>("DeleteDate");
+                    b.Property<DateTime>("DeleteDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<Guid>("Id");
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
-                    b.Property<DateTime>("ModifyDate");
+                    b.Property<DateTime>("ModifyDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("CustomerTypeId")
                         .HasAnnotation("SqlServer:Clustered", false);
@@ -75,45 +88,60 @@ namespace Inventory.Persistance.Migrations
             modelBuilder.Entity("Inventory.Domain.Models.Customers", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Address")
+                        .HasColumnType("nvarchar(60)")
                         .HasMaxLength(60);
 
                     b.Property<string>("City")
+                        .HasColumnType("nvarchar(15)")
                         .HasMaxLength(15);
 
                     b.Property<string>("CompanyName")
                         .IsRequired()
+                        .HasColumnType("nvarchar(40)")
                         .HasMaxLength(40);
 
                     b.Property<string>("ContactName")
+                        .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
 
                     b.Property<string>("ContactTitle")
+                        .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
 
                     b.Property<string>("Country")
+                        .HasColumnType("nvarchar(15)")
                         .HasMaxLength(15);
 
-                    b.Property<DateTime>("CreateDate");
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DeleteDate");
+                    b.Property<DateTime>("DeleteDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Fax")
+                        .HasColumnType("nvarchar(24)")
                         .HasMaxLength(24);
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
-                    b.Property<DateTime>("ModifyDate");
+                    b.Property<DateTime>("ModifyDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(24)")
                         .HasMaxLength(24);
 
                     b.Property<string>("PostalCode")
+                        .HasColumnType("nvarchar(10)")
                         .HasMaxLength(10);
 
                     b.Property<string>("Region")
+                        .HasColumnType("nvarchar(15)")
                         .HasMaxLength(15);
 
                     b.HasKey("Id");
@@ -136,21 +164,28 @@ namespace Inventory.Persistance.Migrations
             modelBuilder.Entity("Inventory.Domain.Models.EmployeeTerritories", b =>
                 {
                     b.Property<Guid>("EmployeeId")
-                        .HasColumnName("EmployeeID");
+                        .HasColumnName("EmployeeID")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("TerritoryId")
                         .HasColumnName("TerritoryID")
+                        .HasColumnType("uniqueidentifier")
                         .HasMaxLength(20);
 
-                    b.Property<DateTime>("CreateDate");
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DeleteDate");
+                    b.Property<DateTime>("DeleteDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<Guid>("Id");
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
-                    b.Property<DateTime>("ModifyDate");
+                    b.Property<DateTime>("ModifyDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("EmployeeId", "TerritoryId")
                         .HasAnnotation("SqlServer:Clustered", false);
@@ -163,44 +198,56 @@ namespace Inventory.Persistance.Migrations
             modelBuilder.Entity("Inventory.Domain.Models.Employees", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Address")
+                        .HasColumnType("nvarchar(60)")
                         .HasMaxLength(60);
 
                     b.Property<DateTime?>("BirthDate")
                         .HasColumnType("datetime");
 
                     b.Property<string>("City")
+                        .HasColumnType("nvarchar(15)")
                         .HasMaxLength(15);
 
                     b.Property<string>("Country")
+                        .HasColumnType("nvarchar(15)")
                         .HasMaxLength(15);
 
-                    b.Property<DateTime>("CreateDate");
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DeleteDate");
+                    b.Property<DateTime>("DeleteDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Extension")
+                        .HasColumnType("nvarchar(4)")
                         .HasMaxLength(4);
 
                     b.Property<string>("FirstName")
                         .IsRequired()
+                        .HasColumnType("nvarchar(10)")
                         .HasMaxLength(10);
 
                     b.Property<DateTime?>("HireDate")
                         .HasColumnType("datetime");
 
                     b.Property<string>("HomePhone")
+                        .HasColumnType("nvarchar(24)")
                         .HasMaxLength(24);
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("LastName")
                         .IsRequired()
+                        .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
 
-                    b.Property<DateTime>("ModifyDate");
+                    b.Property<DateTime>("ModifyDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Notes")
                         .HasColumnType("ntext");
@@ -209,20 +256,26 @@ namespace Inventory.Persistance.Migrations
                         .HasColumnType("image");
 
                     b.Property<string>("PhotoPath")
+                        .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 
                     b.Property<string>("PostalCode")
+                        .HasColumnType("nvarchar(10)")
                         .HasMaxLength(10);
 
                     b.Property<string>("Region")
+                        .HasColumnType("nvarchar(15)")
                         .HasMaxLength(15);
 
-                    b.Property<Guid?>("ReportsTo");
+                    b.Property<Guid?>("ReportsTo")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Title")
+                        .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
 
                     b.Property<string>("TitleOfCourtesy")
+                        .HasColumnType("nvarchar(25)")
                         .HasMaxLength(25);
 
                     b.HasKey("Id");
@@ -241,29 +294,41 @@ namespace Inventory.Persistance.Migrations
             modelBuilder.Entity("Inventory.Domain.Models.ModelDesign", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Code");
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("Cost");
+                    b.Property<long>("Cost")
+                        .HasColumnType("bigint");
 
-                    b.Property<DateTime>("CreateDate");
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DeleteDate");
+                    b.Property<DateTime>("DeleteDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("Dimension");
+                    b.Property<string>("Dimension")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image");
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("Manifature");
+                    b.Property<string>("Manifature")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ModifyDate");
+                    b.Property<DateTime>("ModifyDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<long>("SalesPrice");
+                    b.Property<long>("SalesPrice")
+                        .HasColumnType("bigint");
 
-                    b.Property<string>("Sizes");
+                    b.Property<string>("Sizes")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id")
                         .HasAnnotation("SqlServer:Clustered", false);
@@ -274,32 +339,43 @@ namespace Inventory.Persistance.Migrations
             modelBuilder.Entity("Inventory.Domain.Models.OrderProductDetails", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreateDate");
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DeleteDate");
+                    b.Property<DateTime>("DeleteDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<float>("Discount");
+                    b.Property<float>("Discount")
+                        .HasColumnType("real");
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
-                    b.Property<DateTime>("ModifyDate");
+                    b.Property<DateTime>("ModifyDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("OrderId")
-                        .HasColumnName("OrderID");
+                        .HasColumnName("OrderID")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("ProductId")
-                        .HasColumnName("ProductId");
+                        .HasColumnName("ProductId")
+                        .HasColumnType("int");
 
                     b.Property<int>("ProductSizeId")
-                        .HasColumnName("ProductSizeId");
+                        .HasColumnName("ProductSizeId")
+                        .HasColumnType("int");
 
                     b.Property<short>("Quantity")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("smallint")
                         .HasDefaultValueSql("((1))");
 
-                    b.Property<decimal>("Total");
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(18,4)");
 
                     b.Property<decimal>("UnitPrice")
                         .HasColumnType("money");
@@ -312,72 +388,91 @@ namespace Inventory.Persistance.Migrations
                     b.HasIndex("ProductId")
                         .HasName("ProductsOrder_Details");
 
-                    b.ToTable("Order Details");
+                    b.ToTable("OrderDetails");
                 });
 
             modelBuilder.Entity("Inventory.Domain.Models.Orders", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreateDate");
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("CustomerId")
                         .HasColumnName("CustomerID")
+                        .HasColumnType("uniqueidentifier")
                         .HasMaxLength(5);
 
-                    b.Property<DateTime>("DeleteDate");
+                    b.Property<DateTime>("DeleteDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid?>("EmployeeId")
-                        .HasColumnName("EmployeeID");
+                        .HasColumnName("EmployeeID")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal?>("Freight")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("money")
                         .HasDefaultValueSql("((0))");
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
-                    b.Property<DateTime>("ModifyDate");
+                    b.Property<DateTime>("ModifyDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("OrderDate")
                         .HasColumnType("datetime");
 
-                    b.Property<string>("OrderNumber");
+                    b.Property<string>("OrderNumber")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal?>("OverallTotal");
+                    b.Property<decimal?>("OverallTotal")
+                        .HasColumnType("decimal(18,4)");
 
-                    b.Property<string>("Phone");
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("RequiredDate")
                         .HasColumnType("datetime");
 
                     b.Property<string>("ShipAddress")
+                        .HasColumnType("nvarchar(60)")
                         .HasMaxLength(60);
 
                     b.Property<string>("ShipCity")
+                        .HasColumnType("nvarchar(15)")
                         .HasMaxLength(15);
 
                     b.Property<string>("ShipCountry")
+                        .HasColumnType("nvarchar(15)")
                         .HasMaxLength(15);
 
                     b.Property<string>("ShipName")
+                        .HasColumnType("nvarchar(40)")
                         .HasMaxLength(40);
 
                     b.Property<string>("ShipPostalCode")
+                        .HasColumnType("nvarchar(10)")
                         .HasMaxLength(10);
 
                     b.Property<string>("ShipRegion")
+                        .HasColumnType("nvarchar(15)")
                         .HasMaxLength(15);
 
-                    b.Property<int>("ShipStatus");
+                    b.Property<int>("ShipStatus")
+                        .HasColumnType("int");
 
-                    b.Property<Guid?>("ShipVia");
+                    b.Property<Guid?>("ShipVia")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("ShippedDate")
                         .HasColumnType("datetime");
 
-                    b.Property<decimal?>("Total");
+                    b.Property<decimal?>("Total")
+                        .HasColumnType("decimal(18,4)");
 
                     b.HasKey("Id");
 
@@ -405,18 +500,24 @@ namespace Inventory.Persistance.Migrations
             modelBuilder.Entity("Inventory.Domain.Models.Region", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreateDate");
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DeleteDate");
+                    b.Property<DateTime>("DeleteDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
-                    b.Property<DateTime>("ModifyDate");
+                    b.Property<DateTime>("ModifyDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("RegionDescription")
                         .IsRequired()
+                        .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
                     b.HasKey("Id")
@@ -428,21 +529,28 @@ namespace Inventory.Persistance.Migrations
             modelBuilder.Entity("Inventory.Domain.Models.Shippers", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CompanyName")
                         .IsRequired()
+                        .HasColumnType("nvarchar(40)")
                         .HasMaxLength(40);
 
-                    b.Property<DateTime>("CreateDate");
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DeleteDate");
+                    b.Property<DateTime>("DeleteDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
-                    b.Property<DateTime>("ModifyDate");
+                    b.Property<DateTime>("ModifyDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(24)")
                         .HasMaxLength(24);
 
                     b.HasKey("Id");
@@ -453,48 +561,63 @@ namespace Inventory.Persistance.Migrations
             modelBuilder.Entity("Inventory.Domain.Models.Suppliers", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Address")
+                        .HasColumnType("nvarchar(60)")
                         .HasMaxLength(60);
 
                     b.Property<string>("City")
+                        .HasColumnType("nvarchar(15)")
                         .HasMaxLength(15);
 
                     b.Property<string>("CompanyName")
                         .IsRequired()
+                        .HasColumnType("nvarchar(40)")
                         .HasMaxLength(40);
 
                     b.Property<string>("ContactName")
+                        .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
 
                     b.Property<string>("ContactTitle")
+                        .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
 
                     b.Property<string>("Country")
+                        .HasColumnType("nvarchar(15)")
                         .HasMaxLength(15);
 
-                    b.Property<DateTime>("CreateDate");
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DeleteDate");
+                    b.Property<DateTime>("DeleteDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Fax")
+                        .HasColumnType("nvarchar(24)")
                         .HasMaxLength(24);
 
                     b.Property<string>("HomePage")
                         .HasColumnType("ntext");
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
-                    b.Property<DateTime>("ModifyDate");
+                    b.Property<DateTime>("ModifyDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(24)")
                         .HasMaxLength(24);
 
                     b.Property<string>("PostalCode")
+                        .HasColumnType("nvarchar(10)")
                         .HasMaxLength(10);
 
                     b.Property<string>("Region")
+                        .HasColumnType("nvarchar(15)")
                         .HasMaxLength(15);
 
                     b.HasKey("Id");
@@ -511,21 +634,28 @@ namespace Inventory.Persistance.Migrations
             modelBuilder.Entity("Inventory.Domain.Models.Territories", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreateDate");
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DeleteDate");
+                    b.Property<DateTime>("DeleteDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
-                    b.Property<DateTime>("ModifyDate");
+                    b.Property<DateTime>("ModifyDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("RegionId")
-                        .HasColumnName("RegionID");
+                        .HasColumnName("RegionID")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("TerritoryDescription")
                         .IsRequired()
+                        .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
                     b.HasKey("Id")
@@ -540,17 +670,23 @@ namespace Inventory.Persistance.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("City");
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Country");
+                    b.Property<string>("Country")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("State");
+                    b.Property<string>("State")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Street");
+                    b.Property<string>("Street")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ZipCode");
+                    b.Property<string>("ZipCode")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -560,23 +696,32 @@ namespace Inventory.Persistance.Migrations
             modelBuilder.Entity("Inventory.Domain.Order.OrderEvent", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AggregateId");
+                    b.Property<Guid>("AggregateId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreateDate");
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("Data");
+                    b.Property<string>("Data")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DeleteDate");
+                    b.Property<DateTime>("DeleteDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("EventType");
+                    b.Property<string>("EventType")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
-                    b.Property<DateTime>("ModifyDate");
+                    b.Property<DateTime>("ModifyDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<int>("Version");
+                    b.Property<int>("Version")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -586,15 +731,18 @@ namespace Inventory.Persistance.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken();
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
                     b.Property<string>("NormalizedName")
+                        .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
@@ -611,14 +759,18 @@ namespace Inventory.Persistance.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ClaimType");
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ClaimValue");
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RoleId")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -630,39 +782,53 @@ namespace Inventory.Persistance.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
                 {
                     b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("AccessFailedCount");
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken();
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
+                        .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
-                    b.Property<bool>("EmailConfirmed");
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
 
-                    b.Property<bool>("LockoutEnabled");
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
 
-                    b.Property<DateTimeOffset?>("LockoutEnd");
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
 
                     b.Property<string>("NormalizedEmail")
+                        .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
                     b.Property<string>("NormalizedUserName")
+                        .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
-                    b.Property<string>("PasswordHash");
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PhoneNumber");
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("PhoneNumberConfirmed");
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("SecurityStamp");
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("TwoFactorEnabled");
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
 
                     b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
@@ -682,14 +848,18 @@ namespace Inventory.Persistance.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ClaimType");
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ClaimValue");
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -700,14 +870,18 @@ namespace Inventory.Persistance.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.Property<string>("LoginProvider");
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ProviderKey");
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ProviderDisplayName");
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -718,9 +892,11 @@ namespace Inventory.Persistance.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.Property<string>("UserId");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("RoleId");
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -731,13 +907,17 @@ namespace Inventory.Persistance.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.Property<string>("UserId");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("LoginProvider");
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Value");
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
@@ -749,12 +929,14 @@ namespace Inventory.Persistance.Migrations
                     b.HasOne("Inventory.Domain.Models.Customers", "Customer")
                         .WithMany("CustomerCustomerDemo")
                         .HasForeignKey("CustomerId")
-                        .HasConstraintName("FK_CustomerCustomerDemo_Customers");
+                        .HasConstraintName("FK_CustomerCustomerDemo_Customers")
+                        .IsRequired();
 
                     b.HasOne("Inventory.Domain.Models.CustomerDemographics", "CustomerType")
                         .WithMany("CustomerCustomerDemo")
                         .HasForeignKey("CustomerTypeId")
-                        .HasConstraintName("FK_CustomerCustomerDemo");
+                        .HasConstraintName("FK_CustomerCustomerDemo")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Inventory.Domain.Models.EmployeeTerritories", b =>
@@ -762,12 +944,14 @@ namespace Inventory.Persistance.Migrations
                     b.HasOne("Inventory.Domain.Models.Employees", "Employee")
                         .WithMany("EmployeeTerritories")
                         .HasForeignKey("EmployeeId")
-                        .HasConstraintName("FK_EmployeeTerritories_Employees");
+                        .HasConstraintName("FK_EmployeeTerritories_Employees")
+                        .IsRequired();
 
                     b.HasOne("Inventory.Domain.Models.Territories", "Territory")
                         .WithMany("EmployeeTerritories")
                         .HasForeignKey("TerritoryId")
-                        .HasConstraintName("FK_EmployeeTerritories_Territories");
+                        .HasConstraintName("FK_EmployeeTerritories_Territories")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Inventory.Domain.Models.Employees", b =>
@@ -783,7 +967,8 @@ namespace Inventory.Persistance.Migrations
                     b.HasOne("Inventory.Domain.Models.Orders", "Order")
                         .WithMany("OrderDetails")
                         .HasForeignKey("OrderId")
-                        .HasConstraintName("FK_Order_Details_Orders");
+                        .HasConstraintName("FK_Order_Details_Orders")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Inventory.Domain.Models.Orders", b =>
@@ -792,7 +977,8 @@ namespace Inventory.Persistance.Migrations
                         .WithMany("Orders")
                         .HasForeignKey("CustomerId")
                         .HasConstraintName("FK_Orders_Customers")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Inventory.Domain.Models.Employees", "Employee")
                         .WithMany("Orders")
@@ -810,52 +996,59 @@ namespace Inventory.Persistance.Migrations
                     b.HasOne("Inventory.Domain.Models.Region", "Region")
                         .WithMany("Territories")
                         .HasForeignKey("RegionId")
-                        .HasConstraintName("FK_Territories_Region");
+                        .HasConstraintName("FK_Territories_Region")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser")
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser")
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser")
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser")
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

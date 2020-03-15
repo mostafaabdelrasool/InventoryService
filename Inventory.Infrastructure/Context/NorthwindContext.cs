@@ -197,9 +197,8 @@ namespace Inventory.Persistance.Models
             modelBuilder.Entity<Domain.Models.OrderProductDetails>(entity =>
             {
                 entity.HasKey(e => new { e.Id });
-
-                entity.ToTable("Order Details");
-
+                entity.ToTable("OrderDetails");
+                entity.Property(x => x.Total).HasColumnType("decimal(18,4)");
                 entity.HasIndex(e => e.OrderId)
                     .HasName("OrdersOrder_Details");
 
@@ -234,6 +233,8 @@ namespace Inventory.Persistance.Models
 
                 entity.HasIndex(e => e.OrderDate)
                     .HasName("OrderDate");
+                entity.Property(x => x.OverallTotal).HasColumnType("decimal(18,4)");
+                entity.Property(x => x.Total).HasColumnType("decimal(18,4)");
 
                 entity.HasIndex(e => e.ShipPostalCode)
                     .HasName("ShipPostalCode");
@@ -360,12 +361,6 @@ namespace Inventory.Persistance.Models
                     .HasForeignKey(d => d.RegionId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Territories_Region");
-            });
-
-            modelBuilder.Entity<ModelDesign>(entity =>
-            {
-                entity.HasKey(e => e.Id)
-                    .ForSqlServerIsClustered(false);
             });
             modelBuilder.Entity<Address>(entity =>
             {

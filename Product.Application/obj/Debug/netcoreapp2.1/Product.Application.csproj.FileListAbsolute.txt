@@ -1,0 +1,15 @@
+D:\project\inventory\Inventory\BE\Product.Application\bin\Debug\netcoreapp2.1\Product.Application.deps.json
+D:\project\inventory\Inventory\BE\Product.Application\bin\Debug\netcoreapp2.1\Product.Application.dll
+D:\project\inventory\Inventory\BE\Product.Application\bin\Debug\netcoreapp2.1\Product.Application.pdb
+D:\project\inventory\Inventory\BE\Product.Application\bin\Debug\netcoreapp2.1\Domain.Service.dll
+D:\project\inventory\Inventory\BE\Product.Application\bin\Debug\netcoreapp2.1\EventBus.dll
+D:\project\inventory\Inventory\BE\Product.Application\bin\Debug\netcoreapp2.1\Product.Domain.dll
+D:\project\inventory\Inventory\BE\Product.Application\bin\Debug\netcoreapp2.1\EventBus.pdb
+D:\project\inventory\Inventory\BE\Product.Application\bin\Debug\netcoreapp2.1\Product.Domain.pdb
+D:\project\inventory\Inventory\BE\Product.Application\bin\Debug\netcoreapp2.1\Domain.Service.pdb
+D:\project\inventory\Inventory\BE\Product.Application\obj\Debug\netcoreapp2.1\Product.Application.csprojAssemblyReference.cache
+D:\project\inventory\Inventory\BE\Product.Application\obj\Debug\netcoreapp2.1\Product.Application.AssemblyInfoInputs.cache
+D:\project\inventory\Inventory\BE\Product.Application\obj\Debug\netcoreapp2.1\Product.Application.AssemblyInfo.cs
+D:\project\inventory\Inventory\BE\Product.Application\obj\Debug\netcoreapp2.1\Product.Application.csproj.CopyComplete
+D:\project\inventory\Inventory\BE\Product.Application\obj\Debug\netcoreapp2.1\Product.Application.dll
+D:\project\inventory\Inventory\BE\Product.Application\obj\Debug\netcoreapp2.1\Product.Application.pdb

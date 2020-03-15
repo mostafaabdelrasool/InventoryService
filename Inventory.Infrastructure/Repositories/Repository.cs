@@ -233,11 +233,6 @@ namespace Inventory.Persistance.Repositories
             }
             return null;
         }
-        public async Task<List<T>> SelectQuery(string query, params object[] parameters)
-        {
-            return await Set.FromSql(query, parameters).ToListAsync();
-        }
-
         public Task<T> GetFirtOrDefaultAsync(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes)
         {
             IQueryable<T> query = SetIncludeWithFilter(predicate, null, includes);

@@ -24,28 +24,29 @@ namespace Inventory.Application.Order.Query
         }
         public async Task<OrderDTO> GetLastEvent(Guid OrderId)
         {
-            using (var connection = new SqlConnection(_connectionString))
-            {
-                connection.Open();
+            //        using (var connection = new SqlConnection(_connectionString))
+            //        {
+            //            connection.Open();
 
-                var result = await connection.QueryAsync<dynamic>(
-            @"select Data,version from OrderEvent where version =(
-             Select Max(version) 
-                From OrderEvent 
-                  where AggregateId=@OrderId and (EventType=@UpdateEvent or EventType=@CreateEvent))
-				and AggregateId=@OrderId"
-                 , new
-                 {
-                     OrderId = OrderId,
-                     UpdateEvent = OrderEventType.OrderUpdated.Name,
-                     CreateEvent = OrderEventType.OrderCreated.Name
-                 }
-             );
-                if (result.AsList().Count > 0)
-                    return mapToOrder(result.AsList()[0]);
-                connection.Close();
-                return null;
-            }
+            //            var result = await connection.QueryAsync<dynamic>(
+            //        @"select Data,version from OrderEvent where version =(
+            //         Select Max(version) 
+            //            From OrderEvent 
+            //              where AggregateId=@OrderId and (EventType=@UpdateEvent or EventType=@CreateEvent))
+            //and AggregateId=@OrderId"
+            //             , new
+            //             {
+            //                 OrderId = OrderId,
+            //                 UpdateEvent = OrderEventType.OrderUpdated.Name,
+            //                 CreateEvent = OrderEventType.OrderCreated.Name
+            //             }
+            //         );
+            //            if (result.AsList().Count > 0)
+            //                return mapToOrder(result.AsList()[0]);
+            //            connection.Close();
+            //            return null;
+            //        }
+            return null;
         }
 
         private OrderDTO mapToOrder(dynamic dynamic)

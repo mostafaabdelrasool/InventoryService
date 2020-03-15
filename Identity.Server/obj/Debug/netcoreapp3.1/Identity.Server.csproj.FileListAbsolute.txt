@@ -1,0 +1,16 @@
+D:\project\inventory\Inventory\BE\Identity.Server\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\project\inventory\Inventory\BE\Identity.Server\bin\Debug\netcoreapp3.1\appsettings.json
+D:\project\inventory\Inventory\BE\Identity.Server\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+D:\project\inventory\Inventory\BE\Identity.Server\bin\Debug\netcoreapp3.1\Identity.Server.exe
+D:\project\inventory\Inventory\BE\Identity.Server\bin\Debug\netcoreapp3.1\Identity.Server.deps.json
+D:\project\inventory\Inventory\BE\Identity.Server\bin\Debug\netcoreapp3.1\Identity.Server.runtimeconfig.json
+D:\project\inventory\Inventory\BE\Identity.Server\bin\Debug\netcoreapp3.1\Identity.Server.runtimeconfig.dev.json
+D:\project\inventory\Inventory\BE\Identity.Server\bin\Debug\netcoreapp3.1\Identity.Server.dll
+D:\project\inventory\Inventory\BE\Identity.Server\bin\Debug\netcoreapp3.1\Identity.Server.pdb
+D:\project\inventory\Inventory\BE\Identity.Server\obj\Debug\netcoreapp3.1\Identity.Server.MvcApplicationPartsAssemblyInfo.cache
+D:\project\inventory\Inventory\BE\Identity.Server\obj\Debug\netcoreapp3.1\Identity.Server.AssemblyInfoInputs.cache
+D:\project\inventory\Inventory\BE\Identity.Server\obj\Debug\netcoreapp3.1\Identity.Server.AssemblyInfo.cs
+D:\project\inventory\Inventory\BE\Identity.Server\obj\Debug\netcoreapp3.1\Identity.Server.RazorTargetAssemblyInfo.cache
+D:\project\inventory\Inventory\BE\Identity.Server\obj\Debug\netcoreapp3.1\Identity.Server.dll
+D:\project\inventory\Inventory\BE\Identity.Server\obj\Debug\netcoreapp3.1\Identity.Server.pdb
+D:\project\inventory\Inventory\BE\Identity.Server\obj\Debug\netcoreapp3.1\Identity.Server.csprojAssemblyReference.cache

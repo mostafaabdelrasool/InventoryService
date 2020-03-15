@@ -1,0 +1,11 @@
+D:\project\inventory\Inventory\BE\Domain.Application\bin\Release\netcoreapp3.1\Domain.Application.deps.json
+D:\project\inventory\Inventory\BE\Domain.Application\bin\Release\netcoreapp3.1\Domain.Application.dll
+D:\project\inventory\Inventory\BE\Domain.Application\bin\Release\netcoreapp3.1\Domain.Application.pdb
+D:\project\inventory\Inventory\BE\Domain.Application\bin\Release\netcoreapp3.1\Domain.Service.dll
+D:\project\inventory\Inventory\BE\Domain.Application\bin\Release\netcoreapp3.1\Domain.Service.pdb
+D:\project\inventory\Inventory\BE\Domain.Application\obj\Release\netcoreapp3.1\Domain.Application.csprojAssemblyReference.cache
+D:\project\inventory\Inventory\BE\Domain.Application\obj\Release\netcoreapp3.1\Domain.Application.AssemblyInfoInputs.cache
+D:\project\inventory\Inventory\BE\Domain.Application\obj\Release\netcoreapp3.1\Domain.Application.AssemblyInfo.cs
+D:\project\inventory\Inventory\BE\Domain.Application\obj\Release\netcoreapp3.1\Domain.Application.csproj.CopyComplete
+D:\project\inventory\Inventory\BE\Domain.Application\obj\Release\netcoreapp3.1\Domain.Application.dll
+D:\project\inventory\Inventory\BE\Domain.Application\obj\Release\netcoreapp3.1\Domain.Application.pdb

@@ -35,6 +35,5 @@ namespace Inventory.Persistance.Interfaces
         Task<List<T>> DynamicQuery(List<string> filter, params Expression<Func<T, object>>[] includes);
         void PartialUpdate(T value, List<string> properties);
         Task<T> ReadOneAsync(Guid id, params string[] includes);
-        Task<List<T>> SelectQuery(string query, params object[] parameters);
     }
 }

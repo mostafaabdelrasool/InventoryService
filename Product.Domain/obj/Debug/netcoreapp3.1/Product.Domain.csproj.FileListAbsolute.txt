@@ -1,0 +1,11 @@
+D:\project\inventory\Inventory\BE\Product.Domain\bin\Debug\netcoreapp3.1\Product.Domain.deps.json
+D:\project\inventory\Inventory\BE\Product.Domain\bin\Debug\netcoreapp3.1\Product.Domain.dll
+D:\project\inventory\Inventory\BE\Product.Domain\bin\Debug\netcoreapp3.1\Product.Domain.pdb
+D:\project\inventory\Inventory\BE\Product.Domain\bin\Debug\netcoreapp3.1\Domain.Service.dll
+D:\project\inventory\Inventory\BE\Product.Domain\bin\Debug\netcoreapp3.1\Domain.Service.pdb
+D:\project\inventory\Inventory\BE\Product.Domain\obj\Debug\netcoreapp3.1\Product.Domain.csprojAssemblyReference.cache
+D:\project\inventory\Inventory\BE\Product.Domain\obj\Debug\netcoreapp3.1\Product.Domain.AssemblyInfoInputs.cache
+D:\project\inventory\Inventory\BE\Product.Domain\obj\Debug\netcoreapp3.1\Product.Domain.AssemblyInfo.cs
+D:\project\inventory\Inventory\BE\Product.Domain\obj\Debug\netcoreapp3.1\Product.Domain.csproj.CopyComplete
+D:\project\inventory\Inventory\BE\Product.Domain\obj\Debug\netcoreapp3.1\Product.Domain.dll
+D:\project\inventory\Inventory\BE\Product.Domain\obj\Debug\netcoreapp3.1\Product.Domain.pdb

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using EventBus;
 using EventBus.Abstractions;
@@ -17,9 +18,11 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Product.Application.Extensions;
@@ -31,12 +34,13 @@ using Product.Web.Extension;
 using Product.Web.Seed;
 using RabbitMQ.Client;
 using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.Swagger;
 
 namespace Product.Web
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public Startup(IWebHostEnvironment env)
         {
             var builder = new ConfigurationBuilder()
                .SetBasePath(env.ContentRootPath)
@@ -58,11 +62,9 @@ namespace Product.Web
                 options.Filters.Add(new AuthorizeFilter(policy));
             }).AddJsonOptions(x =>
             {
-                var settings = x.SerializerSettings;
-                settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-                settings.NullValueHandling = NullValueHandling.Ignore;
-                settings.DefaultValueHandling = DefaultValueHandling.Ignore;
-                settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                var settings = x.JsonSerializerOptions;
+                settings.IgnoreNullValues = true;
+                settings.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
             });
             #endregion
             #region Database 
@@ -82,13 +84,13 @@ namespace Product.Web
             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "String API", Version = "v1" });
-                c.AddSecurityDefinition("Bearer", new ApiKeyScheme
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
                     Name = "Authorization",
-                    In = "header",
-                    Type = "apiKey"
+                    In =ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey
                 });
             });
             #endregion
@@ -181,31 +183,12 @@ namespace Product.Web
             eventBus.Subscribe<UpdateStockOnCreateOrderEvent, UpdateStockOnCreateOrderEventHandler>();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             #region Dev
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
-                using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-                {
-                    #region DB migration
-                    // For more details on creating database during deployment see http://go.microsoft.com/fwlink/?LinkID=615859
-                    var context = serviceScope.ServiceProvider.GetService<ProductContext>();
-                    context.Database.Migrate();
-                    //app.AddSeed();
-                    #endregion
-                }
-                #region Swagger
-                // Enable middleware to serve generated Swagger as a JSON endpoint.
-                app.UseSwagger(c => { });
-                // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-                });
-                #endregion
             }
             #endregion
             #region Production
@@ -228,6 +211,24 @@ namespace Product.Web
                        builder.WithOrigins("http://localhost:4200", "http://localhost:3000", "http://localhost:44371")
                        .AllowAnyHeader().AllowAnyMethod());
             #endregion
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                #region DB migration
+                // For more details on creating database during deployment see http://go.microsoft.com/fwlink/?LinkID=615859
+                var context = serviceScope.ServiceProvider.GetService<ProductContext>();
+                context.Database.Migrate();
+                //app.AddSeed();
+                #endregion
+            }
+            #region Swagger
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger(c => { });
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+            #endregion
             app.UseAuthentication();
             app.Use(async (context, next) =>
             {
@@ -240,7 +241,11 @@ namespace Product.Web
                     await next();
                 }
             });
-            app.UseMvcWithDefaultRoute();
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
+            });
             app.UseDefaultFiles();
             app.UseStaticFiles();
             #region Messaging

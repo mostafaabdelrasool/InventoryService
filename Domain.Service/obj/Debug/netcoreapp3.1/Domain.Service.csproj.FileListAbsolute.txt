@@ -1,0 +1,7 @@
+D:\project\inventory\Inventory\BE\Domain.Service\bin\Debug\netcoreapp3.1\Domain.Service.deps.json
+D:\project\inventory\Inventory\BE\Domain.Service\bin\Debug\netcoreapp3.1\Domain.Service.dll
+D:\project\inventory\Inventory\BE\Domain.Service\bin\Debug\netcoreapp3.1\Domain.Service.pdb
+D:\project\inventory\Inventory\BE\Domain.Service\obj\Debug\netcoreapp3.1\Domain.Service.AssemblyInfoInputs.cache
+D:\project\inventory\Inventory\BE\Domain.Service\obj\Debug\netcoreapp3.1\Domain.Service.AssemblyInfo.cs
+D:\project\inventory\Inventory\BE\Domain.Service\obj\Debug\netcoreapp3.1\Domain.Service.dll
+D:\project\inventory\Inventory\BE\Domain.Service\obj\Debug\netcoreapp3.1\Domain.Service.pdb

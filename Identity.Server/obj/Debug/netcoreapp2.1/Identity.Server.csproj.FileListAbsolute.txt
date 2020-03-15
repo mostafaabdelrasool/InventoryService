@@ -1,0 +1,6 @@
+D:\project\inventory\Inventory\BE\Identity.Server\obj\Debug\netcoreapp2.1\Identity.Server.csprojAssemblyReference.cache
+D:\project\inventory\Inventory\BE\Identity.Server\obj\Debug\netcoreapp2.1\Identity.Server.RazorAssemblyInfo.cache
+D:\project\inventory\Inventory\BE\Identity.Server\obj\Debug\netcoreapp2.1\Identity.Server.RazorAssemblyInfo.cs
+D:\project\inventory\Inventory\BE\Identity.Server\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+D:\project\inventory\Inventory\BE\Identity.Server\obj\Debug\netcoreapp2.1\Identity.Server.AssemblyInfoInputs.cache
+D:\project\inventory\Inventory\BE\Identity.Server\obj\Debug\netcoreapp2.1\Identity.Server.AssemblyInfo.cs

@@ -1,0 +1,15 @@
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Release\netcoreapp3.1\Product.Persistance.deps.json
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Release\netcoreapp3.1\Product.Persistance.runtimeconfig.json
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Release\netcoreapp3.1\Product.Persistance.runtimeconfig.dev.json
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Release\netcoreapp3.1\Product.Persistance.dll
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Release\netcoreapp3.1\Product.Persistance.pdb
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Release\netcoreapp3.1\Domain.Service.dll
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Release\netcoreapp3.1\Product.Domain.dll
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Release\netcoreapp3.1\Product.Domain.pdb
+D:\project\inventory\Inventory\BE\Product.Persistance\bin\Release\netcoreapp3.1\Domain.Service.pdb
+D:\project\inventory\Inventory\BE\Product.Persistance\obj\Release\netcoreapp3.1\Product.Persistance.csprojAssemblyReference.cache
+D:\project\inventory\Inventory\BE\Product.Persistance\obj\Release\netcoreapp3.1\Product.Persistance.AssemblyInfoInputs.cache
+D:\project\inventory\Inventory\BE\Product.Persistance\obj\Release\netcoreapp3.1\Product.Persistance.AssemblyInfo.cs
+D:\project\inventory\Inventory\BE\Product.Persistance\obj\Release\netcoreapp3.1\Product.Persistance.csproj.CopyComplete
+D:\project\inventory\Inventory\BE\Product.Persistance\obj\Release\netcoreapp3.1\Product.Persistance.dll
+D:\project\inventory\Inventory\BE\Product.Persistance\obj\Release\netcoreapp3.1\Product.Persistance.pdb

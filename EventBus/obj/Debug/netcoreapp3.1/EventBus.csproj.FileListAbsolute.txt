@@ -1,0 +1,7 @@
+D:\project\inventory\Inventory\BE\EventBus\bin\Debug\netcoreapp3.1\EventBus.deps.json
+D:\project\inventory\Inventory\BE\EventBus\bin\Debug\netcoreapp3.1\EventBus.dll
+D:\project\inventory\Inventory\BE\EventBus\bin\Debug\netcoreapp3.1\EventBus.pdb
+D:\project\inventory\Inventory\BE\EventBus\obj\Debug\netcoreapp3.1\EventBus.AssemblyInfoInputs.cache
+D:\project\inventory\Inventory\BE\EventBus\obj\Debug\netcoreapp3.1\EventBus.AssemblyInfo.cs
+D:\project\inventory\Inventory\BE\EventBus\obj\Debug\netcoreapp3.1\EventBus.dll
+D:\project\inventory\Inventory\BE\EventBus\obj\Debug\netcoreapp3.1\EventBus.pdb

@@ -1,14 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>Inventory.Domain</AssemblyName>
     <RootNamespace>Inventory.Domain</RootNamespace>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Folder Include="Order\AggregateModel\" />
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Domain.Service\Domain.Service.csproj" />

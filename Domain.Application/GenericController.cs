@@ -55,7 +55,8 @@ namespace Domain.Application
         }
         [HttpPut]
         [Route("[action]")]
-        public virtual async Task<IActionResult> PartialUpdate([FromBody]T entity, List<string> properties)
+        public virtual async Task<IActionResult> PartialUpdate([FromBody]T entity,
+            [FromQueryAttribute]List<string> properties)
         {
             await service.PartialUpdate(entity, properties);
             return Ok();

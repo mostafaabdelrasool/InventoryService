@@ -48,7 +48,8 @@ namespace Product.Persistance
 
                 entity.HasIndex(e => e.CategoryId)
                     .HasName("CategoryID");
-
+                entity.Property(x => x.CostPrice).HasColumnType("decimal(18,4)");
+                entity.Property(x => x.Discount).HasColumnType("decimal(18,4)");
                 entity.HasIndex(e => e.ProductName)
                     .HasName("ProductName");
 

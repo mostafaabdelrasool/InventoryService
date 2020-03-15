@@ -4,14 +4,12 @@ using Inventory.Web.Helpers.BasicAuthentication.Events;
 using Inventory.Web.Models;
 using Inventory.Web.Sentry;
 using Inventory.Web.Sentry.Interfaces;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
 using System.IO;
 using System.Text;
@@ -34,12 +32,17 @@ using EventBus.Abstractions;
 using EventBus;
 using Inventory.Application.Config;
 using Inventory.Application.Integration;
+using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text.Json;
+using Microsoft.Extensions.Hosting;
 
 namespace Inventory.Web
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public Startup(IWebHostEnvironment env)
         {
             var builder = new ConfigurationBuilder()
                .SetBasePath(env.ContentRootPath)
@@ -69,29 +72,28 @@ namespace Inventory.Web
             #endregion
             #region Authentication and Authorization
             services.AddDbContext<NorthwindContext>(options =>
-        options.UseSqlServer(
-            Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>()
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
                  .AddEntityFrameworkStores<NorthwindContext>();
             // Add JWT Bearer. This should be replaced when we have setup the Identity server
             services
-              .AddAuthentication( options =>
-              {
-                  options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                  options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-              })
-              .AddJwtBearer( options =>
-              {
-                  options.TokenValidationParameters = new TokenValidationParameters()
-                  {
-                      IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetSection("AppConfiguration:Key").Value)),
-                      //ValidAudience = Configuration.GetSection("AppConfiguration:SiteUrl").Value,
-                      ValidateIssuerSigningKey = true,
-                      ValidateLifetime = true,
-                      ValidateAudience = false,
-                      ValidateIssuer = false
-                  };
-              });
+              .AddAuthentication(options =>
+             {
+                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+             })
+              .AddJwtBearer(options =>
+             {
+                 options.TokenValidationParameters = new TokenValidationParameters()
+                 {
+                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetSection("AppConfiguration:Key").Value)),
+                     //ValidAudience = Configuration.GetSection("AppConfiguration:SiteUrl").Value,
+                     ValidateIssuerSigningKey = true,
+                     ValidateLifetime = true,
+                     ValidateAudience = false,
+                     ValidateIssuer = false
+                 };
+             });
             //services.AddAuthorization(options =>
             //{
             //    options.AddPolicy("Authenticated", policy =>
@@ -107,11 +109,9 @@ namespace Inventory.Web
                 options.Filters.Add(new AuthorizeFilter(policy));
             }).AddJsonOptions(x =>
             {
-                var settings = x.SerializerSettings;
-                settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-                settings.NullValueHandling = NullValueHandling.Ignore;
-                settings.DefaultValueHandling = DefaultValueHandling.Ignore;
-                settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                var settings = x.JsonSerializerOptions;
+                settings.IgnoreNullValues = true;
+                settings.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
             });
             #endregion
             #region DI
@@ -126,13 +126,13 @@ namespace Inventory.Web
             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "String API", Version = "v1" });
-                c.AddSecurityDefinition("Bearer", new ApiKeyScheme
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
                     Name = "Authorization",
-                    In = "header",
-                    Type = "apiKey"
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey
                 });
             });
             #endregion
@@ -203,31 +203,14 @@ namespace Inventory.Web
             services.AddSingleton<IEventBusSubscriptionsManager, InMemoryEventBusSubscriptionsManager>();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             #region Dev
             if (env.IsDevelopment())
             {
                 app.UseMiddleware<StackifyMiddleware.RequestTracerMiddleware>();
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
-                using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-                {
-                    #region DB migration
-                    // For more details on creating database during deployment see http://go.microsoft.com/fwlink/?LinkID=615859
-                    var context = serviceScope.ServiceProvider.GetService<NorthwindContext>();
-                    context.Database.Migrate();
-                    #endregion
-                }
-                #region Swagger
-                // Enable middleware to serve generated Swagger as a JSON endpoint.
-                app.UseSwagger(c => { });
-                // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-                });
-                #endregion
+              
             }
             #endregion
             #region Production
@@ -236,7 +219,7 @@ namespace Inventory.Web
                 app.UseHsts();
                 app.UseHttpsRedirection();
                 app.UseCookiePolicy();
-                app.UseExceptionHandler("/Home/Error");
+                //app.UseExceptionHandler("/Home/Error");
                 try
                 {
                     // Migrate DB here
@@ -244,6 +227,23 @@ namespace Inventory.Web
                 }
                 catch { }
             }
+            #endregion
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                #region DB migration
+                // For more details on creating database during deployment see http://go.microsoft.com/fwlink/?LinkID=615859
+                var context = serviceScope.ServiceProvider.GetService<NorthwindContext>();
+                context.Database.Migrate();
+                #endregion
+            }
+            #region Swagger
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger(c => { });
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
             #endregion
             #region CrossOriging
             app.UseCors(builder =>
@@ -259,13 +259,18 @@ namespace Inventory.Web
                     !Path.HasExtension(context.Request.Path.Value) &&
                     !context.Request.Path.Value.StartsWith("/api/"))
                 {
+                    await context.Response.WriteAsync("File error thrown!<br><br>\r\n");
                     context.Request.Path = "/";
                     await next();
                 }
             });
-            app.UseMvcWithDefaultRoute();
             app.UseDefaultFiles();
             app.UseStaticFiles();
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
+            });
         }
     }
 }
